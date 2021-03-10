@@ -1,3 +1,4 @@
+var mysql = require('mysql');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -36,6 +37,17 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "yourusername",
+  password: "yourpassword"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
 });
 
 module.exports = app;
