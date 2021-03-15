@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import "./search.scss";
-
+import SearchMusic1 from "./SearchMusic1";
 
 export default class Search extends Component 
 {
@@ -12,22 +11,11 @@ export default class Search extends Component
         }
     }
 
-    async componentDidMount() {
-        await axios.get("https://rapidapi.com/deezerdevs/api/deezer-1")
-        .then(response => {
-            this.setState({
-                musicResults: response.data
-            })
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    }
-
     render()
     {
         return (
             <div>
+                <SearchMusic1 />
             </div>
         );
     }
