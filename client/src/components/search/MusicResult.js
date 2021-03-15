@@ -1,13 +1,12 @@
-import MusicResult from './MusicResult'
-
-const MusicResults = ({ musicResults }) => {
-  return (
-    <div>
-      {musicResults.map((musicResult) => (
-        <MusicResult musicResult={musicResult} />
-      ))}
-    </div>
+const MusicResult = ({ musicResult }) => {
+    return (
+      <div class="card">
+          <div class="card-body">
+              <h5 class="card-title">{musicResult.artist.name}</h5>
+              <p class="card-text">{musicResult.title}</p>
+          </div>
+      </div>
     )
-};
-
-export default MusicResults
+  }
+  
+  export default MusicResult;

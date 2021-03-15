@@ -10,4 +10,4 @@ const MusicResults = ({ musicResults }) => {
     )
 };
 
-export default MusicResults
+export default MusicResults;
