@@ -4,6 +4,7 @@ import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Header from "./components/header/header";
+import Search from "./components/search/search";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <header className="App-header sticky-top">
           <Header />
         </header>
+        <Search />
       </div>
     </Router>
   );
