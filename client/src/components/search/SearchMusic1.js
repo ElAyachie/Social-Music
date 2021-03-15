@@ -39,4 +39,4 @@ const SearchMusic1 = () => {
     )
 }
 
-export default SearchMusic1
+export default SearchMusic1;

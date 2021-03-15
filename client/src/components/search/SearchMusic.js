@@ -30,4 +30,4 @@ const SearchMusic = ({ onSearch }) => {
   )
 }
 
-export default SearchMusic
+export default SearchMusic;
