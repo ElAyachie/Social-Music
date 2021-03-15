@@ -45,9 +45,18 @@ var con = mysql.createConnection({
   password: "yourpassword"
 });
 
+var socialMusicDB = "socialMusicDB";
+
 con.connect(function(err) {
+  console.log("[create database in MySql] - block BEGIN");
   if (err) throw err;
+  varId = 1;
+  con.query("create database " + socialMusicDB, function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+  });
   console.log("Connected!");
+  console.log("[create database in MySql] - block END");
 });
 
 module.exports = app;
