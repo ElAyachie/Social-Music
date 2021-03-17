@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import MusicResults from './MusicResults';
 import SearchMusic from './SearchMusic';
+import "./searchMusic1.scss";
 
 const SearchMusic1 = () => {
   const [musicResults, setMusicResults] = useState([]);
@@ -28,13 +29,16 @@ const SearchMusic1 = () => {
   } 
 
     return (
-      <div>
+      <div className="results-section">
         {console.log(musicResults.musicResults)}
-        {console.log(musicResults.musicResults.length)}
+        {/* {console.log(musicResults.musicResults.length)} */}
         <SearchMusic onSearch={searchMusic} />
-        {musicResults.musicResults.length > 0 ? (
+        {/* {musicResults.musicResults.length > 0 ? (
           <MusicResults musicResults={musicResults.musicResults} />
-              ) : ('No results to show')}
+              ) : ('No results to show')} */}
+
+        <MusicResults musicResults={musicResults.musicResults} />
+              
       </div>
     )
 }

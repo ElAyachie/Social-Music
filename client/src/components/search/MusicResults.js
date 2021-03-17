@@ -1,4 +1,5 @@
 import MusicResult from './MusicResult'
+import "./musicResults.scss";
 
 const MusicResults = ({ musicResults }) => {
   return (
