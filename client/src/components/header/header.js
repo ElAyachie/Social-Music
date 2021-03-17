@@ -9,9 +9,18 @@ export default class Header extends Component
     constructor(props) {
         super(props);
 
+        this.setSearchQuery = this.setSearchQuery.bind(this);
+
         this.state = {
             searchQuery: ''
         }
+    }
+
+    setSearchQuery(e)
+    {
+        this.setState({
+            searchQuery: e.target.value
+        });
     }
 
     render()
@@ -27,7 +36,7 @@ export default class Header extends Component
                             </Link>
                         </div>
                         <div id="search">
-                            <input type="text" placeholder="Search Music, Interests and more..." className="search-bar"/>
+                            <input type="text" placeholder="Search Music, Interests and more..." className="search-bar" onChange={this.setSearchQuery} />
                         </div>
                         <div>
                             <ul className="nav ml-auto ul-custom">
@@ -44,8 +53,6 @@ export default class Header extends Component
                         </div>
                     </div>
                 </nav>
-
-
             </div>
         );
     }

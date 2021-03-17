@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import SearchMusic1 from "./SearchMusic1";
+import SearchMusic from "./SearchMusic";
+import './search.scss';
 
 export default class Search extends Component 
 {
@@ -14,8 +15,8 @@ export default class Search extends Component
     render()
     {
         return (
-            <div>
-                <SearchMusic1 />
+            <div className="search">
+                <SearchMusic />
             </div>
         );
     }
