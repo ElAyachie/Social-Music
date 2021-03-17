@@ -16,7 +16,7 @@ export default class Search extends Component
     {
         return (
             <div className="search">
-                <SearchMusic />
+                <SearchMusic searchQuery={this.props.searchQuery}/>
             </div>
         );
     }

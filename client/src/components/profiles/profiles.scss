@@ -1,0 +1,16 @@
+.add-user-form {
+    width: 50%;
+    height: 30%;
+    border: 2px solid black;
+    border-radius: 12px;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+}
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
