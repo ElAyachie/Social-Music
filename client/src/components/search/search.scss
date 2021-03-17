@@ -1,0 +1,56 @@
+.search {
+    margin-top: 20px;
+}
+
+.results {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.result {
+    margin-bottom: 10px;
+    background-color: #C4C4C4;
+    width: 400px;
+    margin: 10px;
+}
+
+.header {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-family: 'Oswald', sans-serif;
+    display: inline-block;
+    font-size: 25px;
+}
+
+.description {
+    margin-top: 20px;
+    margin-right: 100px;
+    margin-left: 60px;
+    font-family: 'Oswald', sans-serif;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+.add-icon {
+    position: absolute;
+    right: 30px;
+    top: 25%;
+}
+
+.add-icon:hover {
+    cursor: pointer;
+}
+
+.picture {
+    position: absolute;
+    left: 30px;
+    top: 35%;
+}
+
+.results-section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
