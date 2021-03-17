@@ -32,7 +32,7 @@ function SearchMusic() {
     <div>
       {console.log(musicResults)}
       <SearchBar onSearch={searchMusic} />
-      {((musicResults.musicResults !== undefined) || (musicResults.musicResults != null)) ? (<SearchResults musicResults={musicResults.musicResults} />) : ('No results to show')}
+      {((musicResults.musicResults !== undefined) || (musicResults.musicResults != null)) ? (<SearchResults musicResults={musicResults.musicResults} />) : (<h5>Nothing here?  <br /> Use the above box to search for something!</h5>)}
     </div>
   )
 }

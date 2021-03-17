@@ -16,15 +16,13 @@ const SearchBar = ({ onSearch }) => {
 
     return (
       <form onSubmit={onSubmit}>
-        <div>
-          <label>Search</label>
           <input
+            className="search-bar1"
             type='text'
-            placeholder='search music'
+            placeholder="Search Music, Interests and more..."
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
-        </div>
       </form>
     );
 }

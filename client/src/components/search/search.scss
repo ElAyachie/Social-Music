@@ -25,12 +25,18 @@
     font-size: 25px;
 }
 
+.search-bar1, .search-bar1:active {
+    width: 300px;
+    border: 2px solid black;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    padding: 3px;
+}
+
 .description {
     margin-top: 20px;
     margin-right: 100px;
     margin-left: 60px;
-    font-family: 'Oswald', sans-serif;
-
     font-family: 'Roboto', sans-serif;
 }
 
