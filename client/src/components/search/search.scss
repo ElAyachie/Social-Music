@@ -14,12 +14,14 @@
     background-color: #C4C4C4;
     width: 400px;
     margin: 10px;
+    height: 320px;
 }
 
 .header {
     font-weight: bold;
     margin-top: 10px;
     margin-left: 10px;
+    // margin-bottom: 70px;
     font-family: 'Oswald', sans-serif;
     display: inline-block;
     font-size: 25px;
@@ -36,19 +38,21 @@
 
 .add-icon {
     position: absolute;
-    right: 30px;
-    top: 25%;
+    right: 15px;
+    top: 77%;
 }
 
 .add-icon:hover {
     cursor: pointer;
+    filter: invert(0.3);
 }
 
-.picture {
+.audio {
     position: absolute;
-    left: 30px;
-    top: 35%;
+    bottom: 20px;
+    left: 5%;
 }
+
 
 .results-section {
     margin-top: 30px;
