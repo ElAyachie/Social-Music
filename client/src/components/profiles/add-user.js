@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UserDataService from '../../services/user.services';
+import UserDataService from '../../services/user.services.js';
 import './profiles.scss';
 
 export default class AddUser extends Component {
@@ -46,7 +46,7 @@ export default class AddUser extends Component {
             name: this.state.name,
             password: this.state.password
         };
-
+        
         UserDataService.create(data)
             .then(response => {
                 this.setState({
@@ -92,7 +92,7 @@ export default class AddUser extends Component {
                                 id="username"
                                 required
                                 value={this.state.username}
-                                onChange={this.state.username}
+                                onChange={this.onChangeUsername}
                                 name="username"
                                 placeholder="Username"
                             />
@@ -105,7 +105,7 @@ export default class AddUser extends Component {
                                 id="name"
                                 required
                                 value={this.state.name}
-                                onChange={this.state.name}
+                                onChange={this.onChangeName}
                                 name="name"
                                 placeholder="Name"
                             />
@@ -118,7 +118,7 @@ export default class AddUser extends Component {
                                 id="password"
                                 required
                                 value={this.state.password}
-                                onChange={this.state.password}
+                                onChange={this.onChangePassword}
                                 name="password"
                                 placeholder="Password"
                             />
