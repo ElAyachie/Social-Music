@@ -1,0 +1,6 @@
+{
+    "getAllData": "SELECT * FROM [dbo].[user_info]",
+    "addNewUser" :"INSERT INTO [dbo].[user_info] (username,name,password) VALUES (@username,@name,@password) ",
+    "deleteUser" : "DELETE FROM [dbo].[user_info] WHERE username = @userName",
+    "updateUserDetails" : "UPDATE [dbo].[user_info] SET password = @newPassword WHERE name = @userName"
+}

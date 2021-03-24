@@ -1,6 +1,3 @@
-const db = require("../models");
-const User = db.users;
-const Op = db.Sequelize.Op;
 
 // Create and Save a new User
 exports.create = (req, res) => {
