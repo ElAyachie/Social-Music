@@ -7,7 +7,7 @@ import Header from "./components/header/header";
 import Home from './components/home/home';
 import Search from "./components/search/search";
 import Login from './components/login/login';
-import AddUser from './components/profiles/add-user';
+import AddUser from './components/profiles/AddUser';
 
 class App extends Component {
 
@@ -43,3 +43,4 @@ class App extends Component {
 }
 
 export default App;
+//<Route path="/add-user" exact component={ AddUser } />

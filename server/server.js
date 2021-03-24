@@ -5,39 +5,23 @@ const mysql = require('mysql');
 
 const app = express();
 
-var corsOptions = {
-  origin: "http://localhost:5001"
-};
-
-app.use(cors(corsOptions));
-
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-var con = mysql.createConnection({
+app.get("/", (req, res) => {
+  res.json({ message: "Server is up." });
+});
+
+app.get('/status', (req, res) => res.send('Working!'));
+
+const db = mysql.createPool({
   host: config.HOST,
   user: config.USER,
-  password: config.PASSWORD,
-  database: config.DB
+  password: config.PASSWORD
 });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected to GCP Database!");
-});
-
-/*
-const db = require('./models');
-db.sequelize.sync({ force: true }).then(() => {
-  console.log("Drop and re-sync db.");
-});
-*/
-
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to app." });
-});
-
-require("./routes/users.routes")(app);
+require("./routes/users.routes")(app, db);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
@@ -45,3 +29,10 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+
+/*db.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected to GCP Database!");
+});*/
+
+//require("./routes/users.routes")(app, db);
