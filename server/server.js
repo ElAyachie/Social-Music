@@ -21,7 +21,9 @@ const db = mysql.createPool({
   password: config.PASSWORD
 });
 
-require("./routes/users.routes")(app, db);
+require("./routes/users")(app, db);
+require("./routes/artists")(app, db);
+require("./routes/songs")(app, db);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
