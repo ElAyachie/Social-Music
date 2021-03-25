@@ -10,7 +10,7 @@ function AddUser() {
     const [password, setPassword] = useState("");
 
     const addUser = () => {
-        axios.post(api.base_url + "/insert", {
+        axios.post(api.base_url + "/users/insert", {
             username: username,
             name: name,
             password: password
