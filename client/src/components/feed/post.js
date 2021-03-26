@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import './feed.scss';
 
 import profileImg from '../../assets/blankUser.jpg';
 import favorite from '../../assets/note.png';
@@ -7,15 +9,27 @@ import comment from '../../assets/comment.png';
 function Post(props) {
     return(
         <div className="post">
-            <img src={profileImg} alt="User Profile Image"/>
-            <h4 className="user">John A Smith</h4>
+            <div className="userInfo">
+                <img src={profileImg} alt="User Profile" className="profileImg" />
+                <br />
+                <h4 className="user">{props.userName}</h4>
+            </div>
             <br />
-            <p>Post data</p>
+            <p className="postData">
+                {props.postText}
+            </p>
             <br />
-            <img src={favorite} alt="Favorite icon" />
-            <img src={comment} alt="Comment icon" />
+            <div className="icons">
+                <img src={favorite} alt="Favorite icon" className="icon" />
+                <img src={comment} alt="Comment icon" className="icon"/>
+            </div>
         </div>
     );
+}
+
+Post.propTypes = {
+    userName: PropTypes.string,
+    postText: PropTypes.string
 }
 
 export default Post;
