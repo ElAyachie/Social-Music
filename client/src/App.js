@@ -4,10 +4,11 @@ import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Header from "./components/header/header";
-import Home from './components/home/home';
+import Home from "./components/home/home";
 import Search from "./components/search/search";
-import Login from './components/login/login';
-import AddUser from './components/profiles/AddUser';
+import Feed from "./components/feed/feed";
+import Login from "./components/login/login";
+import AddUser from "./components/profiles/AddUser";
 
 class App extends Component {
 
@@ -34,6 +35,7 @@ class App extends Component {
           </header>
           <Route path="/home" exact component={ Home } />
           <Route path="/search" exact component={ Search } />
+          <Route path="/feed" exact component={ Feed } />
           <Route path="/login" exact component={ Login } />
           <Route path="/add-user" exact component={ AddUser } />
         </div>

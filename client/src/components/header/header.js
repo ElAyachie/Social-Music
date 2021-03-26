@@ -50,6 +50,9 @@ export default class Header extends Component
                             <li nav-item active li-custom>
                                 <Link to="/login" className="nav-link">Profile</Link>
                             </li>
+                            <li nav-item active li-custom>
+                                <Link to="/feed" className="nav-link">Feed</Link>
+                            </li>
                         </ul>
                     </div>
                 </nav>

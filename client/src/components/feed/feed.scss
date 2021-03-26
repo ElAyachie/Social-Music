@@ -1,0 +1,50 @@
+.feed {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.post {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #00e600;
+}
+
+.userInfo {
+    margin-top: 10px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.profileImg {
+    width: 10%;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.user {
+    padding-left: 10px;
+    align-self: center;
+}
+
+.postData {
+    text-align: left;
+    padding-left: 72.5px;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.icon {
+    margin: 10px;
+    background: none;
+    width: 25px;
+    height: 25px;
+}
