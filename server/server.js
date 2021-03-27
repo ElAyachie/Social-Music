@@ -1,53 +1,40 @@
 const express = require('express');
 const cors = require('cors');
+const config = require('./config/db.config');
+const mysql = require('mysql');
 
 const app = express();
 
-var corsOptions = {
-  origin: "http://localhost:5001"
-};
-
-app.use(cors(corsOptions));
-
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const db = require('./models');
-db.sequelize.sync({ force: true }).then(() => {
-  console.log("Drop and re-sync db.");
-});
-
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to app." });
+  res.json({ message: "Server is up." });
 });
 
-require("./routes/users.routes")(app);
+app.get('/status', (req, res) => res.send('Working!'));
+
+const db = mysql.createPool({
+  host: config.HOST,
+  user: config.USER,
+  password: config.PASSWORD
+});
+
+require("./routes/users")(app, db);
+require("./routes/artists")(app, db);
+require("./routes/songs")(app, db);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
-/*
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "yourusername",
-  password: "yourpassword"
-});
-
-var socialMusicDB = "socialMusicDB";
-
-con.connect(function(err) {
-  console.log("[create database in MySql] - block BEGIN");
-  if (err) throw err;
-  varId = 1;
-  con.query("create database " + socialMusicDB, function (err, result, fields) {
-    if (err) throw err;
-    console.log(result);
-  });
-  console.log("Connected!");
-  console.log("[create database in MySql] - block END");
-});
-*/
-
 module.exports = app;
+
+/*db.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected to GCP Database!");
+});*/
+
+//require("./routes/users.routes")(app, db);
