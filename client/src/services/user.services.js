@@ -1,6 +1,6 @@
 import http from "../http-common";
 
-export default class UserDataService {
+class UserDataService {
     getAll() {
         return http.get("/users");
     }
@@ -10,7 +10,7 @@ export default class UserDataService {
     }
 
     create(data) {
-        return http.post("/users", data);
+        return http.post("/information", data);
     }
 
     update(id, data) {
@@ -29,3 +29,5 @@ export default class UserDataService {
         return http.get(`/users?username=${username}`);
     }
 }
+
+export default new UserDataService();
