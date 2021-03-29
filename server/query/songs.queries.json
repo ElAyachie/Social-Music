@@ -1,3 +1,4 @@
 {
-    
+    "getAllData": "SELECT * FROM users.songinterests",
+    "addNewSongInterest" :"INSERT INTO users.songinterests (ID, SongID, SongName, ArtistID, ArtistName, AlbumID, AlbumPic) VALUES (?,?,?,?,?,?,?)"
 }
