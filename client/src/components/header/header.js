@@ -34,7 +34,7 @@ export default class Header extends Component
     {
         return (
             <div id="header">
-                <nav className="navbar navbar-expand-lg bg-light navbar-light h-collapse navbar-custom">
+                <nav className="navbar navbar-expand-lg navbar-light h-collapse navbar-custom">
                     <div className="container">
                         <Link to="/home" className="navbar-brand">
                             <img src={musicNotes} id="music-notes" alt="Music Notes" />

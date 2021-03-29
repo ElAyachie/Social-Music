@@ -7,8 +7,7 @@ import Header from "./components/header/header";
 import Home from "./components/home/home";
 import Search from "./components/search/search";
 import Feed from "./components/feed/feed";
-import Login from "./components/login/login";
-import AddUser from "./components/profiles/AddUser";
+import LoginController from "./components/login/loginController";
 
 class App extends Component {
 
@@ -33,11 +32,11 @@ class App extends Component {
           <header className="App-header sticky-top">
             <Header callbackFromParent={this.searchCallback}/>
           </header>
+          <Route path="/" exact component={ Home } />
           <Route path="/home" exact component={ Home } />
           <Route path="/search" exact component={ Search } />
           <Route path="/feed" exact component={ Feed } />
-          <Route path="/login" exact component={ Login } />
-          <Route path="/add-user" exact component={ AddUser } />
+          <Route path="/login" exact component={ LoginController } />
         </div>
       </Router>
     );
