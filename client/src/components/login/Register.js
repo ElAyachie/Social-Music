@@ -1,27 +1,50 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './profiles.scss';
+import './login.scss';
+
+import Login from './Login';
 
 import api from '../../config/api';
 
-function AddUser() {
+function Register() {
     const [username, setUserName] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
 
-    const addUser = () => {
+    const register = () => {
+        var self = this;
+        /*var payload = {
+            username: username,
+            name: name,
+            password: password
+        }*/
         axios.post(api.base_url + "/users/insert", {
             username: username,
             name: name,
             password: password
         })
-        .then(() => {
-            alert("Successful insert");
-        });
+        .then((response) => {
+            console.log("Registration Successful");
+            alert("Successful Register");
+            if(response.data.code === 200) {
+                var loginscreen = [];
+                loginscreen.push(<Login parentContext={this} />);
+                var loginmessage = "Not Registered yet. Go to Registration.";
+                self.props.parentContext.setStae({
+                    loginscreen: loginscreen,
+                    loginmessage: loginmessage,
+                    buttonLabel: "Register",
+                    isLogin: true
+                });
+            }
+        })
+        .catch((error) => {
+            alert(error);
+        })
     };
 
     return(
-        <div className="add-user-form">
+        <div className="login-form">
             <div className="container form-box">
                 <h5>Create new account</h5>
                 <div className="form-group">
@@ -69,7 +92,7 @@ function AddUser() {
                     />
                 </div>
 
-                <button onClick={addUser} className="btn btn-success">
+                <button onClick={register} className="btn btn-success">
                     Submit
                 </button>
             </div>
@@ -77,7 +100,7 @@ function AddUser() {
     );
 }
 
-export default AddUser;
+export default Register;
 
 /*
     constructor(props) {
