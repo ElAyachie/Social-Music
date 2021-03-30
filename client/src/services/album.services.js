@@ -2,27 +2,27 @@ import http from "../http-common";
 
 class AlbumDataService {
     getAll() {
-        return http.get("/users");
+        return http.get(`/users/albuminterests`);
     }
 
     get(id) {
-        return http.get(`/users/${id}`);
+        return http.get(`/users/albuminterests${id}`);
     }
 
     create(data) {
-        return http.post("/albuminterests", data);
+        return http.post("/users/albuminterests", data);
     }
 
     update(id, data) {
-        return http.put(`/users/${id}`, data);
+        return http.put(`/users/albuminterests/${id}`, data);
     }
 
     delete(id) {
-        return http.delete(`/users/${id}`);
+        return http.delete(`/users/albuminterests/${id}`);
     }
 
     deleteAll() {
-        return http.delete(`/users`);
+        return http.delete(`/users/albuminterests`);
     }
 }
 
