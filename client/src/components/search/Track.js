@@ -1,6 +1,6 @@
-import AddIcon from "../../assets/add.svg";
 import ExplicitIcon from "../../assets/explicit.svg";
 import React, { useRef } from "react";
+import AddMusicInterest from './AddMusicInterest';
 
 const Track = ({ musicResult }) => {
 
@@ -12,12 +12,12 @@ const Track = ({ musicResult }) => {
 
     
     return (
-      <div className="card result">
+      <div className="card result" id={"musicResult" + musicResult.id}>
           <div className="card-body">
               <img src={musicResult.album.cover} alt={musicResult.artist.name} />
               <br />
               <h5 className="card-title header">{musicResult.artist.name} - {musicResult.title}</h5>
-              <img className="add-icon" src={AddIcon} height="50px" width="50px" alt="add-icon"/>
+              <AddMusicInterest musicResult={musicResult} artistResult={musicResult.artist} albumResult={musicResult.album}></AddMusicInterest>
               {musicResult.explicit_content_lyrics && <img className="explicit-icon" src={ExplicitIcon} alt="explicit icon" width="90px" height="55" />}
               <audio className="audio" controls ref={audioRef}>
                   <source src={musicResult.preview} type="audio/mpeg"/>

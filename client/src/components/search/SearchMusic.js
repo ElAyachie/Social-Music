@@ -19,8 +19,14 @@ function SearchMusic() {
     .then(response => response.json())
     .then(data =>  {
       console.log(data.data);
+      // Index the search result array so that we can reference the values.
+      let indexedData = data.data;
+      indexedData.forEach((item, i) => {
+        item.id = i;
+        i += 1;
+      });
       setSearchResults({
-        musicResults: data.data
+        musicResults: indexedData
       });
     })
     .catch(error => {
