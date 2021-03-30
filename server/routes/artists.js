@@ -1,12 +1,12 @@
 module.exports = (app, db) => {
     const query = require('../query/artists.queries.json');
-    app.get('/api/users/get', (req, res) => {
-        db.query(query.getAllData, (err, result) => {
+    app.get('/api/users/artistinterests/get', (req, res) => {
+        db.query(query.getAllArtistInterestsData, (err, result) => {
           console.log(result);
         });
       });
       
-      app.post("/api/users/insert", (req, res) => {
+      app.post("/api/users/artistinterests/insert", (req, res) => {
         const ID = req.body.ID;
         const ArtistID = req.body.ArtistID;
         const ArtistName = req.body.ArtistName;
