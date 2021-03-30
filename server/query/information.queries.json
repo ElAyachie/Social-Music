@@ -1,4 +1,4 @@
 {
     "getAllData": "SELECT * FROM users.information",
-    "addNewUser" :"INSERT INTO users.information (username, name, password) VALUES (?,?,?)"
+    "addNewUser" : "INSERT INTO users.information (username, name, password) VALUES (?,?,?)"
 }
