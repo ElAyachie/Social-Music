@@ -5,9 +5,9 @@ import { CSSTransition } from "react-transition-group"
 const SearchResults = ({ musicResults }) => {
   // const [showTracks, setShowTracks] = useState(false);
 
-  function loadTracks() {
-    setShowTracks(!showTracks);
-  }
+  // function loadTracks() {
+  //   setShowTracks(!showTracks);
+  // }
 
 
 
