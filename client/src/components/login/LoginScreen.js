@@ -65,7 +65,7 @@ export default class LoginScreen extends Component {
                     <br />
                     {this.state.loginmessage}
                     <br /><br />
-                    <button id="loginBtn" className="btn btn-success" label={this.state.buttonLabel} onClick={this.onButtonSubmit}>
+                    <button className="btn btn-success loginScreenBtn" label={this.state.buttonLabel} onClick={this.onButtonSubmit}>
                         {this.state.buttonLabel}
                     </button>
                 </div>

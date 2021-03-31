@@ -1,32 +1,22 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import './login.scss';
 
 import LoginScreen from './LoginScreen';
 
-export default class LoginController extends Component {
-    constructor(props) {
-        super(props);
+const LoginController = () => {
+    const [loginPage, setLoginPage] = useState([]);
 
-        this.state = {
-            loginPage: [],
-            uploadScreen: []
-        }
-    }
+    loginPage.push(<LoginScreen appContext={this} />)
 
-    componentWillMount() {
-        var loginPage = [];
-        loginPage.push(<LoginScreen appContext={this} />);
-        this.setState({
-            loginPage: loginPage
-        });
-    }
+    useEffect(() => {
+        setLoginPage(loginPage)
+    }, [loginPage]);
 
-    render() {
-        return(
-            <div className="loginController">
-                {this.state.loginPage}
-                {this.state.uploadScreen}
-            </div>
-        );
-    }
+    return (
+        <div className="loginController">
+            {loginPage}
+        </div>
+    );
 }
+
+export default LoginController;
