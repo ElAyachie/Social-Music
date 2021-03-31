@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+# db config
+/config
+
 # production
 /build
 
