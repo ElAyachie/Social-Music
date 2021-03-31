@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -10,15 +10,16 @@ import Feed from "./components/feed/feed";
 import LoginController from "./components/login/LoginController";
 
 function App() {
-
-  return (
-    <Router>
-      <div className="App">
-        <header className="App-header sticky-top">
-          <Header />
-        </header>
+    return (
+      <Router>
+        <div className="App">
+          <header className="App-header sticky-top">
+            <Header />
+          </header>
         <Switch>
-          <Route path="/" exact component={ Home } />
+          <Route path="/">
+            <Redirect to="/home" />
+          </Route>
           <Route path="/home" exact component={ Home } />
           <Route path="/search" exact component={ Search } />
           <Route path="/feed" exact component={ Feed } />
