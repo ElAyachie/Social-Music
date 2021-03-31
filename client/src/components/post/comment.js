@@ -8,7 +8,7 @@ function Comment() {
     return (
         <div className="comment-section">
             <div className="individual-comment">
-                <img className="picture" src={Profile_1} width="65px" height="65px"></img>
+                <img className="picture" src={Profile_1} width="65px" height="65px" alt="Profile"></img>
                 <h1 className="poster">Matthew Barnes</h1>
                 <h4 className="time-posted">Posted at 1:05 PM 3/24</h4>
                 <h3 className="post">Maecenas sodales dictum iaculis. Cras leo magna,
