@@ -9,7 +9,6 @@ const Track = ({ musicResult }) => {
     if(audioRef.current) {
         audioRef.current.load();
     }
-
     
     return (
       <div className="card result">
