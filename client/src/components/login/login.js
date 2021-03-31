@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import "./login.scss";
 
@@ -6,37 +6,36 @@ import UploadScreen from './UploadScreen';
 
 import api from '../../config/api';
 
-export default class Login extends Component {
-    constructor(props) {
-        super(props);
+async function loginUser(credentials) {
+    return fetch("http://localhost:5000/login", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(credentials)
+    })
+      .then(data => data.json());
+}
 
-        this.onChangeUsername = this.onChangeUsername.bind(this);
-        this.onChangePassword = this.onChangePassword.bind(this);
-        this.onLoginClick = this.onLoginClick.bind(this);
+function Login({ setToken }) {
+    const [username, setUserName] = useState("");
+    const [password, setPassword] = useState("");
+    const [user, setUser] = useState();
 
-        this.state = {
-            username: '',
-            password: ''
-        }
-    }
-
-    onChangeUsername(e) {
-        this.setState({
-            username: e.target.value
+    const handleSubmit = async e => {
+        e.preventDefault();
+        const token = await loginUser({
+            username,
+            password
         });
-    }
+        setToken(token);
+    };
 
-    onChangePassword(e) {
-        this.setState({
-            password: e.target.value
-        });
-    }
-
-    onLoginClick(e) {
+    const login = () => {
         var self = this;
         var payload = {
-            "email": this.state.username,
-            "password": this.state.password
+            "email": username,
+            "password": password
         }
 
         axios.post(api.base_url + '/login', payload)
@@ -65,18 +64,34 @@ export default class Login extends Component {
             });
     }
 
-    render() {
+    if(user) {
         return(
-            <div className="login-form">
-                <div className="container form-box">
-                    <h5>Log in to Social Music</h5>
+            <div>
+                <h5>
+                    {user.name} is logged in.
+                </h5>
+            </div>
+        );
+    }
+
+    return(
+        <div className="login-form">
+            <div className="container form-box">
+                <h5>Log in to Social Music</h5>
+                <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <input
                         className="form-control"
                         type="text"
+                        autoComplete="on"
+                        id="username"
+                        required
+                        name="Username"
                         placeholder="Email"
-                        value={this.state.username}
-                        onChange={this.onChangeUsername}
+                        value={username}
+                        onChange={(e) => {
+                            setUserName(e.value);
+                        }}
                         />
                     </div>
                     
@@ -84,17 +99,51 @@ export default class Login extends Component {
                         <input
                         className="form-control"
                         type="text"
+                        id="password"
+                        required
+                        name="Password"
                         placeholder="Password"
-                        value={this.state.password}
-                        onChange={this.onChangePassword}
+                        value={password}
+                        onChange={(e) => {
+                            setPassword(e.value);
+                        }}
                         />
                     </div>
 
-                    <button className="btn btn-success" onClick={this.onLoginClick}>
+                    <button className="btn btn-success" onClick={login}>
                         Login
                     </button>
-                </div>
+                </form>
             </div>
-        );
-    }
+        </div>
+    );
 }
+
+export default Login;
+
+/*
+constructor(props) {
+        super(props);
+
+        this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onChangePassword = this.onChangePassword.bind(this);
+        this.onLoginClick = this.onLoginClick.bind(this);
+
+        this.state = {
+            username: '',
+            password: ''
+        }
+    }
+
+    onChangeUsername(e) {
+        this.setState({
+            username: e.target.value
+        });
+    }
+
+    onChangePassword(e) {
+        this.setState({
+            password: e.target.value
+        });
+    }
+*/

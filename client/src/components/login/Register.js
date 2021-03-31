@@ -50,6 +50,7 @@ function Register() {
                 <div className="form-group">
                     <input
                         type="text"
+                        autoComplete="on"
                         className="form-control"
                         id="username"
                         required
@@ -65,6 +66,7 @@ function Register() {
                 <div className="form-group">
                     <input
                         type="text"
+                        autoComplete="on"
                         className="form-control"
                         id="name"
                         required
