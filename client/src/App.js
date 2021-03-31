@@ -16,10 +16,10 @@ function App() {
           <header className="App-header sticky-top">
             <Header />
           </header>
-        <Switch>
           <Route path="/">
             <Redirect to="/home" />
           </Route>
+        <Switch>
           <Route path="/home" exact component={ Home } />
           <Route path="/search" exact component={ Search } />
           <Route path="/feed" exact component={ Feed } />
