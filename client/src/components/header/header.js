@@ -34,7 +34,7 @@ export default class Header extends Component
     {
         return (
             <div id="header">
-                <nav className="navbar navbar-expand-lg bg-light navbar-light h-collapse navbar-custom">
+                <nav className="navbar navbar-expand-lg navbar-light h-collapse navbar-custom">
                     <div className="container">
                         <Link to="/home" className="navbar-brand">
                             <img src={musicNotes} id="music-notes" alt="Music Notes" />
@@ -49,6 +49,9 @@ export default class Header extends Component
                             </li>
                             <li nav-item active li-custom>
                                 <Link to="/login" className="nav-link">Profile</Link>
+                            </li>
+                            <li nav-item active li-custom>
+                                <Link to="/feed" className="nav-link">Feed</Link>
                             </li>
                         </ul>
                     </div>

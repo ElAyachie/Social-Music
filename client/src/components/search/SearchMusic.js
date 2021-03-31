@@ -3,7 +3,7 @@ import SearchResults from './SearchResults';
 import SearchBar from './SearchBar';
 
 function SearchMusic() {
-  const [musicResults, setSearchResults] = useState([]);
+  const [musicResults, loading] = useState([]);
 
   // General api fetch for music
   // Input: Artist, song, albums, ect.
@@ -17,7 +17,7 @@ function SearchMusic() {
       }
     })
     .then(response => response.json())
-    .then(data =>  {
+    .then(data => {
       console.log(data.data);
       // Index the search result array so that we can reference the values.
       let indexedData = data.data;
@@ -25,7 +25,7 @@ function SearchMusic() {
         item.id = i;
         i += 1;
       });
-      setSearchResults({
+      loading({
         musicResults: indexedData
       });
     })
@@ -38,7 +38,14 @@ function SearchMusic() {
     <div>
       {console.log(musicResults)}
       <SearchBar onSearch={searchMusic} />
-      {((musicResults.musicResults !== undefined) || (musicResults.musicResults != null)) ? (<SearchResults musicResults={musicResults.musicResults} />) : (<h5>Nothing here?  <br /> Use the above box to search for something!</h5>)}
+      {
+        ( loading ? (
+        (musicResults.musicResults != null) 
+          ? (<SearchResults musicResults={musicResults.musicResults} />) : (<h5>Nothing here?  <br /> Use the above box to search for something!</h5>)
+        ) : (
+          <h5>Loading...</h5>
+        ))
+      }
     </div>
   )
 }
