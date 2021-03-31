@@ -85,7 +85,7 @@ function Login() {
                 <h5>
                     {user} is logged in.
                     <br /><br />
-                    <button className="btn btn-success" onClick={handleLogout}>Logout</button>
+                    <button className="btn btn-success logoutBtn" onClick={handleLogout}>Logout</button>
                 </h5>
             </div>
         );
