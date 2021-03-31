@@ -41,16 +41,16 @@ export default class Header extends Component
                             Social Music
                         </Link>
                         <ul className="nav ml-auto ul-custom">
-                            <li nav-item active li-custom>
+                            <li className="nav-item active li-custom">
                                 <Link to="/home" className="nav-link">Home</Link>
                             </li>
-                            <li nav-item active li-custom>
+                            <li className="nav-item active li-custom">
                                 <Link to="/search" className="nav-link">Search</Link>
                             </li>
-                            <li nav-item active li-custom>
+                            <li className="nav-item active li-custom">
                                 <Link to="/login" className="nav-link">Profile</Link>
                             </li>
-                            <li nav-item active li-custom>
+                            <li className="nav-item active li-custom">
                                 <Link to="/feed" className="nav-link">Feed</Link>
                             </li>
                         </ul>

@@ -5,7 +5,6 @@ Loginscreen is the main screen which the user is shown on first visit to page an
 hitting logout
 */
 import LoginScreen from './LoginScreen';
-
 export default class UploadScreen extends Component {
     constructor(props){
         super(props);
