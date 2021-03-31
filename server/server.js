@@ -22,14 +22,10 @@ const db = mysql.createPool({
 });
 
 require("./routes/users")(app, db);
+require("./routes/login")(app, db);
 require("./routes/artists")(app, db);
 require("./routes/songs")(app, db);
 
-app.use('/login', (req, res) => {
-  res.send({
-    'token': 'test123'
-  });
-});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

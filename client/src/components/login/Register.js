@@ -13,34 +13,30 @@ function Register() {
 
     const register = () => {
         var self = this;
-        /*var payload = {
+        var payload = {
             username: username,
             name: name,
             password: password
-        }*/
-        axios.post(api.base_url + "/users/insert", {
-            username: username,
-            name: name,
-            password: password
-        })
-        .then((response) => {
-            console.log("Registration Successful");
-            alert("Successful Register");
-            if(response.data.code === 200) {
-                var loginscreen = [];
-                loginscreen.push(<Login parentContext={this} />);
-                var loginmessage = "Not Registered yet. Go to Registration.";
-                self.props.parentContext.setStae({
-                    loginscreen: loginscreen,
-                    loginmessage: loginmessage,
-                    buttonLabel: "Register",
-                    isLogin: true
-                });
-            }
-        })
-        .catch((error) => {
-            alert(error);
-        })
+        }
+        axios.post(api.base_url + "/users/insert", payload)
+            .then((response) => {
+                console.log("Registration Successful");
+                alert("Successful Register");
+                if(response.data.code === 200) {
+                    var loginscreen = [];
+                    loginscreen.push(<Login parentContext={this} />);
+                    var loginmessage = "Not Registered yet. Go to Registration.";
+                    self.props.parentContext.setStae({
+                        loginscreen: loginscreen,
+                        loginmessage: loginmessage,
+                        buttonLabel: "Register",
+                        isLogin: true
+                    });
+                }
+            })
+            .catch((error) => {
+                alert(error);
+            })
     };
 
     return(
@@ -94,7 +90,7 @@ function Register() {
                     />
                 </div>
 
-                <button onClick={register} className="btn btn-success">
+                <button className="btn btn-success" onClick={register}>
                     Submit
                 </button>
             </div>
