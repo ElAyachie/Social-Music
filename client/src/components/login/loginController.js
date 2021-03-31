@@ -1,32 +1,37 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import './login.scss';
 
 import LoginScreen from './LoginScreen';
+import Login from './Login';
+import useToken from './useToken';
 
-export default class LoginController extends Component {
-    constructor(props) {
-        super(props);
+const LoginController = () => {
+    const [loginPage, setLoginPage] = useState([]);
+    //const [uploadScreen, setUploadScreen] = useState([]);
+    const { token, setToken } = useToken();
 
-        this.state = {
-            loginPage: [],
-            uploadScreen: []
-        }
+    //loginPage.push(<LoginScreen appContext={this} />)
+
+    if(!token) {
+        loginPage.push(<Login setToken={setToken} />);
     }
-
-    componentWillMount() {
-        var loginPage = [];
+    else {
         loginPage.push(<LoginScreen appContext={this} />);
-        this.setState({
-            loginPage: loginPage
-        });
     }
 
-    render() {
-        return(
-            <div className="loginController">
-                {this.state.loginPage}
-                {this.state.uploadScreen}
-            </div>
-        );
-    }
+    useEffect(() => {
+        setLoginPage(loginPage)
+    }, []);
+
+    return (
+        <div className="loginController">
+            {loginPage}
+        </div>
+    );
 }
+
+export default LoginController;
+
+//if(!token) {
+    //return <Login setToken={setToken} />
+//}
