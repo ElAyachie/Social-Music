@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import "./home.scss";
-import Post from "../post/post"
+
 
 export default class Home extends Component {
     render() {
@@ -26,7 +26,6 @@ export default class Home extends Component {
                         Login!
                     </button>
                 </Link>
-                
             </div>
         );
     }
