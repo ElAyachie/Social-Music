@@ -14,3 +14,62 @@
     justify-content: center;
     margin-top: 1.5rem;
 }
+
+.picture {
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
+.name {
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.bio {
+    font-size: 1.4rem;
+}
+
+.friends-section {
+    border: 1px solid #000000;
+    border-radius: 8px;
+    padding-top: 10px;
+    // padding-right: 1%;
+    margin-left: 23%;
+    margin-right: 23%;
+    background-color: #F6F6F6;
+    
+
+    .view-button {
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .friend {
+        border-radius: 8px;
+        padding-top: 5px;
+        padding-right: 3%;
+        padding-left: 5px;
+        margin-left: 2%;
+        margin-bottom: 7px;
+        background-color: #FFFFFF;
+        height: 60px;
+        
+        .name {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .picture {
+            margin-bottom: 5px;
+            margin-right: 10px;
+        }
+    }
+
+    
+}
+
