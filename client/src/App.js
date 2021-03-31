@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -32,7 +32,9 @@ class App extends Component {
           <header className="App-header sticky-top">
             <Header callbackFromParent={this.searchCallback}/>
           </header>
-          <Route path="/" exact component={ Home } />
+          <Route path="/">
+            <Redirect to="/home" />
+          </Route>
           <Route path="/home" exact component={ Home } />
           <Route path="/search" exact component={ Search } />
           <Route path="/feed" exact component={ Feed } />
