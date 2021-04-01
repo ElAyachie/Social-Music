@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import "./home.scss";
-import Post from "../post/post"
-
 export default class Home extends Component {
     render() {
         return(
@@ -15,7 +13,7 @@ export default class Home extends Component {
                     Please use the button below to sign-up.
                 </p>
 
-                <Link to="/add-user">
+                <Link to="/login">
                     <button className="sign-up-btn">
                         Sign up!
                     </button>
