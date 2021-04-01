@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import "./header.scss";
 
-//import Search from "../search/search";
-
 import musicNotes from "../../assets/music-notes.png";
 
 export default class Header extends Component 
@@ -11,23 +9,20 @@ export default class Header extends Component
     constructor(props) {
         super(props);
 
-        this.setSearchQuery = this.setSearchQuery.bind(this);
-        this.search = this.search.bind(this);
-
         this.state = {
-            searchQuery: ''
+            username: '',
+            default: "Profile"
         }
     }
 
-    setSearchQuery(e)
-    {
-        this.setState({
-            searchQuery: e.target.value
-        });
-    }
-
-    search = () => {
-        this.props.callBackFromParent(this.state.searchQuery);
+    componentWillMount(){
+        const loggedInUser = localStorage.getItem("user");
+        if(loggedInUser) {
+            const foundUser = JSON.parse(loggedInUser);
+            this.setState({
+                username: foundUser
+            });
+        }
     }
 
     render()
@@ -48,7 +43,12 @@ export default class Header extends Component
                                 <Link to="/search" className="nav-link">Search</Link>
                             </li>
                             <li className="nav-item active li-custom">
-                                <Link to="/login" className="nav-link">Profile</Link>
+                                <Link to="/profile" className="nav-link">
+                                    {
+                                        (this.state.username) ?
+                                        (this.state.username) : (this.state.default)
+                                    }
+                                </Link>
                             </li>
                             <li className="nav-item active li-custom">
                                 <Link to="/feed" className="nav-link">Feed</Link>
