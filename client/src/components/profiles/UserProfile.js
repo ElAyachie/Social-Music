@@ -1,13 +1,25 @@
 import React from 'react';
 import "./profiles.scss";
-
-import TopMusic from './TopMusic';
+import UserInfo from "./UserInfo"
+import Friends from "./Friends"
+import TopMusic from "./TopMusic"
+import Post from "../post/post"
 
 function UserProfile() {
 
     return (
-        <div>
-            <TopMusic></TopMusic>
+        <div className="user-profile">
+            <div className="left-side">
+                <div className="corner">
+                    <UserInfo />
+                    <Friends />
+                </div>
+                <TopMusic />
+            </div>
+            <div className="right-side">
+                <Post />
+                <Post />
+            </div>
         </div>
     )
 }

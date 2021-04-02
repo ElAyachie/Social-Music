@@ -1,6 +1,4 @@
-.comment-section {
-    background-color: #808080;
-}
+
 
 .post-section {
     position: relative;
@@ -8,65 +6,71 @@
     border: 1px solid #000000;
     border-radius: 4px;   
     padding-top: 105px;
-    margin-left: 14%;
-    margin-right: 14%;
+    margin-left: 55%;
+    // margin-right: 14%;
+
+    .poster {
+        display: inline-block;
+        position: absolute;
+        left: 110px;
+        top: 30px;
+        font-size: 2.1rem;
+        font-weight: 600;
+    }
+    
+    .picture {
+        position: absolute;
+        left: 25px;
+        top: 20px;
+        border-radius: 50%;
+    }
+    
+    .time-posted {
+        position: absolute;
+        right: 5px;
+        top: 0;
+        font-family: Oswald;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 21px;
+        color: #434343;
+    }
+    
+    .post {
+        font-size: 1.3rem;
+        text-align: left;
+        // margin-bottom: 37px;
+        font-weight: 400;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    
+    .upvote-icon {
+        cursor: pointer;
+        text-align: left;
+        margin-right: 30%;
+        margin-bottom: 30px;
+        margin-top: 37px;
+    }
+    
+    .comment-icon {
+        cursor: pointer;
+        margin-bottom: 30px;
+        margin-top: 37px;
+    }
+    
+    .comment-section {
+        position: relative;
+        background-color: #C7C7C7;
+    }
+
+    .comment-section {
+        background-color: #808080;
+    }
 }
 
-.poster {
-    display: inline-block;
-    position: absolute;
-    left: 110px;
-    top: 30px;
-    font-size: 2.3rem;
-    font-weight: 600;
-}
 
-.picture {
-    position: absolute;
-    left: 25px;
-    top: 20px;
-    border-radius: 50%;
-}
-
-.time-posted {
-    position: absolute;
-    right: 5px;
-    top: 0;
-    font-family: Oswald;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 21px;
-    color: #434343;
-}
-
-.post {
-    font-size: 1.5rem;
-    text-align: left;
-    // margin-bottom: 37px;
-    font-weight: 400;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.upvote-icon {
-    cursor: pointer;
-    text-align: left;
-    margin-right: 30%;
-    margin-bottom: 30px;
-    margin-top: 37px;
-}
-
-.comment-icon {
-    cursor: pointer;
-    margin-bottom: 30px;
-    margin-top: 37px;
-}
-
-.comment-section {
-    position: relative;
-    background-color: #C7C7C7;
-}
 
 .individual-comment {
     background-color: #E8E8E8;

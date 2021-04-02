@@ -15,6 +15,10 @@
     margin-top: 1.5rem;
 }
 
+.user-info {
+    margin-bottom: 20px;
+}
+
 .picture {
     margin-bottom: 20px;
     border-radius: 50%;
@@ -33,7 +37,8 @@
     border-radius: 8px;
     padding-top: 10px;
     margin-left: 23%;
-    margin-right: 23%;
+    margin-right: 30%;
+    margin-bottom: 40px;
     background-color: #F6F6F6;
     
 
@@ -74,6 +79,8 @@
 
 .music-section {
     display: inline-block;
+    margin-right: 25%;
+    width: 399px;
 }
 
 .artist {
@@ -113,8 +120,9 @@
 
 .track {
     border: 1px solid #000000;
-    display: inline-block;
-    padding: 5px;
+    // display: inline-block;
+    display: block;
+    // padding: 5px;
     margin-top: 7px;
     border-radius: 3px;
     position: relative;
@@ -128,15 +136,16 @@
 
     .picture {
         border-radius: 0px;
-        margin-bottom: 5px;
+        margin-bottom: 0;
         margin-right: 17px;
-        margin-left: 2px;
+        // margin-left: 2px;
     }
 
     .title {
         display: inline-block;
         margin-right: 110px;
         margin-top: 5px;
+        font-size: 1.5rem;
     }
 
     .upvote-icon {
@@ -150,5 +159,31 @@
         position: absolute;
         top: 0;
         right: 0;
+    }
+}
+
+.user-profile {
+    position: relative;
+    // width: 1000px;
+    
+
+    .left-side {
+        position: absolute;
+        top: 0;
+        left: 5%;
+        // margin-right: 40%;
+        // display: inline-block;
+        z-index: 2;
+    }
+
+    .right-side {
+        position: absolute;
+        top: 180px;
+        right: 10%;
+        display: inline-block;
+    }
+
+    .corner {
+        
     }
 }
