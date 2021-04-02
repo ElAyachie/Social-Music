@@ -32,7 +32,6 @@
     border: 1px solid #000000;
     border-radius: 8px;
     padding-top: 10px;
-    // padding-right: 1%;
     margin-left: 23%;
     margin-right: 23%;
     background-color: #F6F6F6;
@@ -73,3 +72,83 @@
     
 }
 
+.music-section {
+    display: inline-block;
+}
+
+.artist {
+    border: 1px solid #000000;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 4px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 2px;
+
+    .jc-center {
+        display: flex;
+        justify-content: center;
+    }
+
+    .list {
+        align-self: flex-start;
+    }
+
+    .picture {
+        border-radius: 0;
+        margin-bottom: 0;
+        display: block;
+        text-align: center;
+    }
+
+    .name {
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+    }
+
+    .upvote-icon {
+        cursor: pointer;
+    }
+}
+
+.track {
+    border: 1px solid #000000;
+    display: inline-block;
+    padding: 5px;
+    margin-top: 7px;
+    border-radius: 3px;
+    position: relative;
+    margin-right: 7px;
+
+    // .as-center {
+    //     display: flex;
+    //     // align-self: center;
+    //     align-content: center;
+    // }
+
+    .picture {
+        border-radius: 0px;
+        margin-bottom: 5px;
+        margin-right: 17px;
+        margin-left: 2px;
+    }
+
+    .title {
+        display: inline-block;
+        margin-right: 110px;
+        margin-top: 5px;
+    }
+
+    .upvote-icon {
+        position: absolute;
+        top: 27%;
+        right: 70px;
+        cursor: pointer;
+    }
+
+    .explicit-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
