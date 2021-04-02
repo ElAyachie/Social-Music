@@ -2,7 +2,6 @@ import React from 'react';
 import "./profiles.scss";
 import Profile_Pic from "../../assets/profile_1_pic.jfif"
 
-
 function UserInfo() {
 
     return (

@@ -10,6 +10,7 @@ import Feed from "./components/feed/feed";
 import LoginController from "./components/login/LoginController";
 import Profile from './components/profile/profile';
 import PrivateRoute from './components/routes/PrivateRoute';
+import UserProfile from './components/profiles/UserProfile';
 
 function App() {
   const [authed, setAuthed] = useState(false);
@@ -38,6 +39,7 @@ function App() {
           <Route path="/home" exact component={ Home } />
           <Route path="/search" exact component={ Search } />
           <Route path="/feed" exact component={ Feed } />
+          <Route path="/userprofile" exact component={ UserProfile } />
           <Route path="/login">
             <LoginController />
           </Route>

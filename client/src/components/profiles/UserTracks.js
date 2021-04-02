@@ -3,11 +3,7 @@ import "./profiles.scss";
 import Upvote_Icon from "../../assets/upvote.svg"
 import Explicit_Icon from "../../assets/explicit.svg"
 
-
-
-
 function UserTracks() {
-
 
     return (
         <div className="track">
