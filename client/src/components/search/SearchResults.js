@@ -1,6 +1,6 @@
 import Track from './Track'
-import React, { useState } from "react"
-import { CSSTransition } from "react-transition-group"
+import React from "react"
+//import { CSSTransition } from "react-transition-group"
 
 const SearchResults = ({ musicResults }) => {
   // const [showTracks, setShowTracks] = useState(false);
@@ -8,8 +8,6 @@ const SearchResults = ({ musicResults }) => {
   // function loadTracks() {
   //   setShowTracks(!showTracks);
   // }
-
-
 
   return (
     <div className="results">
