@@ -1,0 +1,154 @@
+.add-user-form {
+    width: 50%;
+    height: 30%;
+    border: 2px solid black;
+    border-radius: 12px;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+}
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.picture {
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
+.name {
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.bio {
+    font-size: 1.4rem;
+}
+
+.friends-section {
+    border: 1px solid #000000;
+    border-radius: 8px;
+    padding-top: 10px;
+    margin-left: 23%;
+    margin-right: 23%;
+    background-color: #F6F6F6;
+    
+
+    .view-button {
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .friend {
+        border-radius: 8px;
+        padding-top: 5px;
+        padding-right: 3%;
+        padding-left: 5px;
+        margin-left: 2%;
+        margin-bottom: 7px;
+        background-color: #FFFFFF;
+        height: 60px;
+        
+        .name {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .picture {
+            margin-bottom: 5px;
+            margin-right: 10px;
+        }
+    }
+
+    
+}
+
+.music-section {
+    display: inline-block;
+}
+
+.artist {
+    border: 1px solid #000000;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 4px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 2px;
+
+    .jc-center {
+        display: flex;
+        justify-content: center;
+    }
+
+    .list {
+        align-self: flex-start;
+    }
+
+    .picture {
+        border-radius: 0;
+        margin-bottom: 0;
+        display: block;
+        text-align: center;
+    }
+
+    .name {
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+    }
+
+    .upvote-icon {
+        cursor: pointer;
+    }
+}
+
+.track {
+    border: 1px solid #000000;
+    display: inline-block;
+    padding: 5px;
+    margin-top: 7px;
+    border-radius: 3px;
+    position: relative;
+    margin-right: 7px;
+
+    // .as-center {
+    //     display: flex;
+    //     // align-self: center;
+    //     align-content: center;
+    // }
+
+    .picture {
+        border-radius: 0px;
+        margin-bottom: 5px;
+        margin-right: 17px;
+        margin-left: 2px;
+    }
+
+    .title {
+        display: inline-block;
+        margin-right: 110px;
+        margin-top: 5px;
+    }
+
+    .upvote-icon {
+        position: absolute;
+        top: 27%;
+        right: 70px;
+        cursor: pointer;
+    }
+
+    .explicit-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}

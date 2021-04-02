@@ -1,6 +1,5 @@
 .navbar-custom {
     font-weight: 700;
-    //border: 2px solid black;
     box-shadow: 5px 5px 8px #888888;
     display: flex;
     flex-direction: row;
@@ -28,20 +27,20 @@
     color: #000000;
 }
 
-.navbar-light .navbar-brand:hover {
-    color: #fcb33b;
-}
+// .navbar-light .navbar-brand:hover {
+//     color: #fcb33b;
+// }
 
 .nav-link {
     color: black;
 }
 
-.nav-link:hover {
-    border: 1px solid black;
-    border-radius: 32px;
-    background-color: black;
-    color: #fcb33b;
-}
+// .nav-link:hover {
+//     border: 1px solid black;
+//     border-radius: 32px;
+//     background-color: black;
+//     color: #fcb33b;
+// }
 
 .ul-custom {
     list-style-type: none;
