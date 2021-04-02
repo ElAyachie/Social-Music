@@ -27,7 +27,6 @@ require("./routes/artists")(app, db);
 require("./routes/albums")(app, db);
 require("./routes/songs")(app, db);
 
-
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`API Server is running on port ${PORT}.`);
