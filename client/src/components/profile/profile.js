@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './profile.scss';
+import UserProfile from "../profiles/UserProfile"
 
 import profilePic from '../../assets/blankUser.jpg';
 
@@ -14,6 +15,8 @@ export default class Profile extends Component {
 
     render() {
         return(
+            <div>
+                <UserProfile />
             <div className="profile">
                 <img src={profilePic} className="profileImg" alt="Profile pic" />
                 <h3>Profile</h3>
@@ -24,6 +27,8 @@ export default class Profile extends Component {
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
             </div>
+            </div>
+            
         );
     }
 }
