@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import "./home.scss";
-import TopMusic from "../profiles/TopMusic"
-
 
 export default class Home extends Component {
     render() {
@@ -16,7 +14,7 @@ export default class Home extends Component {
                     Please use the button below to sign-up.
                 </p>
 
-                <Link to="/add-user">
+                <Link to="/login">
                     <button className="sign-up-btn">
                         Sign up!
                     </button>

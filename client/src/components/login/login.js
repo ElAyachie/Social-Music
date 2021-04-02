@@ -70,6 +70,7 @@ function Login() {
             .catch(function(error) {
                 console.log(error);
             });
+        window.location.reload();
     };
 
     const handleLogout = () => {
@@ -77,6 +78,7 @@ function Login() {
         setUserName("");
         setPassword("");
         localStorage.clear();
+        window.location.reload();
     }
 
     if(user) {
