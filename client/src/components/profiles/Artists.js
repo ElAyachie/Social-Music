@@ -2,11 +2,7 @@ import React from 'react';
 import "./profiles.scss";
 import Upvote_Icon from "../../assets/upvote.svg"
 
-
-
-
 function Artists() {
-
 
     return (
         <div className="artist">

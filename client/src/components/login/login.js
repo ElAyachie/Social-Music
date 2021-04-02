@@ -46,10 +46,10 @@ function Login() {
         };
         await axios.post(api.base_url + '/login', user)
             .then(function(response) {
-                setUser(response.data.username);
-                localStorage.setItem("user", JSON.stringify(response.data.username));
-                console.log(response.data);
                 if(response.data.code === 200) {
+                    setUser(response.data.username);
+                    localStorage.setItem("user", JSON.stringify(response.data.username));
+                    console.log(response.data);
                     console.log("Login Successful");
                     var uploadScreen=[];
                     uploadScreen.push(<UploadScreen appContext={self.props.appContext} />);
@@ -57,10 +57,12 @@ function Login() {
                         loginPage: [],
                         uploadScreen: uploadScreen
                     })
+                    window.location.reload();
                 }
                 else if(response.data.code === 204) {
                     console.log("Username or Password do not match our records.");
                     alert("Username or Password do not match our records.");
+                    window.location.reload();
                 }
                 else {
                     console.log("Username does not exist.");
@@ -70,7 +72,6 @@ function Login() {
             .catch(function(error) {
                 console.log(error);
             });
-        window.location.reload();
     };
 
     const handleLogout = () => {
