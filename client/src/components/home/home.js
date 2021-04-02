@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import "./home.scss";
+<<<<<<< HEAD
 import UserProfile from "../profiles/UserProfile"
 
+=======
+>>>>>>> ffe31eeccc398dbe46f242a8fd5686b1c52282fc
 
 export default class Home extends Component {
     render() {
@@ -17,7 +20,7 @@ export default class Home extends Component {
                     Please use the button below to sign-up.
                 </p>
 
-                <Link to="/add-user">
+                <Link to="/login">
                     <button className="sign-up-btn">
                         Sign up!
                     </button>
