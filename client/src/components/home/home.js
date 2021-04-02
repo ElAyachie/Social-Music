@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import "./home.scss";
+import TopMusic from "../profiles/TopMusic"
 
 
 export default class Home extends Component {
