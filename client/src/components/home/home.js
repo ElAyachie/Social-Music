@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import "./home.scss";
 
+
 export default class Home extends Component {
     render() {
         return(
+            <div>
             <div id="home" className="container">
                 <h1>Social Music</h1>
 
@@ -25,6 +27,8 @@ export default class Home extends Component {
                         Login!
                     </button>
                 </Link>
+                
+            </div>
             </div>
         );
     }
