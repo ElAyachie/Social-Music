@@ -3,7 +3,7 @@ import './feed.scss';
 
 import Post from './post';
 
-import postData from './postData.js';
+import Post from './post';
 
 export default class Feed extends Component {
 
