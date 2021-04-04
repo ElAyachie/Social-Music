@@ -6,7 +6,7 @@ function EachFriend() {
 
     return (
         <div className="friend">
-            <img className="picture" src={Profile_Pic} width="45px" height="45px"></img>
+            <img className="picture" src={Profile_Pic} width="45px" height="45px" alt="Profile pic"></img>
             <h4 className="name">Sam Smith</h4>
         </div>
     )

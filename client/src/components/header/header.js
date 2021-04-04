@@ -15,7 +15,7 @@ export default class Header extends Component
         }
     }
 
-    componentWillMount(){
+    componentDidMount(){
         const loggedInUser = localStorage.getItem("user");
         if(loggedInUser) {
             const foundUser = JSON.parse(loggedInUser);
@@ -36,6 +36,9 @@ export default class Header extends Component
                             Social Music
                         </Link>
                         <ul className="nav ml-auto ul-custom">
+                            <li className="nav-item active li-custom">
+                                <Link to="/welcome" className="nav-link">Welcome</Link>
+                            </li>
                             <li className="nav-item active li-custom">
                                 <Link to="/home" className="nav-link">Home</Link>
                             </li>

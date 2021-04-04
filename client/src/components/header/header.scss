@@ -1,10 +1,11 @@
 .navbar-custom {
     font-weight: 700;
-    box-shadow: 5px 5px 8px #888888;
+    -webkit-box-shadow: 0px 2px 10px 2px rgba(222,0,255,0.75); 
+    box-shadow: 0px 2px 10px 2px rgba(222,0,255,0.75);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color: #00e600;
+    background-color: white;
 }
 
 #search {
@@ -27,20 +28,17 @@
     color: #000000;
 }
 
-// .navbar-light .navbar-brand:hover {
-//     color: #fcb33b;
-// }
+.navbar-light .navbar-brand:hover {
+     color: purple;
+}
 
 .nav-link {
     color: black;
 }
 
-// .nav-link:hover {
-//     border: 1px solid black;
-//     border-radius: 32px;
-//     background-color: black;
-//     color: #fcb33b;
-// }
+.nav-link:hover {
+    color: purple;
+}
 
 .ul-custom {
     list-style-type: none;
