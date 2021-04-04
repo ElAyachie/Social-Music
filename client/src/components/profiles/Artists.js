@@ -7,10 +7,10 @@ function Artists() {
     return (
         <div className="artist">
             <div className="jc-cente">
-                <img className="picture" src="https://api.deezer.com/album/69319552/image" height="65px" width="65px"></img>
+                <img className="picture" src="https://api.deezer.com/album/69319552/image" height="65px" width="65px" alt="Artist"></img>
             </div>
             <h2 className="name">Drake</h2>
-            <img className="upvote-icon" src={Upvote_Icon}></img>
+            <img className="upvote-icon" src={Upvote_Icon} alt="Upvote"></img>
         </div>
         
     )

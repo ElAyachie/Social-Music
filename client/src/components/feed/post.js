@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './feed.scss';
+import './feed1.scss';
 
 import profileImg from '../../assets/blankUser.jpg';
 import favorite from '../../assets/note.png';

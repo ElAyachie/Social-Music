@@ -130,7 +130,7 @@ function Login() {
                         />
                     </div>
 
-                    <button type="submit" className="btn btn-success loginBtn" /*onClick={login}*/>
+                    <button type="submit" className="btn btn-success loginBtn">
                         Login
                     </button>
                 </form>
