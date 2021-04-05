@@ -1,5 +1,5 @@
 module.exports = (app, db) => {
-    const query = require('../query/information.queries.json');
+    const query = require('../query/user_information.queries.json');
   
 app.post('/api/login', (req, res) => {
     const username = req.body.username;

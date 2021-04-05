@@ -6,7 +6,7 @@ import {Dropdown, DropdownButton} from 'react-bootstrap';
 
 const Track = ({ musicResult }) => {
 
-    const addArtist = () => {
+    function addArtist() {
         axios.post(api.base_url + "/users/artistinterests/insert", {
             ID: 14,
             ArtistID: musicResult.artist.id,
@@ -16,9 +16,9 @@ const Track = ({ musicResult }) => {
         .then(() => {
             alert("Successful insert");
         });
-    };
+    }
 
-    const addSong = () => {
+    function addSong() {
         axios.post(api.base_url + "/users/songinterests/insert", {
             ID: 14,
             SongName: musicResult.title,
@@ -31,9 +31,9 @@ const Track = ({ musicResult }) => {
         .then(() => {
             alert("Successful insert");
         });
-    };
+    }
 
-    const addAlbum = () => {
+    function addAlbum() {
         axios.post(api.base_url + "/users/albuminterests/insert", {
             ID: 14,
             AlbumID: musicResult.album.id,
@@ -45,7 +45,7 @@ const Track = ({ musicResult }) => {
         .then(() => {
             alert("Successful insert");
         });
-    }; 
+    }
     
     const audioRef = useRef();
 
@@ -60,9 +60,9 @@ const Track = ({ musicResult }) => {
               <br />
               <h5 className="card-title header">{musicResult.artist.name} - {musicResult.title}</h5>
               <DropdownButton className="drop-up" id="dropdown-button-drop-up" drop="up" title="+">
-                    <Dropdown.Item onClick={addSong}>Add Song</Dropdown.Item>
-                    <Dropdown.Item onClick={addArtist}>Add Artist</Dropdown.Item>
-                    <Dropdown.Item onClick={addAlbum}>Add Album</Dropdown.Item>
+                    <Dropdown.Item onClick={addSong()}>Add Song</Dropdown.Item>
+                    <Dropdown.Item onClick={addArtist()}>Add Artist</Dropdown.Item>
+                    <Dropdown.Item onClick={addAlbum()}>Add Album</Dropdown.Item>
               </DropdownButton>
               {musicResult.explicit_content_lyrics && <img className="explicit-icon" src={ExplicitIcon} alt="explicit icon" width="90px" height="55" />}
               <audio className="audio" controls ref={audioRef}>

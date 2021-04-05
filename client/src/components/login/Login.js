@@ -47,9 +47,10 @@ function Login() {
         await axios.post(api.base_url + '/login', user)
             .then(function(response) {
                 setUser(response.data.username);
-                localStorage.setItem("user", JSON.stringify(response.data.username));
-                console.log(response.data);
                 if(response.data.code === 200) {
+                    localStorage.setItem("user", JSON.stringify(response.data.username));
+                    localStorage.setItem("user_id", JSON.stringify(response.data.UserID));
+                    console.log(response.data);
                     console.log("Login Successful");
                     var uploadScreen=[];
                     uploadScreen.push(<UploadScreen appContext={self.props.appContext} />);
