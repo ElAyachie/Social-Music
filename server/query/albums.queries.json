@@ -1,4 +1,4 @@
 {
-    "getAllAlbumInterestData": "SELECT * FROM users.albuminterests",
-    "addNewAlbumInterest" : "INSERT INTO users.albuminterests (ID, AlbumID, AlbumName, AlbumPic, ArtistID, ArtistName) VALUES (?,?,?,?,?,?)"
+    "getAllAlbumInterestData": "SELECT * FROM users.album_interests",
+    "addNewAlbumInterest" : "INSERT INTO users.album_interests (UserID, AlbumID, AlbumName, AlbumPic, ArtistID, ArtistName) VALUES (?,?,?,?,?,?)"
 }

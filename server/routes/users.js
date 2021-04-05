@@ -1,5 +1,5 @@
 module.exports = (app, db) => {
-  const query = require('../query/information.queries.json');
+  const query = require('../query/user_information.queries.json');
 
   app.get('/api/users/get', (req, res) => {
     db.query(query.getAllData, (error, result) => {

@@ -1,5 +1,5 @@
 {
-    "getAllData": "SELECT * FROM users.information",
-    "addNewUser": "INSERT INTO users.information (username, name, password) VALUES (?,?,?)",
-    "getUser": "SELECT * FROM users.information WHERE username = ?" 
+    "getAllData": "SELECT * FROM users.user_information",
+    "addNewUser": "INSERT INTO users.user_information (username, email, password, name) VALUES (?,?,?,?)",
+    "getUser": "SELECT * FROM users.user_information WHERE username = ?" 
 }
