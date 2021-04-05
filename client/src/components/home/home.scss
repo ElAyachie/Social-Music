@@ -1,18 +1,33 @@
 #home {
+    display: block;
+    min-height: 100%;
     margin-top: 1rem;
-    margin-bottom: 1rem;
-}
 
-.sign-up-btn {
-    width: 20%;
-    background-color: white;
-    border: 2px solid black;
-    border-radius: 12px;
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
-    font-weight: 600;
-}
+    .profile-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        border: 2px solid purple;
+        border-radius: 32px;
+        background-color: white;
+    }
 
-.sign-up-btn:hover {
-    background-color: orange;
+    .pro-pic {
+        width: 5%;
+        border-radius: 50%;
+    }
+
+    .feed-space {
+        padding: 10px;
+        margin-top: 1rem;
+        border: 2px solid purple;
+        border-radius: 24px;
+        background-color: white;
+    }
+
+    .feed-space-content {
+        overflow-y: auto;
+        height: 500px;
+    }
 }
