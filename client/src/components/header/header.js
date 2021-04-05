@@ -15,7 +15,7 @@ export default class Header extends Component
         }
     }
 
-    componentWillMount(){
+    componentDidMount(){
         const loggedInUser = localStorage.getItem("user");
         if(loggedInUser) {
             const foundUser = JSON.parse(loggedInUser);
@@ -37,6 +37,9 @@ export default class Header extends Component
                         </Link>
                         <ul className="nav ml-auto ul-custom">
                             <li className="nav-item active li-custom">
+                                <Link to="/welcome" className="nav-link">Welcome</Link>
+                            </li>
+                            <li className="nav-item active li-custom">
                                 <Link to="/home" className="nav-link">Home</Link>
                             </li>
                             <li className="nav-item active li-custom">
@@ -52,6 +55,9 @@ export default class Header extends Component
                             </li>
                             <li className="nav-item active li-custom">
                                 <Link to="/feed" className="nav-link">Feed</Link>
+                            </li>
+                            <li className="nav-item active li-custom">
+                                <Link to="/userprofile" className="nav-link">User</Link>
                             </li>
                         </ul>
                     </div>

@@ -64,7 +64,10 @@ const Track = ({ musicResult }) => {
                     <Dropdown.Item onClick={addArtist()}>Add Artist</Dropdown.Item>
                     <Dropdown.Item onClick={addAlbum()}>Add Album</Dropdown.Item>
               </DropdownButton>
-              {musicResult.explicit_content_lyrics && <img className="explicit-icon" src={ExplicitIcon} alt="explicit icon" width="90px" height="55" />}
+              {
+                    musicResult.explicit_content_lyrics ? 
+                    <img className="explicit-icon" src={ExplicitIcon} alt="explicit icon" width="90px" height="55" /> : <div />
+                }
               <audio className="audio" controls ref={audioRef}>
                   <source src={musicResult.preview} type="audio/mpeg"/>
                   Your browser does not support the audio tag.

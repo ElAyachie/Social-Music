@@ -5,8 +5,6 @@ import Friends from "./Friends"
 import TopMusic from "./TopMusic"
 import Post from "../post/post"
 
-
-
 function UserProfile() {
 
     return (
