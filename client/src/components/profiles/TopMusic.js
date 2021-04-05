@@ -1,8 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Tabs, Tab } from 'react-bootstrap';
 import "./profiles.scss";
+
 import Artists from "./Artists";
 import UserTracks from "./UserTracks"
-import { Tabs, Tab } from 'react-bootstrap';
+
+//import musicData from './musicData.js';
 
 function TopMusic() {
 
@@ -30,6 +34,11 @@ function TopMusic() {
             </Tabs>
         </div>
     )
+}
+
+TopMusic.propTypes = {
+    artistImg: PropTypes.string,
+    postText: PropTypes.string
 }
 
 export default TopMusic;
