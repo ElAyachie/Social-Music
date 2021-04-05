@@ -2,9 +2,9 @@ module.exports = (app, db) => {
     const query = require('../query/user_information.queries.json');
   
 app.post('/api/login', (req, res) => {
-    const username = req.body.username;
+    const email = req.body.email;
     const password = req.body.password;
-    db.query(query.getUser, [username], (error, result) => {
+    db.query(query.getUser, [email], (error, result) => {
       if(error) {
         console.log("Error occured", error);
         res.send({
@@ -16,7 +16,9 @@ app.post('/api/login', (req, res) => {
         if(result.length > 0) {
           if(result[0].Password == password) {
             res.send({
-              "username": username,
+              "userID": result[0].UserID,
+              "email": email,
+              "username": result[0].Username,
               "code": 200,
               "success": "Login Successful"
             });

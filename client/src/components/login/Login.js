@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "./login.scss";
 
-import UploadScreen from './UploadScreen';
-
 import api from '../../config/api';
 
 /* 
@@ -18,14 +16,14 @@ async function loginUser(credentials) {
       .then(data => data.json());
 }
         const token = await loginUser({
-            username,
+            email,
             password
         });
         setToken(token);
 */
 
 function Login() {
-    const [username, setUserName] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [user, setUser] = useState();
 
@@ -39,35 +37,32 @@ function Login() {
 
     const handleLogin = async e => {
         e.preventDefault();
-        var self = this;
         const user = {
-            username,
+            email,
             password
         };
         await axios.post(api.base_url + '/login', user)
             .then(function(response) {
                 if(response.data.code === 200) {
-                    setUser(response.data.username);
-                    localStorage.setItem("user", JSON.stringify(response.data.username));
-                    localStorage.setItem("user_id", JSON.stringify(response.data.UserID));
+                    const userData = [
+                        response.data.userID,
+                        response.data.email,
+                        response.data.username
+                    ];
+                    setUser(response.data.email);
+                    localStorage.setItem("user", JSON.stringify(userData));
                     console.log(response.data);
                     console.log("Login Successful");
-                    var uploadScreen=[];
-                    uploadScreen.push(<UploadScreen appContext={self.props.appContext} />);
-                    self.props.appContext.setState({
-                        loginPage: [],
-                        uploadScreen: uploadScreen
-                    })
                     window.location.reload();
                 }
                 else if(response.data.code === 204) {
-                    console.log("Username or Password do not match our records.");
-                    alert("Username or Password do not match our records.");
+                    console.log("email or Password do not match our records.");
+                    alert("email or Password do not match our records.");
                     window.location.reload();
                 }
                 else {
-                    console.log("Username does not exist.");
-                    alert("Username does not exist.");
+                    console.log("email does not exist.");
+                    alert("email does not exist.");
                 }
             })
             .catch(function(error) {
@@ -77,7 +72,7 @@ function Login() {
 
     const handleLogout = () => {
         setUser("");
-        setUserName("");
+        setEmail("");
         setPassword("");
         localStorage.clear();
         window.location.reload();
@@ -105,13 +100,13 @@ function Login() {
                         className="form-control"
                         type="text"
                         autoComplete="on"
-                        id="username"
+                        id="email"
                         required
-                        name="Username"
+                        name="email"
                         placeholder="Email"
-                        value={username}
+                        value={email}
                         onChange={(e) => {
-                            setUserName(e.target.value);
+                            setEmail(e.target.value);
                         }}
                         />
                     </div>
@@ -143,22 +138,30 @@ function Login() {
 export default Login;
 
 /*
+
+    var uploadScreen=[];
+    uploadScreen.push(<UploadScreen appContext={self.props.appContext} />);
+    self.props.appContext.setState({
+        loginPage: [],
+        uploadScreen: uploadScreen
+    })
+
 constructor(props) {
         super(props);
 
-        this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onChangeemail = this.onChangeemail.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
         this.onLoginClick = this.onLoginClick.bind(this);
 
         this.state = {
-            username: '',
+            email: '',
             password: ''
         }
     }
 
-    onChangeUsername(e) {
+    onChangeemail(e) {
         this.setState({
-            username: e.target.value
+            email: e.target.value
         });
     }
 
@@ -171,7 +174,7 @@ constructor(props) {
     const login = () => {
         var self = this;
         var payload = {
-            "email": username,
+            "email": email,
             "password": password
         }
 
@@ -188,12 +191,12 @@ constructor(props) {
                     })
                 }
                 else if(response.data.code === 204) {
-                    console.log("Username or Password do not match our records.");
-                    alert("Username or Password do not match our records.");
+                    console.log("email or Password do not match our records.");
+                    alert("email or Password do not match our records.");
                 }
                 else {
-                    console.log("Username does not exist.");
-                    alert("Username does not exist.");
+                    console.log("email does not exist.");
+                    alert("email does not exist.");
                 }
             })
             .catch(function(error) {
