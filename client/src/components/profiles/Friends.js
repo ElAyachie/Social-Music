@@ -2,8 +2,6 @@ import React from 'react';
 import EachFriend from "./EachFriend"
 import "./profiles.scss";
 
-
-
 function Friends() {
 
     return (

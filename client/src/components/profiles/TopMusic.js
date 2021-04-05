@@ -4,11 +4,7 @@ import Artists from "./Artists";
 import UserTracks from "./UserTracks"
 import { Tabs, Tab } from 'react-bootstrap';
 
-
-
-
 function TopMusic() {
-
 
     return (
         <div className="music-section">

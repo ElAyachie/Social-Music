@@ -9,7 +9,8 @@
 /coverage
 
 # db config
-/config/db.config 
+/config
+/config/db.config
 
 # production
 /build

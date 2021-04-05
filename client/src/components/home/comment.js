@@ -1,32 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './feed1.scss';
+import './feed.scss';
 
 import profileImg from '../../assets/blankUser.jpg';
 import favorite from '../../assets/note.png';
 import comment from '../../assets/comment.png';
 
-function Post(props) {
+function Comment(props) {
 
     const handleComment = async e => {
         
     }
 
     return(
-        <div className="post">
+        <div className="comment">
             <div className="userInfo">
                 <img src={profileImg} alt="User Profile" className="profileImg" />
                 <br />
                 <h4 className="user">{props.userName}</h4>
             </div>
             <br />
-            <p className="postData">
-                {props.postText}
+            <p className="commentData">
+                {props.commentText}
             </p>
             <br />
             <div className="icons">
                 <img src={favorite} alt="Favorite icon" className="icon" />
-                <button onClick={handleComment}>
+                <button onClick={handleComment} className="commentBtn">
                     <img src={comment} alt="Comment icon" className="icon"/>
                 </button>
             </div>
@@ -34,9 +34,9 @@ function Post(props) {
     );
 }
 
-Post.propTypes = {
+Comment.propTypes = {
     userName: PropTypes.string,
-    postText: PropTypes.string
+    commentText: PropTypes.string
 }
 
-export default Post;
+export default Comment;

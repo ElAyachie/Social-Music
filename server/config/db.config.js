@@ -3,4 +3,4 @@ module.exports = {
     USER: "mohamed",
     PASSWORD: 'A=PmxVg8eH$=mH(>',
     DB: "",
-};
+}
