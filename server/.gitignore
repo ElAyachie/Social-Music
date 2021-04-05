@@ -10,6 +10,7 @@
 
 # db config
 /config
+/config/db.config
 
 # production
 /build

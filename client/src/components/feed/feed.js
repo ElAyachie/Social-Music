@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './feed.scss';
+import './feed1.scss';
 
 import Post from './post';
 
