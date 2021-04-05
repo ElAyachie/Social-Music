@@ -1,5 +1,5 @@
 module.exports = (app, db) => {
-  const query = require('../query/information.queries.json');
+  const query = require('../query/user_information.queries.json');
 
   app.get('/api/users/get', (req, res) => {
     db.query(query.getAllData, (error, result) => {
@@ -8,11 +8,12 @@ module.exports = (app, db) => {
   });
   
   app.post("/api/users/insert", (req, res) => {
-    const email = req.body.email;
+
     const username = req.body.username;
+    const email = req.body.email;
     const name = req.body.name;
     const password = req.body.password;
-    db.query(query.addNewUser, [email, username, name, password], (error, result) => {
+    db.query(query.addNewUser, [username, email, name, password], (error, result) => {
       console.log(result);
       if(error) {
         console.log("Error on insert", error);
