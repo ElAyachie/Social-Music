@@ -19,6 +19,7 @@
     }
 
     .feed-space {
+        position: relative;
         padding: 10px;
         margin-top: 1rem;
         border: 2px solid purple;
@@ -29,5 +30,45 @@
     .feed-space-content {
         overflow-y: auto;
         height: 500px;
+    }
+
+    .music-space {
+        position: relative;
+        padding: 10px;
+        margin-top: 1rem;
+        border: 2px solid purple;
+        border-radius: 24px;
+        background-color: white;
+    }
+
+    .music-space-content {
+        overflow-y: auto;
+        height: 500px;
+    }
+
+    .friend-space {
+        padding: 10px;
+        position: relative;
+        margin-top: 1rem;
+        border: 2px solid purple;
+        border-radius: 24px;
+        background-color: white;
+    }
+
+    .friend-space-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-y: auto;
+        height: 500px;
+    }
+
+    .expand-icon {
+        width: 25px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-right: 10px;
+        margin-top: 10px;
     }
 }
