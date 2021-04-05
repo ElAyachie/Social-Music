@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './login.scss';
 
-import Login from './Login';
+//import Login from './Login';
 
 import api from '../../config/api';
 
 function Register() {
-    const [email, setEmail] = useState("");
     const [username, setUserName] = useState("");
+    const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
 
@@ -18,27 +18,18 @@ function Register() {
             return;
         }
         else {
-            var self = this;
             var payload = {
-                email: email,
                 username: username,
+                email: email,
                 name: name,
                 password: password
             }
             axios.post(api.base_url + "/users/insert", payload)
                 .then((response) => {
-                    console.log("Registration Successful");
-                    alert("Successful Register");
                     if(response.data.code === 200) {
-                        var loginscreen = [];
-                        loginscreen.push(<Login parentContext={this} />);
-                        var loginmessage = "Not Registered yet. Go to Registration.";
-                        self.props.parentContext.setStae({
-                            loginscreen: loginscreen,
-                            loginmessage: loginmessage,
-                            buttonLabel: "Register",
-                            isLogin: true
-                        });
+                        console.log("Registration Successful");
+                        alert("Successful Register");
+                        window.location.reload();
                     }
                 })
                 .catch((error) => {
@@ -123,6 +114,15 @@ function Register() {
 export default Register;
 
 /*
+    var loginscreen = [];
+    loginscreen.push(<Login parentContext={this} />);
+    var loginmessage = "Not Registered yet. Go to Registration.";
+    self.props.parentContext.setStae({
+        loginscreen: loginscreen,
+        loginmessage: loginmessage,
+        buttonLabel: "Register",
+        isLogin: true
+    });
     constructor(props) {
         super(props);
 
