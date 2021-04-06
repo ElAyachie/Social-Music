@@ -83,6 +83,7 @@
 .music-section {
     display: inline-block;
     margin-top: 50px;
+    margin-left: 15%;
     margin-right: 25%;
     width: 399px;
 
@@ -189,6 +190,10 @@
         // margin-right: 40%;
         // display: inline-block;
         z-index: 2;
+        // display: flex;
+        // flex-direction: row;
+        // flex-wrap: wrap;
+        // justify-content: center;
     }
 
     .right-side {
