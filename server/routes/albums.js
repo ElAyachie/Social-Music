@@ -1,13 +1,15 @@
 module.exports = (app, db) => {
     const query = require('../query/albums.queries.json');
-    app.get('/api/users/album_interests/get', (req, res) => {
-        db.query(query.getAllalbumInterestsData, (err, result) => {
+
+      app.get('/api/users/album_interests/get', (req, res) => {
+        const UserID = req.boyd.UserID
+        db.query(query.getAllAlbumInterestsByUser, [UserID], (error, result) => {
           console.log(result);
         });
       });
       
       app.post("/api/users/album_interests/insert", (req, res) => {
-        const UserID = req.body.ID;
+        const UserID = req.body.UserID;
         const AlbumID = req.body.AlbumID;
         const AlbumName = req.body.AlbumName;
         const AlbumPic = req.body.AlbumPic;

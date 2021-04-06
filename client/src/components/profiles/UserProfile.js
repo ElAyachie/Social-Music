@@ -12,7 +12,6 @@ function UserProfile() {
             <div className="left-side">
                 <div className="corner">
                     <UserInfo />
-                    <Friends />
                 </div>
                 <TopMusic />
             </div>

@@ -1,13 +1,15 @@
 module.exports = (app, db) => {
     const query = require('../query/songs.queries.json');
+
     app.get('/api/users/song_interests/get', (req, res) => {
-        db.query(query.getAllSongInterestsData, (err, result) => {
+        const UserID = req.boyd.UserID
+        db.query(query.getAllSongInterestsByUser, [UserID], (error, result) => {
           console.log(result);
         });
       });
       
       app.post("/api/users/song_interests/insert", (req, res) => {
-        const UserID = req.body.ID;
+        const UserID = req.body.UserID;
         const SongName = req.body.SongName;
         const SongLink = req.body.SongLink;
         const ArtistID = req.body.ArtistID;

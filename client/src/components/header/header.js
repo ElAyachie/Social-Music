@@ -15,7 +15,7 @@ export default class Header extends Component
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         const loggedInUser = localStorage.getItem("user");
         if(loggedInUser) {
             const foundUser = JSON.parse(loggedInUser);
