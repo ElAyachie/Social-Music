@@ -36,10 +36,13 @@
     border: 1px solid #000000;
     border-radius: 8px;
     padding-top: 10px;
+    margin-top: 50px;
     margin-left: 23%;
     margin-right: 30%;
     margin-bottom: 40px;
     background-color: #F6F6F6;
+    height: 200px;
+    overflow-y: scroll;
     
 
     .view-button {
@@ -79,8 +82,16 @@
 
 .music-section {
     display: inline-block;
+    margin-top: 50px;
     margin-right: 25%;
     width: 399px;
+
+    .sub-section {
+        background-color: #F6F6F6;
+        border-radius: 3px;
+        padding-bottom: 5px;
+    }
+    
 }
 
 .artist {
@@ -99,6 +110,7 @@
 
     .list {
         align-self: flex-start;
+        background-color: #F6F6F6;
     }
 
     .picture {
@@ -115,6 +127,9 @@
 
     .upvote-icon {
         cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 }
 
@@ -169,7 +184,7 @@
 
     .left-side {
         position: absolute;
-        top: 0;
+        top: 100px;
         left: 5%;
         // margin-right: 40%;
         // display: inline-block;
