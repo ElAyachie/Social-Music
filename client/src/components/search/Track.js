@@ -6,21 +6,27 @@ import {Dropdown, DropdownButton} from 'react-bootstrap';
 
 const Track = ({ musicResult }) => {
 
-    function addArtist() {
-        axios.post(api.base_url + "/users/artistinterests/insert", {
-            ID: 14,
+    const addArtist = () => {
+        const loggedInUser = localStorage.getItem("user");
+        const foundUser = JSON.parse(loggedInUser);
+        const userID = foundUser[0];
+        axios.post(api.base_url + "/users/artist_interests/insert", {
+            ID: userID,
             ArtistID: musicResult.artist.id,
             ArtistName: musicResult.artist.name,
             ArtistPic: musicResult.artist.picture,
         })
         .then(() => {
-            alert("Successful insert");
+            console.log("Successful insert");
         });
     }
 
-    function addSong() {
-        axios.post(api.base_url + "/users/songinterests/insert", {
-            ID: 14,
+    const addSong = () => {
+        const loggedInUser = localStorage.getItem("user");
+        const userInformation = JSON.parse(loggedInUser);
+        const userID = userInformation[0];
+        axios.post(api.base_url + "/users/song_interests/insert", {
+            UserID: userID,
             SongName: musicResult.title,
             SongLink: musicResult.preview,
             ArtistID: musicResult.artist.id,
@@ -29,13 +35,16 @@ const Track = ({ musicResult }) => {
             AlbumPic: musicResult.album.cover
         })
         .then(() => {
-            alert("Successful insert");
+            console.log("Successful insert");
         });
     }
 
-    function addAlbum() {
-        axios.post(api.base_url + "/users/albuminterests/insert", {
-            ID: 14,
+    const addAlbum = () => {
+        const loggedInUser = localStorage.getItem("user");
+        const foundUser = JSON.parse(loggedInUser);
+        const userID = foundUser[0];
+        axios.post(api.base_url + "/users/album_interests/insert", {
+            UserID: userID,
             AlbumID: musicResult.album.id,
             AlbumName: musicResult.album.title,
             AlbumPic: musicResult.album.cover,
@@ -43,7 +52,7 @@ const Track = ({ musicResult }) => {
             ArtistName: musicResult.artist.name
         })
         .then(() => {
-            alert("Successful insert");
+            console.log("Successful insert");
         });
     }
     
@@ -60,9 +69,9 @@ const Track = ({ musicResult }) => {
               <br />
               <h5 className="card-title header">{musicResult.artist.name} - {musicResult.title}</h5>
               <DropdownButton className="drop-up" id="dropdown-button-drop-up" drop="up" title="+">
-                    <Dropdown.Item onClick={addSong()}>Add Song</Dropdown.Item>
-                    <Dropdown.Item onClick={addArtist()}>Add Artist</Dropdown.Item>
-                    <Dropdown.Item onClick={addAlbum()}>Add Album</Dropdown.Item>
+                    <Dropdown.Item onClick={addSong}>Add Song</Dropdown.Item>
+                    <Dropdown.Item onClick={addArtist}>Add Artist</Dropdown.Item>
+                    <Dropdown.Item onClick={addAlbum}>Add Album</Dropdown.Item>
               </DropdownButton>
               {
                     musicResult.explicit_content_lyrics ? 

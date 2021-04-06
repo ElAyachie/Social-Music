@@ -20,16 +20,17 @@
 }
 
 .picture {
-    margin-bottom: 20px;
+
     border-radius: 50%;
+    margin-top: 10px;
 }
 .name {
-    margin-bottom: 30px;
+    font-size: 1.2rem;
     font-weight: 600;
 }
 
 .bio {
-    font-size: 1.4rem;
+    font-size: .8rem;
 }
 
 .friends-section {
@@ -66,6 +67,7 @@
         .name {
             display: inline-block;
             margin-bottom: 10px;
+            font-size: 10px;
         }
 
         .picture {
@@ -80,7 +82,10 @@
 .music-section {
     display: inline-block;
     margin-right: 25%;
-    width: 399px;
+    margin-left: 10%;
+    width: 400px;
+    overflow-y: scroll;
+    z-index: 0;
 }
 
 .artist {
@@ -110,7 +115,7 @@
 
     .name {
         margin-bottom: 10px;
-        font-size: 1.5rem;
+        font-size: .5rem;
     }
 
     .upvote-icon {
@@ -145,7 +150,7 @@
         display: inline-block;
         margin-right: 110px;
         margin-top: 5px;
-        font-size: 1.5rem;
+        font-size: .5rem;
     }
 
     .upvote-icon {
@@ -163,17 +168,15 @@
 }
 
 .user-profile {
-    position: relative;
-    // width: 1000px;
-    
 
     .left-side {
-        position: absolute;
-        top: 0;
-        left: 5%;
+        position: fixed;
+        top: 80px;
+        background: white;
+        width: 40%;
+        height: 100%;
         // margin-right: 40%;
         // display: inline-block;
-        z-index: 2;
     }
 
     .right-side {
@@ -181,9 +184,5 @@
         top: 180px;
         right: 10%;
         display: inline-block;
-    }
-
-    .corner {
-        
     }
 }

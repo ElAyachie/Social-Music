@@ -1,4 +1,4 @@
 {
-    "getAllArtistInterestData": "SELECT * FROM users.artist_interests",
+    "getAllArtistInterestsByUser": "SELECT * FROM users.artist_interests WHERE UserID = ?",
     "addNewArtistInterest" : "INSERT INTO users.artist_interests (UserID, ArtistID, ArtistName, ArtistPic) VALUES (?,?,?,?)"
 }

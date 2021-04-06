@@ -8,7 +8,6 @@ module.exports = (app, db) => {
   });
   
   app.post("/api/users/insert", (req, res) => {
-
     const username = req.body.username;
     const email = req.body.email;
     const name = req.body.name;
