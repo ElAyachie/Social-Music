@@ -31,7 +31,7 @@ const UserTracks = () => {
                     );
                     console.log(ais);
                     console.log(response.data.songInterests[0]);
-                    console.log("Artist data recieved");
+                    console.log("Song data recieved");
                 }
                 else {
                     console.log("Could not recieve data.");
@@ -43,17 +43,17 @@ const UserTracks = () => {
     };
 
     return (
-        <div className="track">
+        <div>
         {
         (songInterests.length !== 0) ? (
             <div>
             { 
             songInterests.map((song, index) => (
-            <div>
-                <img className="picture" src={song.AlbumPic} height="55px" width="55px" alt="Album"></img>
-                <h2 className="title">{song.SongName}</h2>
-                <img className="upvote-icon" src={Upvote_Icon} alt="Upvote"></img>
-                <img className="explicit-icon" src={Explicit_Icon} height="20px" width="40px" alt="Explicit"></img>
+                <div className="track">
+                    <img className="picture" src={song.AlbumPic} height="55px" width="55px" alt="Album"></img>
+                    <h2 className="title">{song.SongName} - {song.ArtistName}</h2>
+                    <img className="upvote-icon" src={Upvote_Icon} alt="Upvote"></img>
+                    <img className="explicit-icon" src={Explicit_Icon} height="20px" width="40px" alt="Explicit"></img>
                 </div>
            ))}</div>):(
           <h5>Nothing to show...</h5>
