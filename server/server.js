@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const config = require('./config/db.config');
 const mysql = require('mysql');
-const { response } = require('express');
 
 const app = express();
 
@@ -40,5 +39,3 @@ module.exports = app;
   if (err) throw err;
   console.log("Connected to GCP Database!");
 });*/
-
-//require("./routes/users.routes")(app, db);

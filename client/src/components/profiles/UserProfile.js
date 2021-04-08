@@ -8,17 +8,18 @@ import Post from "../post/post"
 function UserProfile() {
 
     return (
-        <div className="user-profile">
+        <div className="user-profile container">
             <div className="left-side">
-                <div className="corner">
-                    <UserInfo />
-                    <Friends />
-                </div>
+                <UserInfo />
+                <Friends />
                 <TopMusic />
             </div>
             <div className="right-side">
-                <Post />
-                <Post />
+                <div className="right-side-content">
+                    <Post />
+                    <Post />
+                    <Post />
+                </div>
             </div>
         </div>
     )
