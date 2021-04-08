@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import "./profiles.scss";
 import UserInfo from "./UserInfo"
 import Friends from "./Friends"
@@ -6,7 +6,6 @@ import TopMusic from "./TopMusic"
 import Post from "../post/post"
 
 function UserProfile() {
-
     return (
         <div className="user-profile">
             <div className="left-side">
@@ -20,7 +19,6 @@ function UserProfile() {
                 <Post />
             </div>
         </div>
-    )
+        );
 }
-
 export default UserProfile;

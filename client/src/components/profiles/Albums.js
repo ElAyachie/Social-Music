@@ -4,25 +4,27 @@ import axios from 'axios';
 import "./profiles.scss";
 import Upvote_Icon from "../../assets/upvote.svg"
 
-const Artists = () => {
-    const [artistInterests, setArtistInterests] = useState([]);
+const Albums = () => {
+    const [albumInterests, setAlbumInterests] = useState([]);
 
     useEffect(() => {
-        getArtistInterests();
+        getAlbumInterests();
     }, []);
 
-    const getArtistInterests = () => {
+    const getAlbumInterests = () => {
         const loggedInUser = JSON.parse(localStorage.getItem("user"));
         const userID = loggedInUser[0];
-        axios.get(api.base_url + '/users/load_artists/get', {UserID: userID})
+        axios.get(api.base_url + '/users/load_albums/get',{
+            UserID: userID,
+        })
             .then(response => {
                 if (response.data.code === 200) {
-                    setArtistInterests(response.data);
+                    setAlbumInterests(response.data);
                     console.log(response.data);
-                    console.log("Artist data recieved");
+                    console.log("Album data recieved.");
                 }
                 else {
-                    console.log("Could not recieve data.");
+                    console.log("Album load successful.");
                 }
             })
             .catch(function(error) {
@@ -32,24 +34,24 @@ const Artists = () => {
 
     return (
         <div className="artist">
-            {
-            (artistInterests.length !== 0) ? (
+        {
+        (albumInterests.length !== 0) ? (
             <div>
             { 
-            artistInterests.map((artist, index) => (
+            albumInterests.map((album, index) => (
             <div>
                 <div className="jc-cente">
-                    <img className="picture" src={artist.ArtistPicture} height="65px" width="65px" alt="Artist"></img>
+                    <img className="picture" src={album.AlbumPicture} height="65px" width="65px" alt="Artist"></img>
                 </div>
-                <h2 className="name">{artist.ArtistName}</h2>
+                <h2 className="name">{album.AlbumName}</h2>
                 <img className="upvote-icon" src={Upvote_Icon} alt="Upvote" width="23px" height="23px"></img>
             </div>
-           ))}</div>):(
-          <h5>Nothing to show...</h5>
-        )
-           }
-    </div>
-    );
-}
+            ))}</div>):(
+                <h5>Nothing to show...</h5>
+              )
+            }
+          </div>
+          );
+      }
 
-export default Artists;
+export default Albums;
