@@ -41,26 +41,46 @@ const Artists = () => {
             });
     };
 
+    const removeArtistInterests = async e => {
+        await axios.remove(api.base_url + '/users/load_artists/remove', {
+                data: {
+                    UserID: userID,
+                    ArtistID: 13
+                }
+            })
+            .then(function(response) {
+                if (response.data.code === 200) {
+                    console.log("Artist entry deleted");
+                }
+                else {
+                    console.log("Could not recieve data.");
+                }
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    };
+
 
     return (
-        <div className="artist">
+        <div>
             {
             (artistInterests.length !== 0) ? (
             <div>
             { 
             artistInterests.map((artist, index) => (
-            <div>
-                <div className="jc-cente">
-                    <img className="picture" src={artist.ArtistPic} height="65px" width="65px" alt="Artist"></img>
-                </div>
-                <h2 className="name">{artist.ArtistName}</h2>
-                <img className="upvote-icon" src={Upvote_Icon} alt="Upvote" width="23px" height="23px"></img>
+                <div className="artist">
+                    <div className="jc-cente">
+                        <img className="picture" src={artist.ArtistPic} height="65px" width="65px" alt="Artist"></img>
+                    </div>
+                    <h2 className="name">{artist.ArtistName}</h2>
+                    <img className="upvote-icon" src={Upvote_Icon} onClick={removeArtistInterests} alt="Upvote" width="23px" height="23px"></img>
             </div>
            ))}</div>):(
           <h5>Nothing to show...</h5>
         )
            }
-    </div>
+        </div>
     );
 }
 

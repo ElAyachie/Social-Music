@@ -7,7 +7,6 @@ module.exports = (app, db) => {
       });
       });
 
-      
       app.get('/api/users/load_artists/get', (req, res) => {
         const UserID = req.query.UserID;
         db.query(query.getAllArtistInterestsByUserID, [UserID], (error, result) => {
@@ -35,6 +34,27 @@ module.exports = (app, db) => {
                 "failed": "User has no artist interests"
               });
             }
+          }
+        });
+      });
+
+      app.remove("/api/users/artist_interests/remove", (req, res) => {
+        const UserID = req.body.UserID;
+        const ArtistID = req.body.ArtistID;
+        db.query(query.removeArtistInterestForUser, [UserID, ArtistID], (error, result) => {
+          console.log(result);
+          if(error) {
+            console.log("Error on remove", error);
+            res.send({
+              "code": 400,
+              "failed": "error occured"
+            });
+          }
+          else {
+            res.send({
+              "code": 200,
+              "success": "artist interest removed."
+            });
           }
         });
       });
