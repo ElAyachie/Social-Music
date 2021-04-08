@@ -8,9 +8,33 @@ module.exports = (app, db) => {
       });
 
       app.get('/api/users/load_albums/get', (req, res) => {
-        const UserID = req.body.UserID
+        const UserID = req.query.UserID;
         db.query(query.getAllAlbumInterestsByUserID, [UserID], (error, result) => {
-          console.log(result);
+          //console.log(result);
+          if(error) {
+            console.log("Error on get", error);
+            res.send({
+              "code": 400,
+              "failed": "error occured"
+            });
+          }
+          else {
+            if(result.length > 0) {
+              if(result[0].UserID == UserID) {
+                res.send({
+                  "code": 200,
+                  "success": "album interest found",
+                  "albumInterests": result
+                });
+              }
+            }
+            else {
+              res.send({
+                "code": 204,
+                "failed": "User has no album interests"
+              });
+            }
+          }
         });
       });
       
