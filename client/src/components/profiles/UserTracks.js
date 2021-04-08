@@ -7,25 +7,34 @@ import Explicit_Icon from "../../assets/explicit.svg";
 
 const UserTracks = () => {
     const [songInterests, setSongInterests] = useState([]);
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+    const [userID, setUserID] = useState(user[0]);
 
     useEffect(() => {
         getSongInterests();
-    }, []);
+    }, [setSongInterests]);
 
-    const getSongInterests = () => {
-        const loggedInUser = JSON.parse(localStorage.getItem("user"));
-        const userID = loggedInUser[0];
-        axios.get(api.base_url + '/users/load_songs/get', {
-            UserID: userID
-        })
-            .then(response => {
+    const getSongInterests = async e => {
+        await axios.get(api.base_url + '/users/load_songs/get', {
+                params: {
+                    UserID: userID
+                }
+            })
+            .then(function(response) {
                 if (response.data.code === 200) {
-                    setSongInterests(response.data);
-                    console.log(response.data);
-                    console.log("Song data recieved");
+                    const ais = [];
+                    for(var i = 0; i < response.data.songInterests.length; i++) {
+                        ais.push(response.data.songInterests[i]);
+                    }
+                    setSongInterests(
+                        ais
+                    );
+                    console.log(ais);
+                    console.log(response.data.songInterests[0]);
+                    console.log("Artist data recieved");
                 }
                 else {
-                    console.log("Song load successful.");
+                    console.log("Could not recieve data.");
                 }
             })
             .catch(function(error) {
@@ -41,8 +50,8 @@ const UserTracks = () => {
             { 
             songInterests.map((song, index) => (
             <div>
-                <img className="picture" src={song.AlbumPicture} height="55px" width="55px" alt="Album"></img>
-                <h2 className="title">{song.songName}</h2>
+                <img className="picture" src={song.AlbumPic} height="55px" width="55px" alt="Album"></img>
+                <h2 className="title">{song.SongName}</h2>
                 <img className="upvote-icon" src={Upvote_Icon} alt="Upvote"></img>
                 <img className="explicit-icon" src={Explicit_Icon} height="20px" width="40px" alt="Explicit"></img>
                 </div>
