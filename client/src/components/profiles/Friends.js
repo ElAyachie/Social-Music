@@ -12,8 +12,15 @@ function Friends() {
                 <EachFriend />
                 <EachFriend />
                 <EachFriend />
+                <EachFriend />
+                <EachFriend />
+                <EachFriend />
+                <EachFriend />
+                <EachFriend />
             </div>
-            <button type="button" class="view-button btn btn-primary">View All Friends</button> 
+            <button type="button" className="view-button btn btn-primary">
+                View All Friends
+            </button> 
         </div>
     )
 }

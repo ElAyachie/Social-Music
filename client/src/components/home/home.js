@@ -7,8 +7,37 @@ import ExpandIcon from '../../assets/expand-icon.png'
 import Feed from './feed';
 import TopMusic from '../profiles/TopMusic';
 import Friends from '../profiles/Friends';
+import NewPost from './NewPost';
 
 export default class Home extends Component {
+    constructor(props) {
+        super(props);
+
+        this.createNewPost = this.createNewPost.bind(this);
+    }
+
+    createNewPost() {
+        // Get the modal
+        var modal = document.getElementById("new-post");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        modal.style.display = "block";
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+
     render() {
         return(
             <div id="home" className="container">
@@ -17,7 +46,9 @@ export default class Home extends Component {
                     <h5>John Smith</h5>
                     <h5>@johnsmith</h5>
                     <button>Play My Music</button>
+                    <button onClick={this.createNewPost}>New Post</button>
                 </div>
+                <NewPost/>
                 <div className="feed-space">
                     <div className="feed-expand">
                         <img src={ExpandIcon} className="expand-icon" alt="Expand Icon" />
