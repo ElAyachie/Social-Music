@@ -2,8 +2,15 @@ module.exports = (app, db) => {
     const query = require('../query/artists.queries.json');
 
     app.get('/api/users/artist_interests/get', (req, res) => {
-      const UserID = req.boyd.UserID
-      db.query(query.getAllArtistInterestsByUser, [UserID], (error, result) => {
+      db.query(query.getAllArtistData, (error, result) => {
+        console.log(result);
+      });
+      });
+
+      
+    app.get('/api/users/load_artists/get', (req, res) => {
+      const UserID = req.body.UserID;
+      db.query(query.getAllArtistInterestsByUserID, [UserID], (error, result) => {
         console.log(result);
       });
       });

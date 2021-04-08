@@ -2,8 +2,14 @@ module.exports = (app, db) => {
     const query = require('../query/songs.queries.json');
 
     app.get('/api/users/song_interests/get', (req, res) => {
-        const UserID = req.boyd.UserID
-        db.query(query.getAllSongInterestsByUser, [UserID], (error, result) => {
+        db.query(query.getAllSongData, (error, result) => {
+          console.log(result);
+        });
+      });
+
+      app.get('/api/users/load_songs/get', (req, res) => {
+        const UserID = req.body.UserID;
+        db.query(query.getAllSongInterestsByUserID, [UserID], (error, result) => {
           console.log(result);
         });
       });
