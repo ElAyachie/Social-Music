@@ -8,7 +8,7 @@ import Post from "../post/post"
 function UserProfile() {
 
     return (
-        <div className="user-profile container">
+        <div className="user-profile">
             <div className="left-side">
                 <UserInfo />
                 <Friends />

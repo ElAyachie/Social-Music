@@ -9,7 +9,7 @@ import api from '../../config/api';
 const Artists = () => {
     const [artistInterests, setArtistInterests] = useState([]);
     const [user, setUser] = useState([]);
-    const [userID, setUserID] = useState(0);
+    const [userID, setUserID] = useState(user[0]);
 
     useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
@@ -18,16 +18,18 @@ const Artists = () => {
             setUser(foundUser);
             setUserID(user[0]);
         };
+    // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
         getArtistInterests();
+    // eslint-disable-next-line
     }, [setArtistInterests]);
 
     const getArtistInterests = async e => {
         await axios.get(api.base_url + '/users/load_artists/get', {
                 params: {
-                    UserID: 6
+                    UserID: userID
                 }
             })
             .then(function(response) {
