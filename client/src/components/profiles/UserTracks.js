@@ -6,13 +6,9 @@ import Upvote_Icon from "../../assets/upvote.svg";
 import Explicit_Icon from "../../assets/explicit.svg";
 
 const UserTracks = () => {
-    const [songInterests, setSongInterests] = useState([]);
+    const [songInterests, setSongInterests] = useState(JSON.parse(localStorage.getItem("song_interests")));
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
     const [userID, setUserID] = useState(user[0]);
-
-    useEffect(() => {
-        getSongInterests();
-    }, [setSongInterests]);
 
     const getSongInterests = async e => {
         await axios.get(api.base_url + '/users/load_songs/get', {

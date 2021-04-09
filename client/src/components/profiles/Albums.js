@@ -5,14 +5,11 @@ import "./profiles.scss";
 import Upvote_Icon from "../../assets/upvote.svg"
 
 const Albums = () => {
-    const [albumInterests, setAlbumInterests] = useState([]);
+    const [albumInterests, setAlbumInterests] = useState(JSON.parse(localStorage.getItem("album_interests")));
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
     const [userID, setUserID] = useState(user[0]);
 
-    useEffect(() => {
-        getAlbumInterests();
-    }, [setAlbumInterests]);
-
+    // This function will update array once a music interest is removed
     const getAlbumInterests = async e => {
         await axios.get(api.base_url + '/users/load_albums/get', {
                 params: {
@@ -41,26 +38,6 @@ const Albums = () => {
             });
     };
 
-    const removeAlbumInterests = async e => {
-        await axios.remove(api.base_url + '/users/load_albums/remove', {
-                params: {
-                    UserID: userID,
-                    AlbumID: 13
-                }
-            })
-            .then(function(response) {
-                if (response.data.code === 200) {
-                    console.log("Album entry deleted");
-                }
-                else {
-                    console.log("Could not recieve data.");
-                }
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
-    };
-
     return (
         <div>
         {
@@ -73,7 +50,7 @@ const Albums = () => {
                     <img className="picture" src={album.AlbumPic} height="65px" width="65px" alt="Artist"></img>
                 </div>
                 <h2 className="name">{album.AlbumName}</h2>
-                <img className="upvote-icon" src={Upvote_Icon} onClick={removeAlbumInterests} alt="Upvote" width="23px" height="23px"></img>
+                <img className="upvote-icon" src={Upvote_Icon} alt="Upvote" width="23px" height="23px"></img>
             </div>
             ))}</div>):(
                 <h5>Nothing to show...</h5>
