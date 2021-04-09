@@ -1,4 +1,4 @@
 {
     "getPosts": "SELECT * FROM posts.post",
-    "addPost": "INSERT INTO posts.post (postText) VALUES (?)"
+    "addPost": "INSERT INTO posts.post (UserID, postText) VALUES (?)"
 }

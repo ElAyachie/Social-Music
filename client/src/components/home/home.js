@@ -45,8 +45,8 @@ export default class Home extends Component {
                     <img src={profilePic} className="pro-pic" alt="profile pic"></img>
                     <h5>John Smith</h5>
                     <h5>@johnsmith</h5>
-                    <button>Play My Music</button>
-                    <button onClick={this.createNewPost}>New Post</button>
+                    <button className="play-music-btn">Play My Music</button>
+                    <button className="new-post-btn" onClick={this.createNewPost}>New Post</button>
                 </div>
                 <NewPost/>
                 <div className="feed-space">

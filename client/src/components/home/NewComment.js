@@ -15,9 +15,6 @@ function closeComment() {
 function NewComment() {
     const [commentText, setCommentText] = useState('');
 
-//    useEffect({
-//    }, []);
-
     const handleAddNewComment = async e => {
         e.preventDefault();
         const newComment = {
@@ -43,7 +40,7 @@ function NewComment() {
                 </div>
                 <div className="comment-space">
                     <form onSubmit={handleAddNewComment}>
-                        <input
+                        <textarea
                         className="form-control"
                         type="text"
                         autoComplete="on"
@@ -51,6 +48,7 @@ function NewComment() {
                         required
                         name="commentText"
                         placeholder="What's on your mind?"
+                        rows="5"
                         value={commentText}
                         onChange={(e) => {
                             setCommentText(e.target.value);
@@ -68,6 +66,8 @@ function NewComment() {
 }
 
 NewComment.propTypes = {
+    userID: PropTypes.number,
+    username: PropTypes.string,
     commentContent: PropTypes.string
 }
 

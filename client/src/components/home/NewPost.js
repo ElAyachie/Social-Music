@@ -43,7 +43,7 @@ function NewPost() {
                 </div>
                 <div className="post-space">
                     <form onSubmit={handleAddNewPost}>
-                        <input
+                        <textarea
                         className="form-control"
                         type="text"
                         autoComplete="on"
@@ -51,6 +51,7 @@ function NewPost() {
                         required
                         name="postText"
                         placeholder="What's on your mind?"
+                        rows="5"
                         value={postText}
                         onChange={(e) => {
                             setPostText(e.target.value);
@@ -68,6 +69,8 @@ function NewPost() {
 }
 
 NewPost.propTypes = {
+    userID: PropTypes.number,
+    username: PropTypes.string,
     postContent: PropTypes.string
 }
 
