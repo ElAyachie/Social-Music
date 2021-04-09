@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useRef } from "react";
 import api from '../../config/api';
 import {Dropdown, DropdownButton} from 'react-bootstrap';
+import {LoadMusicInterests} from "../search/LoadMusicInterests";
 
 const Track = ({ musicResult }) => {
 
@@ -18,6 +19,8 @@ const Track = ({ musicResult }) => {
         })
         .then(() => {
             console.log("Successful insert");
+            // Reload the localstorage
+            LoadMusicInterests();
         });
     }
 
@@ -36,6 +39,9 @@ const Track = ({ musicResult }) => {
         })
         .then(() => {
             console.log("Successful insert");
+            // Reload the localstorage
+            LoadMusicInterests();
+            
         });
     }
 
@@ -53,6 +59,8 @@ const Track = ({ musicResult }) => {
         })
         .then(() => {
             console.log("Successful insert");
+            // Reload the localstorage
+            LoadMusicInterests();
         });
     }
     

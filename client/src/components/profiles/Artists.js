@@ -5,13 +5,9 @@ import "./profiles.scss";
 import Upvote_Icon from "../../assets/upvote.svg"
 
 const Artists = () => {
-    const [artistInterests, setArtistInterests] = useState([]);
+    const [artistInterests, setArtistInterests] = useState(JSON.parse(localStorage.getItem("artist_interests")));
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
     const [userID, setUserID] = useState(user[0]);
-
-    useEffect(() => {
-        getArtistInterests();
-    }, [setArtistInterests]);
 
     const getArtistInterests = async e => {
         await axios.get(api.base_url + '/users/load_artists/get', {
@@ -41,27 +37,6 @@ const Artists = () => {
             });
     };
 
-    const removeArtistInterests = async e => {
-        await axios.remove(api.base_url + '/users/load_artists/remove', {
-                data: {
-                    UserID: userID,
-                    ArtistID: 13
-                }
-            })
-            .then(function(response) {
-                if (response.data.code === 200) {
-                    console.log("Artist entry deleted");
-                }
-                else {
-                    console.log("Could not recieve data.");
-                }
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
-    };
-
-
     return (
         <div>
             {
@@ -74,7 +49,7 @@ const Artists = () => {
                         <img className="picture" src={artist.ArtistPic} height="65px" width="65px" alt="Artist"></img>
                     </div>
                     <h2 className="name">{artist.ArtistName}</h2>
-                    <img className="upvote-icon" src={Upvote_Icon} onClick={removeArtistInterests} alt="Upvote" width="23px" height="23px"></img>
+                    <img className="upvote-icon" src={Upvote_Icon} alt="Upvote" width="23px" height="23px"></img>
             </div>
            ))}</div>):(
           <h5>Nothing to show...</h5>

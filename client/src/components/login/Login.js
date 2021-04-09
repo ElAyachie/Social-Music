@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "./login.scss";
+import {LoadMusicInterests} from "../search/LoadMusicInterests";
 
 import api from '../../config/api';
 
@@ -51,8 +52,7 @@ function Login() {
                     ];
                     setUser(response.data.email);
                     localStorage.setItem("user", JSON.stringify(userData));
-                    console.log(response.data);
-                    console.log("Login Successful");
+                    LoadMusicInterests();
                     window.location.reload();
                 }
                 else if(response.data.code === 204) {
