@@ -16,10 +16,6 @@ function TopMusic() {
                 <Tab eventKey="Artists" title="Artists">
                     <div className="sub-sections list">
                         <Artists />
-                        <Artists />
-                        <Artists />
-                        <Artists />
-                        <Artists />
                     </div>         
                 </Tab>
                 <Tab eventKey="Tracks" title="Tracks">
