@@ -1,0 +1,4 @@
+{
+    "getPosts": "SELECT * FROM posts.post",
+    "addPost": "INSERT INTO posts.post (UserID, postText) VALUES (?)"
+}

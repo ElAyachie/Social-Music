@@ -45,7 +45,8 @@ function App() {
           <Route path="/feed" exact component={ Feed } />
           <Route path="/userprofile" exact component={ UserProfile } />
           <PrivateRoute authed={authed} path="/search" component={ Search } />
-          <PrivateRoute authed={authed} path="/profile" component={ Profile } />
+          {/* <PrivateRoute authed={authed} path="/profile" component={ Profile } /> */}
+          <Route path="/profile" exact component={ Profile } />
         </Switch>
       </div>
     </Router>

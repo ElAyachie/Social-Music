@@ -20,7 +20,7 @@ export default class LoginScreen extends Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         var loginscreen = [];
         loginscreen.push(<Login parentContext={this} appContext={this.props.appContext} />);
         var loginmessage = "Not registered yet? Register Now";
@@ -35,7 +35,7 @@ export default class LoginScreen extends Component {
         var loginscreen;
         if(this.state.isLogin) {
             loginscreen = [];
-            loginscreen.push(<Register parentContext={this} appContext={this.props.appContext} />);
+            loginscreen.push(<Register parentContext={this} appContext={this.props.appContext} key="register"/>);
             loginmessage = "Already registered? Go to Login.";
             this.setState({
                 loginscreen: loginscreen,
@@ -46,7 +46,7 @@ export default class LoginScreen extends Component {
         }
         else {
             loginscreen = [];
-            loginscreen.push(<Login parentContext={this} appContext={this.props.appContext} />);
+            loginscreen.push(<Login parentContext={this} appContext={this.props.appContext} key="login"/>);
             loginmessage = "Not Registered yet? Go to registration.";
             this.setState({
                 loginscreen: loginscreen,
