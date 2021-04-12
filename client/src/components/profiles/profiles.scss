@@ -1,3 +1,7 @@
+h1,h2,h3 {
+    color: black;
+}
+
 .user-profile {
     display: flex;
     flex-direction: row;
@@ -6,6 +10,7 @@
     padding: 10px;
     color: white;
     justify-content: center;
+    
 
     .left-side {
         display: flex;
