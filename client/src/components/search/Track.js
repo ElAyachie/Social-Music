@@ -6,11 +6,11 @@ import {Dropdown, DropdownButton} from 'react-bootstrap';
 import { useState } from 'react';
 
 const Track = ({ musicResult }) => {
-    const [artistInterests] = useState(JSON.parse(localStorage.getItem("artist_interests")));
-    const [albumInterests] = useState(JSON.parse(localStorage.getItem("album_interests")));
-    const [songInterests] = useState(JSON.parse(localStorage.getItem("song_interests")));
+    const [user] = useState(JSON.parse(localStorage.getItem("user")));
+    const [userID] = useState(user.UserID);
 
     const addArtist = () => {
+        let artistInterests = JSON.parse(localStorage.getItem("artist_interests"));
         // Check if the user already has the interest in their list
         var found = false;
         for (let i = 0; i < artistInterests.length; i++){
@@ -20,34 +20,36 @@ const Track = ({ musicResult }) => {
             }
         }
         if (!found) {
-            const loggedInUser = localStorage.getItem("user");
-            const foundUser = JSON.parse(loggedInUser);
-            const userID = foundUser[0];
-            axios.post(api.base_url + "/users/artist_interests/insert", {
+            const newArtist = {
                 UserID: userID,
                 ArtistID: musicResult.artist.id,
                 ArtistName: musicResult.artist.name,
                 ArtistPic: musicResult.artist.picture,
-            })
-            .then(() => {
-                console.log("Successful insert");
-                // Add to the locale storage
-                let dataObject = {
-                    ArtistName: musicResult.artist.name,
-                    ArtistPic: musicResult.album.cover,
-                    ArtistID: musicResult.artist.id
-                };
-                artistInterests.push(dataObject);
-                console.log("Artist data recieved");
-                localStorage.setItem("artist_interests", JSON.stringify(artistInterests));
-            });
+            };
+            axios.post(api.base_url + "/users/artist_interests/insert", newArtist)
+                .then(function(response) {
+                    console.log("Successful insert");
+                    // Add to the local storage
+                    const dataObject = {
+                        ArtistName: musicResult.artist.name,
+                        ArtistPic: musicResult.album.cover,
+                        ArtistID: musicResult.artist.id
+                    };
+                    artistInterests.push(dataObject);
+                    console.log("Artist data recieved");
+                    localStorage.setItem("artist_interests", JSON.stringify(artistInterests));
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
         }
         else {
-            alert("Interest already added.");
+            return alert("Interest already added.");
         }
     }
 
     const addSong = () => {
+        let songInterests = JSON.parse(localStorage.getItem("song_interests"));
         var found = false;
         for (let i = 0; i < songInterests.length; i++){
             if (songInterests[i].SongName === musicResult.title) {
@@ -56,9 +58,6 @@ const Track = ({ musicResult }) => {
             }
         }
         if (!found){
-            const loggedInUser = localStorage.getItem("user");
-            const userInformation = JSON.parse(loggedInUser);
-            const userID = userInformation[0];
             axios.post(api.base_url + "/users/song_interests/insert", {
                 UserID: userID,
                 SongName: musicResult.title,
@@ -68,7 +67,7 @@ const Track = ({ musicResult }) => {
                 AlbumID: musicResult.album.id,
                 AlbumPic: musicResult.album.cover
             })
-            .then(() => {
+            .then(function(response) {
                 console.log("Successful insert");
                 // Add to the locale storage
                 let dataObject = {
@@ -81,7 +80,10 @@ const Track = ({ musicResult }) => {
                 };
                 songInterests.push(dataObject);
                 localStorage.setItem("song_interests", JSON.stringify(songInterests));
-            });
+            })
+            .catch(function(error) {
+                console.log(error);
+            });  
         }
         else {
             alert("Interest already added.");
@@ -89,6 +91,7 @@ const Track = ({ musicResult }) => {
     }
 
     const addAlbum = () => {
+        let albumInterests = JSON.parse(localStorage.getItem("album_interests"));
         var found = false;
         for (let i = 0; i < albumInterests.length; i++) {
             if (albumInterests[i].AlbumID === musicResult.album.id) {
@@ -97,9 +100,6 @@ const Track = ({ musicResult }) => {
             }
         }
         if (!found) {
-            const loggedInUser = localStorage.getItem("user");
-            const foundUser = JSON.parse(loggedInUser);
-            const userID = foundUser.UserID;
             axios.post(api.base_url + "/users/album_interests/insert", {
                 UserID: userID,
                 AlbumID: musicResult.album.id,
@@ -108,7 +108,7 @@ const Track = ({ musicResult }) => {
                 ArtistID: musicResult.artist.id,
                 ArtistName: musicResult.artist.name
             })
-            .then(() => {
+            .then(function(response) {
                 console.log("Successful insert");
                 // Add to the locale storage
                 let dataObject = {
@@ -120,7 +120,10 @@ const Track = ({ musicResult }) => {
                     };
                 albumInterests.push(dataObject);
                 localStorage.setItem("album_interests", JSON.stringify(albumInterests));
-            });
+            })
+            .catch(function(error) {
+                console.log(error);
+            });  
         }
         else {
             alert("Interest already added.");
@@ -145,9 +148,9 @@ const Track = ({ musicResult }) => {
                     <Dropdown.Item onClick={addAlbum}>Add Album</Dropdown.Item>
               </DropdownButton>
               {
-                    musicResult.explicit_content_lyrics ? 
-                    <img className="explicit-icon" src={ExplicitIcon} alt="explicit icon" width="90px" height="55" /> : <div />
-                }
+                musicResult.explicit_content_lyrics ? 
+                <img className="explicit-icon" src={ExplicitIcon} alt="explicit icon" width="90px" height="55" /> : <div />
+              }
               <audio className="audio" controls ref={audioRef}>
                   <source src={musicResult.preview} type="audio/mpeg"/>
                   Your browser does not support the audio tag.

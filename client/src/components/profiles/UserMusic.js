@@ -2,17 +2,17 @@ import React from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 import "./profiles.scss";
 
-//import Artists from "./Artists";
+import Artists from "./Artists";
 import UserTracks from "./UserTracks";
-//import Albums from "./Albums";
+import Albums from "./Albums";
 
-function TopMusic() {
+function UserMusic() {
     return (
         <div className="music-section">
             <Tabs defaultActiveKey="Artists" id="uncontrolled-tab-example">
                 <Tab eventKey="Artists" title="Artists">
                     <div className="artists sub-sections list">
-                        {/* <Artists /> */}
+                        <Artists />
                     </div>         
                 </Tab>
                 <Tab eventKey="Tracks" title="Tracks">
@@ -22,7 +22,7 @@ function TopMusic() {
                 </Tab>
                 <Tab eventKey="Albums" title="Albums">
                     <div className="albums sub-sections">
-                        {/* <Albums /> */}
+                        <Albums />
                     </div>
                 </Tab>
             </Tabs>
@@ -30,4 +30,4 @@ function TopMusic() {
     )
 }
 
-export default TopMusic;
+export default UserMusic;

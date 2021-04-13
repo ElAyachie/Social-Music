@@ -1,5 +1,5 @@
 {
-    "getPosts": "SELECT * FROM users.Posts",
+    "getPosts": "SELECT * FROM users.Posts ORDER BY PostID DESC",
     "getUsersPosts": "SELECT * FROM users.Posts WHERE UserID = ?",
     "addPost": "INSERT INTO users.Posts (PostText, UserID) VALUES (?,?)"
 }
