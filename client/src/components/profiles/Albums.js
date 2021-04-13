@@ -3,39 +3,30 @@ import api from '../../config/api';
 import axios from 'axios';
 import "./profiles.scss";
 import Upvote_Icon from "../../assets/upvote.svg"
+import { Button } from "react-bootstrap";
 
 const Albums = () => {
     const [albumInterests, setAlbumInterests] = useState(JSON.parse(localStorage.getItem("album_interests")));
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
     const [userID, setUserID] = useState(user[0]);
 
-    // This function will update array once a music interest is removed
-    const getAlbumInterests = async e => {
-        await axios.get(api.base_url + '/users/load_albums/get', {
-                params: {
-                    UserID: userID
-                }
-            })
-            .then(function(response) {
-                if (response.data.code === 200) {
-                    const ais = [];
-                    for(var i = 0; i < response.data.albumInterests.length; i++) {
-                        ais.push(response.data.albumInterests[i]);
-                    }
-                    setAlbumInterests(
-                        ais
-                    );
-                    console.log(ais);
-                    console.log(response.data.albumInterests[0]);
-                    console.log("Album data recieved");
-                }
-                else {
-                    console.log("Could not recieve data.");
-                }
-            })
+    const deleteAlbumInterest = async e => {
+        let elementID = e.target.id;
+        let albumID = e.target.dataset.albumid;
+        const album = {
+            UserID: userID,
+            AlbumID: albumID 
+        };
+        await axios.delete(api.base_url + "/users/album_interests/delete", {data: album})
+            .then(response => {
+                console.log(response);
+                albumInterests.splice(elementID, elementID + 1);
+                localStorage.setItem("album_interests", JSON.stringify(albumInterests));
+                setAlbumInterests(JSON.parse(localStorage.getItem("album_interests")));
+            })      
             .catch(function(error) {
                 console.log(error);
-            });
+            });  
     };
 
     return (
@@ -45,12 +36,12 @@ const Albums = () => {
             <div>
             { 
             albumInterests.map((album, index) => (
-            <div className="artist">
+            <div className="artist" key={index}>
                 <div className="jc-cente">
                     <img className="picture" src={album.AlbumPic} height="65px" width="65px" alt="Artist"></img>
                 </div>
                 <h2 className="name">{album.AlbumName}</h2>
-                <img className="upvote-icon" src={Upvote_Icon} alt="Upvote" width="23px" height="23px"></img>
+                <Button className="upvote-icon" id={index} onClick={deleteAlbumInterest} alt="Upvote" width="23px" height="23px" data-albumid={album.AlbumID}>-</Button>
             </div>
             ))}</div>):(
                 <h5>Nothing to show...</h5>

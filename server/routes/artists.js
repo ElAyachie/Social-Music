@@ -60,4 +60,25 @@ module.exports = (app, db) => {
           }
         });
       });
+
+      app.delete("/api/users/artist_interests/delete", (req, res) => {
+        const UserID = req.body.UserID;
+        const ArtistID = req.body.ArtistID;
+        db.query(query.deleteArtistInterestForUser, [UserID, ArtistID], (error, result) => {
+          console.log(result);
+          if(error) {
+            console.log("Error on delete", error);
+            res.send({
+              "code": 400,
+              "failed": "error occured"
+            });
+          }
+          else {
+            res.send({
+              "code": 200,
+              "success": "artist interest deleted."
+            });
+          }
+        });
+      });
 };

@@ -4,38 +4,30 @@ import axios from 'axios';
 import "./profiles.scss";
 import Upvote_Icon from "../../assets/upvote.svg";
 import Explicit_Icon from "../../assets/explicit.svg";
+import { Button } from "react-bootstrap";
 
 const UserTracks = () => {
     const [songInterests, setSongInterests] = useState(JSON.parse(localStorage.getItem("song_interests")));
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
     const [userID, setUserID] = useState(user[0]);
 
-    const getSongInterests = async e => {
-        await axios.get(api.base_url + '/users/load_songs/get', {
-                params: {
-                    UserID: userID
-                }
-            })
-            .then(function(response) {
-                if (response.data.code === 200) {
-                    const ais = [];
-                    for(var i = 0; i < response.data.songInterests.length; i++) {
-                        ais.push(response.data.songInterests[i]);
-                    }
-                    setSongInterests(
-                        ais
-                    );
-                    console.log(ais);
-                    console.log(response.data.songInterests[0]);
-                    console.log("Song data recieved");
-                }
-                else {
-                    console.log("Could not recieve data.");
-                }
-            })
+    const deleteSongInterest = async e => {
+        let elementID = e.target.id;
+        let songID = e.target.dataset.songid;
+        const song = {
+            UserID: userID,
+            SongID: songID 
+        };
+        await axios.delete(api.base_url + "/users/song_interests/delete", {data: song})
+            .then(response => {
+                console.log(response);
+                songInterests.splice(elementID, elementID + 1);
+                localStorage.setItem("song_interests", JSON.stringify(songInterests));
+                setSongInterests(JSON.parse(localStorage.getItem("song_interests")));
+            })      
             .catch(function(error) {
                 console.log(error);
-            });
+            });  
     };
 
     return (
@@ -45,11 +37,10 @@ const UserTracks = () => {
             <div>
             { 
             songInterests.map((song, index) => (
-                <div className="track">
+                <div className="track" key={index}>
                     <img className="picture" src={song.AlbumPic} height="55px" width="55px" alt="Album"></img>
                     <h2 className="title">{song.SongName} - {song.ArtistName}</h2>
-                    <img className="upvote-icon" src={Upvote_Icon} alt="Upvote"></img>
-                    <img className="explicit-icon" src={Explicit_Icon} height="20px" width="40px" alt="Explicit"></img>
+                    <Button  className="upvote-icon" id={index} onClick={deleteSongInterest} alt="Upvote" width="23px" height="23px" data-songname={song.SongName}>-</Button>
                 </div>
            ))}</div>):(
           <h5>Nothing to show...</h5>
