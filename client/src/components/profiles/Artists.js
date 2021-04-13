@@ -23,7 +23,7 @@ const Artists = () => {
             })
             .then(response => {
                 console.log(response);
-                artistInterests.splice(elementID, elementID + 1);
+                artistInterests.splice(elementID, 1);
                 localStorage.setItem("artist_interests", JSON.stringify(artistInterests));
                 setArtistInterests(JSON.parse(localStorage.getItem("artist_interests")));
             })      

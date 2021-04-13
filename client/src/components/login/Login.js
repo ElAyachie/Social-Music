@@ -1,27 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "./login.scss";
-import {LoadMusicInterests} from "../search/LoadMusicInterests";
+
+import LoadMusicInterests from '../search/LoadMusicInterests';
 
 import api from '../../config/api';
-
-/* 
-async function loginUser(credentials) {
-    return fetch("http://localhost:5000/login", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(credentials)
-    })
-      .then(data => data.json());
-}
-        const token = await loginUser({
-            email,
-            password
-        });
-        setToken(token);
-*/
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -55,7 +38,6 @@ function Login() {
                     setUser(response.data.email);
                     localStorage.setItem("user", JSON.stringify(userData));
                     LoadMusicInterests();
-                    window.location.replace("localhost:3000/home");
                 }
                 else if(response.data.code === 204) {
                     console.log("email or Password do not match our records.");
@@ -116,7 +98,7 @@ function Login() {
                     <div className="form-group">
                         <input
                         className="form-control"
-                        type="text"
+                        type="password"
                         id="password"
                         required
                         name="Password"
