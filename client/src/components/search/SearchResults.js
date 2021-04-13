@@ -12,8 +12,8 @@ const SearchResults = ({ musicResults }) => {
   return (
     <div className="results">
       {
-        musicResults.map((musicResult) => (
-          <Track musicResult={musicResult} />
+        musicResults.map((musicResult, index) => (
+          <Track key={index} musicResult={musicResult} />
         ))
       }
     </div>
