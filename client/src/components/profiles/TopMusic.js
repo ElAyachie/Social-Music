@@ -1,15 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 import "./profiles.scss";
 
 import Artists from "./Artists";
-import UserTracks from "./UserTracks"
-
-//import musicData from './musicData.js';
+import UserTracks from "./UserTracks";
+import Albums from "./Albums";
 
 function TopMusic() {
-
     return (
         <div className="music-section">
             <Tabs defaultActiveKey="Artists" id="uncontrolled-tab-example">
@@ -21,22 +18,16 @@ function TopMusic() {
                 <Tab eventKey="Tracks" title="Tracks">
                     <div className="sub-sections">
                         <UserTracks />
-                        <UserTracks />
-                        <UserTracks />
-                        <UserTracks />
                     </div>
                 </Tab>
-                <Tab eventKey="Albums" title="Albums">
-                    {/* <Albums /> */}
+                <Tab eventKey="Album" title="Album">
+                    <div className="sub-sections list">
+                        <Albums />
+                    </div>         
                 </Tab>
             </Tabs>
         </div>
     )
-}
-
-TopMusic.propTypes = {
-    artistImg: PropTypes.string,
-    postText: PropTypes.string
 }
 
 export default TopMusic;
