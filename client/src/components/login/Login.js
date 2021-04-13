@@ -52,8 +52,8 @@ function Login() {
                     ];
                     setUser(response.data.email);
                     localStorage.setItem("user", JSON.stringify(userData));
-                    LoadMusicInterests();
                     window.location.reload();
+                    LoadMusicInterests();
                 }
                 else if(response.data.code === 204) {
                     console.log("email or Password do not match our records.");
