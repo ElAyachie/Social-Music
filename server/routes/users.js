@@ -1,5 +1,6 @@
 module.exports = (app, db) => {
   const query = require('../query/user_information.queries.json');
+  const images = require('../config/images');
 
   app.get('/api/users/get', (req, res) => {
     db.query(query.getAllData, (error, result) => {
@@ -12,7 +13,7 @@ module.exports = (app, db) => {
     const email = req.body.email;
     const name = req.body.name;
     const password = req.body.password;
-    db.query(query.addNewUser, [username, email, name, password], (error, result) => {
+    db.query(query.addNewUser, [username, email, password, name], (error, result) => {
       console.log(result);
       if(error) {
         console.log("Error on insert", error);

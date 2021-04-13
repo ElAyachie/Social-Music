@@ -3,7 +3,7 @@ module.exports = (app, db) => {
 
     app.get('/api/posts/get', (req, res) => {
         db.query(query.getPosts, (error, result) => {
-            console.log(result);
+            //console.log(result);
             if(error) {
                 console.log("Error on insert", error);
                 res.send({
@@ -14,16 +14,18 @@ module.exports = (app, db) => {
             else {
                 res.send({
                   "code": 200,
-                  "success": "posts got successfully"
+                  "success": "posts got successfully",
+                  "results": result
                 });
             }
         });
     });
   
     app.post('/api/posts/insert', (req, res) => {
-        const postText = res.body.postText;
-        db.query(query.addPost, [postText], (error, result) => {
-            console.log(result);
+        const PostText = req.body.postText;
+        const UserID = 4;
+        db.query(query.addPost, [PostText, UserID], (error, result) => {
+            //console.log(result);
             if(error) {
                 console.log("Error on insert", error);
                 res.send({

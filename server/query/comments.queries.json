@@ -1,0 +1,6 @@
+{
+    "getComments": "SELECT * FROM users.Comments",
+    "getUsersComments": "SELECT * FROM users.Comments WHERE UserID = ?",
+    "getCommentsForPost": "SELECT * FROM users.Comments WHERE PostID = ?",
+    "addComment": "INSERT INTO users.Comments (PostID, Comment, UserID) VALUES (?,?,?)"
+}

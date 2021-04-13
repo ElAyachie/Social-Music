@@ -14,27 +14,68 @@ export default class Home extends Component {
         super(props);
 
         this.createNewPost = this.createNewPost.bind(this);
+        this.expandFeedSection = this.expandFeedSection.bind(this);
+        this.expandMusicSection = this.expandMusicSection.bind(this);
+        this.expandFriendSection = this.expandFriendSection.bind(this);
+
+        this.state = {
+            user: JSON.parse(localStorage.getItem("user"))
+        }
     }
 
     createNewPost() {
-        // Get the modal
-        var modal = document.getElementById("new-post");
+        // Get the post
+        var post = document.getElementById("new-post");
 
-        // Get the <span> element that closes the modal
+        // Get the <span> element that closes the post
         var span = document.getElementsByClassName("close")[0];
 
-        modal.style.display = "block";
+        post.style.display = "block";
 
-        // When the user clicks on <span> (x), close the modal
+        // When the user clicks on <span> (x), close the post
         span.onclick = function() {
-            modal.style.display = "none";
+            post.style.display = "none";
         }
 
-        // When the user clicks anywhere outside of the modal, close it
+        // When the user clicks anywhere outside of the post, close it
         window.onclick = function(event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
+            if (event.target === post) {
+                post.style.display = "none";
             }
+        }
+    }
+
+    expandFeedSection() {
+        //var section = document.getElementById("feed-space");
+        var content = document.getElementById("feed-space-content");
+
+        if (content.style.height === "1000px") {
+            content.style.height = "500px";
+        }
+        else {
+            content.style.height = "1000px";
+        }
+    }
+
+    expandMusicSection() {
+        var content = document.getElementById("music-space-content");
+
+        if (content.style.height === "1000px") {
+            content.style.height = "500px";
+        }
+        else {
+            content.style.height = "1000px";
+        }
+    }
+
+    expandFriendSection() {
+        var content = document.getElementById("friend-space-content");
+
+        if (content.style.height === "1000px") {
+            content.style.height = "500px";
+        }
+        else {
+            content.style.height = "1000px";
         }
     }
 
@@ -43,34 +84,40 @@ export default class Home extends Component {
             <div id="home" className="container">
                 <div className="profile-bar sticky-top">
                     <img src={profilePic} className="pro-pic" alt="profile pic"></img>
-                    <h5>John Smith</h5>
-                    <h5>@johnsmith</h5>
+                    <h5>{this.state.user[2]}</h5>
+                    <h5>@{this.state.user[2]}</h5>
                     <button className="play-music-btn">Play My Music</button>
                     <button className="new-post-btn" onClick={this.createNewPost}>New Post</button>
                 </div>
                 <NewPost/>
-                <div className="feed-space">
+                <div id="feed-space" className="feed-space">
                     <div className="feed-expand">
-                        <img src={ExpandIcon} className="expand-icon" alt="Expand Icon" />
+                        <button className="expand-icon-btn" onClick={this.expandFeedSection}>
+                            <img src={ExpandIcon} className="expand-icon" alt="Expand Icon" />
+                        </button>
                     </div>
-                    <div className="feed-space-content">
+                    <div id="feed-space-content" className="feed-space-content">
                         <Feed />
                     </div>
                 </div>
                 <div className="music-space">
                     <div>
-                        <img src={ExpandIcon} className="expand-icon" alt="Expand Icon" />
+                        <button className="expand-icon-btn" onClick={this.expandMusicSection}>
+                            <img src={ExpandIcon} className="expand-icon" alt="Expand Icon" />
+                        </button>                    
                     </div>
-                    <div className="music-space-content">
+                    <div id="music-space-content" className="music-space-content">
                         <h3>My Music</h3>
                         <TopMusic />
                     </div>                
                 </div>
                 <div className="friend-space">
                     <div>
-                        <img src={ExpandIcon} className="expand-icon" alt="Expand Icon" />
+                        <button className="expand-icon-btn" onClick={this.expandFriendSection}>
+                            <img src={ExpandIcon} className="expand-icon" alt="Expand Icon" />
+                        </button>                    
                     </div>
-                    <div className="friend-space-content">
+                    <div id="friend-space-content" className="friend-space-content">
                         <Friends />
                     </div>
                 </div>
