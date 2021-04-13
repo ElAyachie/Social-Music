@@ -19,7 +19,7 @@ const UserTracks = () => {
         await axios.delete(api.base_url + "/users/song_interests/delete", {data: song})
             .then(response => {
                 console.log(response);
-                songInterests.splice(elementID, elementID + 1);
+                songInterests.splice(elementID, 1);
                 localStorage.setItem("song_interests", JSON.stringify(songInterests));
                 setSongInterests(JSON.parse(localStorage.getItem("song_interests")));
             })      

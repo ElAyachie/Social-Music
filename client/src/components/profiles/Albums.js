@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from 'axios';
 import "./profiles.scss";
 
@@ -21,7 +21,7 @@ const Albums = () => {
         await axios.delete(api.base_url + "/users/album_interests/delete", {data: album})
             .then(response => {
                 console.log(response);
-                albumInterests.splice(elementID, elementID + 1);
+                albumInterests.splice(elementID, 1);
                 localStorage.setItem("album_interests", JSON.stringify(albumInterests));
                 setAlbumInterests(JSON.parse(localStorage.getItem("album_interests")));
             })      

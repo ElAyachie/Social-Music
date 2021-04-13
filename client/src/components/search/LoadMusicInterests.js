@@ -1,12 +1,13 @@
 import api from '../../config/api';
 import axios from 'axios';
 
-export const LoadMusicInterests = () => {
-    const loggedInUser = JSON.parse(localStorage.getItem("user"));
-    const userID = loggedInUser.UserID;
+function LoadMusicInterests() {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const userID = user.UserID;
 
     // All the get music interest functions below (might be better to move these somewhere else, but i dont want to make them static)
     const getAlbumInterests  = async e  =>  {
+        alert(userID);
         await axios.get(api.base_url + '/users/load_albums/get', {
                 params: {
                     UserID: userID
@@ -56,10 +57,10 @@ export const LoadMusicInterests = () => {
                     console.log("Artist data recieved");
                     localStorage.setItem("artist_interests", JSON.stringify(artistInterests));
                 }
-                 })
-                .catch(function(error) {
-                    console.log(error);
-                });
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
         };
 
         const getSongInterests = async e => {
@@ -86,10 +87,10 @@ export const LoadMusicInterests = () => {
                         console.log("Song data recieved");
                         localStorage.setItem("song_interests", JSON.stringify(songInterests));
                     }
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
     };
 
     localStorage.setItem("artist_interests", JSON.stringify([]));
