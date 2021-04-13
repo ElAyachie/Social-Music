@@ -19,6 +19,8 @@ app.post('/api/login', (req, res) => {
               "userID": result[0].UserID,
               "email": email,
               "username": result[0].Username,
+              "name": result[0].Name,
+              "bio": result[0].Bio,
               "code": 200,
               "success": "Login Successful"
             });

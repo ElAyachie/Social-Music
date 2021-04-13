@@ -1,17 +1,23 @@
+h1,h2,h3 {
+    color: black;
+}
+
 .user-profile {
     display: flex;
     flex-direction: row;
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 10px;
-    color: white;
+    color: black;
     justify-content: center;
+    
 
     .left-side {
         display: flex;
         flex-direction: column;
         width: 25%;
     }
+
 
     .right-side {
         display: flex;
@@ -27,6 +33,11 @@
         height: 1000px;
         overflow-y: scroll;
     }
+
+    .edit-info {
+        display: none;
+        border: 1px solid purple;
+    }
 }
 
 .user-info {
@@ -41,8 +52,29 @@
     }
     
     .bio {
-        font-size: 1.4rem;
+        font-size: 1rem;
     }
+
+    .edit {
+        float: right;
+        height: 15px;
+        width: 15px;
+    }
+    .name-block {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .edit-btn {
+        margin-left: 10px;
+        height: 25px;
+        background: none;
+        border: none;
+        background-color: none;
+        
+    }
+    
 }
 
 .friends-section {
@@ -80,6 +112,7 @@
         .name {
             display: inline-block;
             margin-bottom: 10px;
+            font-size: 10px;
         }
 
         .picture {
@@ -94,11 +127,16 @@
     border-radius: 8px;
     padding: 10px;
     margin-top: 25px;
-
+    margin-bottom: 50px;
+    // overflow-y: scroll;
+    height: 250px;
+  
     .sub-sections {
         display: inline-block;
         border-radius: 3px;
         padding-bottom: 5px;
+        overflow-y: scroll;
+        height: 180px;
     }
 }
 
@@ -109,6 +147,7 @@
     margin-left: 10px;
     margin-top: 10px;
     border-radius: 2px;
+    
 
     .jc-center {
         display: flex;
@@ -129,7 +168,7 @@
 
     .name {
         margin-bottom: 10px;
-        font-size: 1.5rem;
+        font-size: .75rem;
     }
 
     .upvote-icon {
@@ -172,7 +211,7 @@
         display: inline-block;
         margin-right: 110px;
         margin-top: 5px;
-        font-size: 1.5rem;
+        font-size: .75rem;
     }
 
     .upvote-icon {

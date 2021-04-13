@@ -6,6 +6,9 @@ function Friends() {
 
     return (
         <div className="friends-section">
+            <button type="button" className="view-button btn btn-primary">
+                View All Friends
+            </button> 
             <div className="list">
                 <EachFriend />
                 <EachFriend />
@@ -18,9 +21,6 @@ function Friends() {
                 <EachFriend />
                 <EachFriend />
             </div>
-            <button type="button" className="view-button btn btn-primary">
-                View All Friends
-            </button> 
         </div>
     )
 }
