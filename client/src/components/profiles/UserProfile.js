@@ -9,14 +9,16 @@ function UserProfile() {
     return (
         <div className="user-profile">
             <div className="left-side">
-                <div className="corner">
-                    <UserInfo />
-                </div>
+                <UserInfo />
                 <TopMusic />
+                <Friends />
             </div>
             <div className="right-side">
-                <Post />
-                <Post />
+                <div className="right-side-content">
+                    <Post />
+                    <Post />
+                    <Post />
+                </div>
             </div>
         </div>
         );

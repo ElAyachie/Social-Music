@@ -23,6 +23,7 @@ const db = mysql.createPool({
 
 require("./routes/users")(app, db);
 require("./routes/login")(app, db);
+require("./routes/posts")(app, db);
 require("./routes/artists")(app, db);
 require("./routes/albums")(app, db);
 require("./routes/songs")(app, db);
@@ -38,5 +39,3 @@ module.exports = app;
   if (err) throw err;
   console.log("Connected to GCP Database!");
 });*/
-
-//require("./routes/users.routes")(app, db);
