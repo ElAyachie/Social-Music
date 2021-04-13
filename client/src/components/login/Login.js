@@ -45,15 +45,17 @@ function Login() {
         await axios.post(api.base_url + '/login', user)
             .then(function(response) {
                 if(response.data.code === 200) {
-                    const userData = [
-                        response.data.userID,
-                        response.data.email,
-                        response.data.username
-                    ];
+                    const userData = {
+                        UserID: response.data.userID,
+                        Email: response.data.email,
+                        Username: response.data.username,
+                        Name: response.data.name,
+                        Bio: response.data.bio
+                    };
                     setUser(response.data.email);
                     localStorage.setItem("user", JSON.stringify(userData));
-                    window.location.reload();
                     LoadMusicInterests();
+                    window.location.replace("localhost:3000/home");
                 }
                 else if(response.data.code === 204) {
                     console.log("email or Password do not match our records.");
@@ -82,7 +84,7 @@ function Login() {
         return(
             <div>
                 <h5>
-                    {user[2]} is logged in.
+                    {user.Username} is logged in.
                     <br /><br />
                     <button className="btn btn-success logoutBtn" onClick={handleLogout}>Logout</button>
                 </h5>

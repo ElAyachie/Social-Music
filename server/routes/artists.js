@@ -80,26 +80,7 @@ module.exports = (app, db) => {
             });
           }
         });
-      }
-      else {
-        if(result.length > 0) {
-          if(result[0].UserID == UserID) {
-            res.send({
-              "code": 200,
-              "success": "artist interest found",
-              "artistInterests": result
-            });
-          }
-        }
-        else {
-          res.send({
-            "code": 204,
-            "failed": "User has no artist interests"
-          });
-        }
-      }
-    });
-  });
+      });
     
     app.post("/api/users/artist_interests/insert", (req, res) => {
       const UserID = req.body.UserID;

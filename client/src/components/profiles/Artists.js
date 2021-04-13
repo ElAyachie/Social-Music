@@ -8,7 +8,7 @@ import { Button } from "react-bootstrap";
 const Artists = () => {
     const [artistInterests, setArtistInterests] = useState(JSON.parse(localStorage.getItem("artist_interests")));
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-    const [userID, setUserID] = useState(user[0]);
+    const [userID, setUserID] = useState(user.UserID);
 
     const deleteArtistInterest = async e => {
         let elementID = e.target.id;

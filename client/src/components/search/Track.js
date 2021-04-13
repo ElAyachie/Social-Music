@@ -99,7 +99,7 @@ const Track = ({ musicResult }) => {
         if (!found) {
             const loggedInUser = localStorage.getItem("user");
             const foundUser = JSON.parse(loggedInUser);
-            const userID = foundUser[0];
+            const userID = foundUser.UserID;
             axios.post(api.base_url + "/users/album_interests/insert", {
                 UserID: userID,
                 AlbumID: musicResult.album.id,

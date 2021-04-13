@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const LoadMusicInterests = () => {
     const loggedInUser = JSON.parse(localStorage.getItem("user"));
-    const userID = loggedInUser[0];
+    const userID = loggedInUser.UserID;
 
     // All the get music interest functions below (might be better to move these somewhere else, but i dont want to make them static)
     const getAlbumInterests  = async e  =>  {
