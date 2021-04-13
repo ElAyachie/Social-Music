@@ -82,7 +82,7 @@ function Login() {
         return(
             <div>
                 <h5>
-                    {user} is logged in.
+                    {user[2]} is logged in.
                     <br /><br />
                     <button className="btn btn-success logoutBtn" onClick={handleLogout}>Logout</button>
                 </h5>

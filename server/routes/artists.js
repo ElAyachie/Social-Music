@@ -80,5 +80,47 @@ module.exports = (app, db) => {
             });
           }
         });
+      }
+      else {
+        if(result.length > 0) {
+          if(result[0].UserID == UserID) {
+            res.send({
+              "code": 200,
+              "success": "artist interest found",
+              "artistInterests": result
+            });
+          }
+        }
+        else {
+          res.send({
+            "code": 204,
+            "failed": "User has no artist interests"
+          });
+        }
+      }
+    });
+  });
+    
+    app.post("/api/users/artist_interests/insert", (req, res) => {
+      const UserID = req.body.UserID;
+      const ArtistID = req.body.ArtistID;
+      const ArtistName = req.body.ArtistName;
+      const ArtistPic = req.body.ArtistPic;
+      db.query(query.addNewArtistInterest, [UserID, ArtistID, ArtistName, ArtistPic], (error, result) => {
+        console.log(result);
+        if(error) {
+          console.log("Error on insert", error);
+          res.send({
+            "code": 400,
+            "failed": "error occured"
+          });
+        }
+        else {
+          res.send({
+            "code": 200,
+            "success": "artist interest added."
+          });
+        }
       });
+    });
 };
