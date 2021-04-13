@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "axios": "^0.21.1",
     "react-bootstrap": "^1.5.2",
     "react-transition-group": "^4.4.1"
   }
