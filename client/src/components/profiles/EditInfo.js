@@ -68,7 +68,6 @@ function EditInfo() {
                         name="postText"
                         placeholder={user.Bio}
                         rows="5"
-                        value={user.Bio}
                         onChange={(e) => {
                             setBioText(e.target.value);
                         }}
