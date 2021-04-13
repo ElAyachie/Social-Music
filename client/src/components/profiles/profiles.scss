@@ -33,6 +33,11 @@ h1,h2,h3 {
         height: 1000px;
         overflow-y: scroll;
     }
+
+    .edit-info {
+        display: none;
+        border: 1px solid purple;
+    }
 }
 
 .user-info {
@@ -55,6 +60,21 @@ h1,h2,h3 {
         height: 15px;
         width: 15px;
     }
+    .name-block {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .edit-btn {
+        margin-left: 10px;
+        height: 25px;
+        background: none;
+        border: none;
+        background-color: none;
+        
+    }
+    
 }
 
 .friends-section {
