@@ -30,4 +30,26 @@ module.exports = (app, db) => {
       }
     });
   });
+
+  app.patch('/api/users/update_info/update', (req, res) => {
+    const UserID = req.body.userID;
+    const Name = req.body.newName;
+    const Bio = req.body.newBio;
+    db.query(query.updateUserInfo, [Name, Bio, UserID], (error, result) => {
+      console.log(result);
+      if(error) {
+        console.log("Error on put", error);
+        res.send({
+          "code": 400,
+          "failed": "error occured"
+        });
+      }
+      else {
+        res.send({
+          "code": 200,
+          "success": "Changes were successful"
+        });
+      }
+    });
+  });
 };
