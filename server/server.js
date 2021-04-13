@@ -2,12 +2,14 @@ const express = require('express');
 const cors = require('cors');
 const config = require('./config/db.config');
 const mysql = require('mysql');
+const multer = require('multer');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.disable('x-powered-by');
 
 app.get("/", (req, res) => {
   res.json({ message: "Server is up." });
@@ -24,6 +26,7 @@ const db = mysql.createPool({
 require("./routes/users")(app, db);
 require("./routes/login")(app, db);
 require("./routes/posts")(app, db);
+require("./routes/comments")(app, db);
 require("./routes/artists")(app, db);
 require("./routes/albums")(app, db);
 require("./routes/songs")(app, db);

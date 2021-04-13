@@ -1,4 +1,5 @@
 {
-    "getPosts": "SELECT * FROM posts.post",
-    "addPost": "INSERT INTO posts.post (UserID, postText) VALUES (?)"
+    "getPosts": "SELECT * FROM users.Posts",
+    "getUsersPosts": "SELECT * FROM users.Posts WHERE UserID = ?",
+    "addPost": "INSERT INTO users.Posts (PostText, UserID) VALUES (?,?)"
 }

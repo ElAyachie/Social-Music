@@ -1,7 +1,7 @@
 import React, { /*useEffect,*/ useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import './Newcomment.scss';
+import './NewComment.scss';
 
 import api from '../../config/api';
 
@@ -12,16 +12,17 @@ function closeComment() {
     modal.style.display = "none";
 }
 
-function NewComment() {
-    const [commentText, setCommentText] = useState('');
+function NewComment(props) {
+    const [CommentText, setCommentText] = useState('');
 
     const handleAddNewComment = async e => {
         e.preventDefault();
         const newComment = {
-            commentText
+            postID: props.postID,
+            comment: CommentText,
+            userID: 4
         }
-        closeComment();
-        await axios.post(api.base_url + "/comments/insert", newcomment)
+        await axios.post(api.base_url + "/comments/insert", newComment)
             .then(function(response) {
                 console.log(response.data);
                 console.log("New comment Successful");
@@ -49,12 +50,12 @@ function NewComment() {
                         name="commentText"
                         placeholder="What's on your mind?"
                         rows="5"
-                        value={commentText}
+                        value={CommentText}
                         onChange={(e) => {
                             setCommentText(e.target.value);
                         }}
                         />
-
+                        <p>{props.postID}</p>
                         <button type="submit" className="new-comment-button">
                             Add New comment
                         </button>
@@ -66,6 +67,7 @@ function NewComment() {
 }
 
 NewComment.propTypes = {
+    postID: PropTypes.number,
     userID: PropTypes.number,
     username: PropTypes.string,
     commentContent: PropTypes.string

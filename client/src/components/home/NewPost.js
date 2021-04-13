@@ -13,15 +13,12 @@ function closePost() {
 }
 
 function NewPost() {
-    const [postText, setPostText] = useState('');
-
-//    useEffect({
-//    }, []);
+    const [PostText, setPostText] = useState('');
 
     const handleAddNewPost = async e => {
         e.preventDefault();
         const newPost = {
-            postText
+            postText: PostText
         }
         closePost();
         await axios.post(api.base_url + "/posts/insert", newPost)
@@ -52,7 +49,7 @@ function NewPost() {
                         name="postText"
                         placeholder="What's on your mind?"
                         rows="5"
-                        value={postText}
+                        value={PostText}
                         onChange={(e) => {
                             setPostText(e.target.value);
                         }}

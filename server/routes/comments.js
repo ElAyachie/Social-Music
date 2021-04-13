@@ -1,8 +1,9 @@
 module.exports = (app, db) => {
-    const query = require('../query/posts.queries.json');
+    const query = require('../query/comments.queries.json');
 
-    app.get('/api/posts/get', (req, res) => {
-        db.query(query.getPosts, (error, result) => {
+    app.get('/api/comments/get', (req, res) => {
+        const PostID = req.query.PostID;
+        db.query(query.getCommentsForPost, [PostID], (error, result) => {
             //console.log(result);
             if(error) {
                 console.log("Error on insert", error);
@@ -14,17 +15,18 @@ module.exports = (app, db) => {
             else {
                 res.send({
                   "code": 200,
-                  "success": "posts got successfully",
+                  "success": "Comments got successfully",
                   "results": result
                 });
             }
         });
     });
   
-    app.post('/api/posts/insert', (req, res) => {
-        const PostText = req.body.postText;
+    app.post('/api/comments/insert', (req, res) => {
+        const PostID = req.body.postID;
+        const Comment = req.body.comment;
         const UserID = 4;
-        db.query(query.addPost, [PostText, UserID], (error, result) => {
+        db.query(query.addComment, [PostID, Comment, UserID], (error, result) => {
             //console.log(result);
             if(error) {
                 console.log("Error on insert", error);
@@ -36,7 +38,7 @@ module.exports = (app, db) => {
             else {
                 res.send({
                   "code": 200,
-                  "success": "post added successfully"
+                  "success": "comment added successfully"
                 });
             }
         });
