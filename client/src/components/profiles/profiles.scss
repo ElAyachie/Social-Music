@@ -50,14 +50,26 @@ h1,h2,h3 {
         font-size: 1rem;
     }
 
+    .name-block {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
     .edit {
-        float: right;
-        height: 15px;
-        width: 15px;
+        height: 25px;
+        width: 25px;
     }
 
     .edit-info {
         display: none;
+    }
+
+    .edit-btn {
+        margin-left: 10px;
+        background: none;
+        background-color: none;
+        border: none;
     }
 
     .close-space {
@@ -81,8 +93,6 @@ h1,h2,h3 {
         text-decoration: none;
         cursor: pointer;
     }
-
-    
 }
 
 .friends-section {

@@ -33,9 +33,8 @@ function UserInfo() {
                     <img className="edit" src={Edit_Icon} alt="Edit icon" />
                 </button>
             </div>
-            <EditInfo />
             <h3 className="bio">{user.Bio}</h3>
-
+            <EditInfo />
         </div>
     )
 }
