@@ -40,7 +40,7 @@ function EditInfo() {
         <div id="edit-info" className="edit-info">
             <div className="edit-info-content">
                 <div className="close-space">
-                    <span className="close">&times;</span>
+                    <span className="close-edit">&times;</span>
                 </div>
                 <div className="info-space">
                     <form onSubmit={handleInformationChange}>

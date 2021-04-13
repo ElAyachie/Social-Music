@@ -12,7 +12,7 @@ function UserInfo() {
         var modal = document.getElementById("edit-info");
 
         // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+        var span = document.getElementsByClassName("close-edit")[0];
 
         modal.style.display = "block";
 
