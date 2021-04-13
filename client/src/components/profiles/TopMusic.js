@@ -11,19 +11,19 @@ function TopMusic() {
         <div className="music-section">
             <Tabs defaultActiveKey="Artists" id="uncontrolled-tab-example">
                 <Tab eventKey="Artists" title="Artists">
-                    <div className="sub-sections list">
-                        <Artists />
+                    <div className="artists sub-sections list">
+                        {/* <Artists /> */}
                     </div>         
                 </Tab>
                 <Tab eventKey="Tracks" title="Tracks">
-                    <div className="sub-sections">
+                    <div className="user-tracks sub-sections">
                         <UserTracks />
                     </div>
                 </Tab>
-                <Tab eventKey="Album" title="Album">
-                    <div className="sub-sections list">
-                        <Albums />
-                    </div>         
+                <Tab eventKey="Albums" title="Albums">
+                    <div className="albums sub-sections">
+                        {/* <Albums /> */}
+                    </div>
                 </Tab>
             </Tabs>
         </div>
