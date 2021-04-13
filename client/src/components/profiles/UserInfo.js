@@ -40,6 +40,7 @@ function UserInfo() {
             </div>
             <EditInfo />
             <h3 className="bio">{user.Bio}</h3>
+
         </div>
     )
 }

@@ -128,14 +128,15 @@ h1,h2,h3 {
     padding: 10px;
     margin-top: 25px;
     margin-bottom: 50px;
-    overflow-y: scroll;
+    // overflow-y: scroll;
     height: 250px;
   
     .sub-sections {
         display: inline-block;
         border-radius: 3px;
         padding-bottom: 5px;
-        
+        overflow-y: scroll;
+        height: 180px;
     }
 }
 
