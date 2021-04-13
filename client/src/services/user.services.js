@@ -10,7 +10,7 @@ class UserDataService {
     }
 
     create(data) {
-        return http.post("/information", data);
+        return http.post("/user_information", data);
     }
 
     update(id, data) {

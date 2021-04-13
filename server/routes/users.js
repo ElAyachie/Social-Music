@@ -9,6 +9,7 @@ module.exports = (app, db) => {
   });
   
   app.post('/api/users/insert', (req, res) => {
+
     const username = req.body.username;
     const email = req.body.email;
     const name = req.body.name;
@@ -26,6 +27,28 @@ module.exports = (app, db) => {
         res.send({
           "code": 200,
           "success": "user registered sucessfully"
+        });
+      }
+    });
+  });
+
+  app.patch('/api/users/update_info/update', (req, res) => {
+    const UserID = req.body.userID;
+    const Name = req.body.newName;
+    const Bio = req.body.newBio;
+    db.query(query.updateUserInfo, [Name, Bio, UserID], (error, result) => {
+      console.log(result);
+      if(error) {
+        console.log("Error on put", error);
+        res.send({
+          "code": 400,
+          "failed": "error occured"
+        });
+      }
+      else {
+        res.send({
+          "code": 200,
+          "success": "Changes were successful"
         });
       }
     });
