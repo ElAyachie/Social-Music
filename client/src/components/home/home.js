@@ -5,7 +5,7 @@ import profilePic from '../../assets/blankUser.jpg';
 import ExpandIcon from '../../assets/expand-icon.png'
 
 import Feed from './feed';
-import TopMusic from '../profiles/TopMusic';
+import UserMusic from '../profiles/UserMusic';
 import Friends from '../profiles/Friends';
 import NewPost from './NewPost';
 
@@ -108,7 +108,7 @@ export default class Home extends Component {
                     </div>
                     <div id="music-space-content" className="music-space-content">
                         <h3>My Music</h3>
-                        <TopMusic />
+                        <UserMusic />
                     </div>                
                 </div>
                 <div className="friend-space">

@@ -1,41 +1,36 @@
 import React, {useState} from 'react';
 import "./profiles.scss";
-import Profile_Pic from "../../assets/profile_1_pic.jfif";
-import Edit_Icon from "../../assets/edit-icon.png";
+
 import EditInfo from './EditInfo';
 
+import Profile_Pic from "../../assets/profile_1_pic.jfif";
+import Edit_Icon from "../../assets/edit-icon.png";
+
 function UserInfo() {
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+    const [user] = useState(JSON.parse(localStorage.getItem("user")));
 
     function EditInformation () {
-        // Get the modal
-        var modal = document.getElementById("edit-info");
+        // Get the editBox
+        var editBox = document.getElementById("edit-info");
 
-        // Get the <span> element that closes the modal
+        // Get the <span> element that closes the editBox
         var span = document.getElementsByClassName("close-edit")[0];
 
-        modal.style.display = "block";
+        editBox.style.display = "block";
 
-        // When the user clicks on <span> (x), close the modal
+        // When the user clicks on <span> (x), close the editBox
         span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
+            editBox.style.display = "none";
         }
     }
 
     return (
         <div className="user-info">
-            <img className="picture" src={Profile_Pic} width="95px" height="95px" alt="Profile pic"></img>
+            <img className="picture" src={Profile_Pic} width="95px" height="95px" alt="Profile pic" />
             <div className="name-block">
                 <h1 className="name">{user.Name}</h1>
                 <button className="edit-btn" onClick={EditInformation}>
-                    <img className="edit" src={Edit_Icon}/>
+                    <img className="edit" src={Edit_Icon} alt="Edit icon" />
                 </button>
             </div>
             <EditInfo />

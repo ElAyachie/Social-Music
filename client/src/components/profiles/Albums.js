@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import api from '../../config/api';
 import axios from 'axios';
 import "./profiles.scss";
-import Upvote_Icon from "../../assets/upvote.svg"
+
 import { Button } from "react-bootstrap";
+
+import api from '../../config/api';
 
 const Albums = () => {
     const [albumInterests, setAlbumInterests] = useState(JSON.parse(localStorage.getItem("album_interests")));
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-    const [userID, setUserID] = useState(user.UserID);
+    const [user] = useState(JSON.parse(localStorage.getItem("user")));
+    const [userID] = useState(user.UserID);
 
     const deleteAlbumInterest = async e => {
         let elementID = e.target.id;
