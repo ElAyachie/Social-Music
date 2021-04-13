@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "./login.scss";
+import {LoadMusicInterests} from "../search/LoadMusicInterests";
 
 import api from '../../config/api';
 
@@ -51,9 +52,8 @@ function Login() {
                     ];
                     setUser(response.data.email);
                     localStorage.setItem("user", JSON.stringify(userData));
-                    console.log(response.data);
-                    console.log("Login Successful");
                     window.location.reload();
+                    LoadMusicInterests();
                 }
                 else if(response.data.code === 204) {
                     console.log("email or Password do not match our records.");
