@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 import "./profiles.scss";
 
-import Artists from "./Artists";
+//import Artists from "./Artists";
 import UserTracks from "./UserTracks";
-import Albums from "./Albums";
+//import Albums from "./Albums";
 
 function TopMusic() {
     return (
