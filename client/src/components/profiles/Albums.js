@@ -8,7 +8,7 @@ import { Button } from "react-bootstrap";
 const Albums = () => {
     const [albumInterests, setAlbumInterests] = useState(JSON.parse(localStorage.getItem("album_interests")));
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-    const [userID, setUserID] = useState(user[0]);
+    const [userID, setUserID] = useState(user.UserID);
 
     const deleteAlbumInterest = async e => {
         let elementID = e.target.id;
@@ -41,7 +41,7 @@ const Albums = () => {
                     <img className="picture" src={album.AlbumPic} height="65px" width="65px" alt="Artist"></img>
                 </div>
                 <h2 className="name">{album.AlbumName}</h2>
-                <Button className="upvote-icon" id={index} onClick={deleteAlbumInterest} alt="Upvote" width="23px" height="23px" data-albumid={album.AlbumID}>-</Button>
+                <Button id={index} onClick={deleteAlbumInterest} alt="Upvote" data-albumid={album.AlbumID}>-</Button>
             </div>
             ))}</div>):(
                 <h5>Nothing to show...</h5>

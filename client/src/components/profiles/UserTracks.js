@@ -9,7 +9,7 @@ import { Button } from "react-bootstrap";
 const UserTracks = () => {
     const [songInterests, setSongInterests] = useState(JSON.parse(localStorage.getItem("song_interests")));
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-    const [userID, setUserID] = useState(user[0]);
+    const [userID, setUserID] = useState(user.UserID);
 
     const deleteSongInterest = async e => {
         let elementID = e.target.id;
@@ -40,7 +40,7 @@ const UserTracks = () => {
                 <div className="track" key={index}>
                     <img className="picture" src={song.AlbumPic} height="55px" width="55px" alt="Album"></img>
                     <h2 className="title">{song.SongName} - {song.ArtistName}</h2>
-                    <Button  className="upvote-icon" id={index} onClick={deleteSongInterest} alt="Upvote" width="23px" height="23px" data-songname={song.SongName}>-</Button>
+                    <Button id={index} onClick={deleteSongInterest} alt="Upvote" data-songname={song.SongName}>-</Button>
                 </div>
            ))}</div>):(
           <h5>Nothing to show...</h5>
