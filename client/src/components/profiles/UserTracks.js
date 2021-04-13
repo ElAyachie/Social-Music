@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import api from '../../config/api';
 import axios from 'axios';
 import "./profiles.scss";
-import Upvote_Icon from "../../assets/upvote.svg";
-import Explicit_Icon from "../../assets/explicit.svg";
 import { Button } from "react-bootstrap";
 
 const UserTracks = () => {
     const [songInterests, setSongInterests] = useState(JSON.parse(localStorage.getItem("song_interests")));
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-    const [userID, setUserID] = useState(user.UserID);
+    const [user] = useState(JSON.parse(localStorage.getItem("user")));
+    const [userID] = useState(user.UserID);
 
     const deleteSongInterest = async e => {
         let elementID = e.target.id;

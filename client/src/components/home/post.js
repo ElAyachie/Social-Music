@@ -19,7 +19,7 @@ function Post(props) {
     //const userID = useState(user[0]);
     const [userName] = useState(user[2]);
     const [comments, loadComments] = useState([]);
-    const [POSTID, setPostID] = useState(props.postID);
+    //const [POSTID, setPostID] = useState(props.postID);
 
     useEffect(() => {
         loadInCommets();
@@ -73,13 +73,13 @@ function Post(props) {
         }
     }
     
-    function closeComment() {
+    /*function closeComment() {
         // Get the modal
         var modal = document.getElementById("new-comment");
         
         modal.style.display = "none";
-    }
-    
+    }*/
+
     return(
         <div>
             <div id={props.postID} className="post">
