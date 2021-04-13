@@ -2,6 +2,7 @@
     display: block;
     min-height: 100%;
     margin-top: 1rem;
+    margin-bottom: 1rem;
 
     .profile-bar {
         display: flex;
@@ -79,12 +80,18 @@
         height: 500px;
     }
 
-    .expand-icon {
-        width: 25px;
+    .expand-icon-btn {
+        border: none;
+        background: none;
         position: absolute;
         top: 0;
         right: 0;
-        margin-right: 10px;
-        margin-top: 10px;
+        margin-right: 5px;
+        margin-top: 5px;
     }
+
+    .expand-icon {
+        width: 25px;
+    }
+
 }
