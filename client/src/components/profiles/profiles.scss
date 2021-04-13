@@ -33,11 +33,6 @@ h1,h2,h3 {
         height: 1000px;
         overflow-y: scroll;
     }
-
-    .edit-info {
-        display: none;
-        border: 1px solid purple;
-    }
 }
 
 .user-info {
@@ -60,20 +55,33 @@ h1,h2,h3 {
         height: 15px;
         width: 15px;
     }
-    .name-block {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
+
+    .edit-info {
+        display: none;
     }
 
-    .edit-btn {
-        margin-left: 10px;
-        height: 25px;
-        background: none;
-        border: none;
-        background-color: none;
-        
+    .close-space {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-top: -15px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid purple;
     }
+
+    .close-edit {
+        color: black;
+        float: right;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .close-edit:hover, .close-edit:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
     
 }
 
@@ -128,15 +136,14 @@ h1,h2,h3 {
     padding: 10px;
     margin-top: 25px;
     margin-bottom: 50px;
-    // overflow-y: scroll;
+    overflow-y: scroll;
     height: 250px;
   
     .sub-sections {
         display: inline-block;
         border-radius: 3px;
         padding-bottom: 5px;
-        overflow-y: scroll;
-        height: 180px;
+        
     }
 }
 

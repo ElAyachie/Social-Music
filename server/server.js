@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const config = require('./config/db.config');
 const mysql = require('mysql');
-const multer = require('multer');
+
 
 const app = express();
 
