@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
-import api from '../../config/api';
+import React, { useState } from "react";
 import axios from 'axios';
 import "./profiles.scss";
-import Upvote_Icon from "../../assets/upvote.svg"
+
 import { Button } from "react-bootstrap";
+
+import api from '../../config/api';
 
 const Artists = () => {
     const [artistInterests, setArtistInterests] = useState(JSON.parse(localStorage.getItem("artist_interests")));
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-    const [userID, setUserID] = useState(user.UserID);
+    const [user] = useState(JSON.parse(localStorage.getItem("user")));
+    const [userID] = useState(user.UserID);
 
     const deleteArtistInterest = async e => {
         let elementID = e.target.id;
@@ -17,7 +18,9 @@ const Artists = () => {
             UserID: userID,
             ArtistID: artistID 
         };
-        await axios.delete(api.base_url + "/users/artist_interests/delete", {data: artist})
+        await axios.delete(api.base_url + "/users/artist_interests/delete", {
+                data: artist
+            })
             .then(response => {
                 console.log(response);
                 artistInterests.splice(elementID, elementID + 1);

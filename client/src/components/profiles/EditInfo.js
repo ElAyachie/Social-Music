@@ -1,16 +1,18 @@
 import React, { /*useEffect,*/ useState } from 'react';
 import axios from 'axios';
 import './profiles.scss';
+
 import api from '../../config/api';
 
 function closeEditor() {
     // Get the modal
-    var modal = document.getElementById("edit-info");
+    var editBox = document.getElementById("edit-info");
     
-    modal.style.display = "none";
+    editBox.style.display = "none";
 }
+
 function EditInfo() {
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+    const [user] = useState(JSON.parse(localStorage.getItem("user")));
     const [nameText, setNameText] = useState(user.Name);
     const [bioText, setBioText] = useState(user.Bio);
     const userID = user.UserID;
@@ -18,7 +20,7 @@ function EditInfo() {
 
     const handleInformationChange = async e => {
         e.preventDefault();
-        if (user.Bio != bioText || user.Name != nameText) {
+        if (user.Bio !== bioText || user.Name !== nameText) {
         const Info = {
             userID: userID,
             newName: nameText,
