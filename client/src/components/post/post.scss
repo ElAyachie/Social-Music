@@ -1,16 +1,31 @@
+.flex-container {
+    display: flex;
+    justify-content: start;
+    padding-left: 20px;
+}
+
 .post-section {
     position: relative;
     background-color: gray;
     margin-left: 10px;
     color: black;
+    padding-top: 10px;
   
+    
+
     .poster {
         font-size: 2.1rem;
         font-weight: 600;
+        display: inline-block;
+        position: absolute;
+        top: 20px;
+        left: 100px;
     }
     
     .picture {
         border-radius: 50%;
+        display: inline-block;
+        margin-right: 15px;
     }
     
     .time-posted {
@@ -60,6 +75,7 @@
 .individual-comment {
     background-color: #E8E8E8;
     border-bottom: 2px solid #C7C7C7;
+    padding-top: 10px;
 
     .time-posted {
         font-size: 13px;
