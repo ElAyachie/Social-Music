@@ -10,8 +10,10 @@ function Post() {
 
     return (
         <div className="post-section">
-            <img className="picture" src={Profile_1} width="65px" height="65px" alt="Profile Pic"></img>
-            <h1 className="poster">John Smith</h1>
+            <div className="flex-container">
+                <img className="picture" src={Profile_1} width="65px" height="65px" alt="Profile Pic"></img>
+                <h1 className="poster">John Smith</h1>
+            </div>
             <h4 className="time-posted">Posted at 1:05 PM 3/24</h4>
             <h3 className="post">Quisque imperdiet tellus eget ex tempor,
                 eget feugiat metus vestibulum. Curabitur sapien
