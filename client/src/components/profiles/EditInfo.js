@@ -17,7 +17,6 @@ function EditInfo() {
     const [bioText, setBioText] = useState(user.Bio);
     const userID = user.UserID;
 
-
     const handleInformationChange = async e => {
         e.preventDefault();
         if (user.Bio !== bioText || user.Name !== nameText) {
@@ -31,6 +30,11 @@ function EditInfo() {
             .then(function(response) {
                 console.log(response.data);
                 console.log("Profile change successful");
+                user["Bio"] = bioText;
+                user["Name"] = nameText;
+                localStorage.setItem("user", JSON.stringify(user));
+                setBioText(bioText);
+                setNameText(nameText);
                 closeEditor();
             })
             .catch(function(error) {
@@ -66,7 +70,8 @@ function EditInfo() {
                         id="postText"
                         required
                         name="postText"
-                        placeholder={user.Bio}
+                        placeholder={bioText}
+                        value={bioText}
                         rows="5"
                         onChange={(e) => {
                             setBioText(e.target.value);
