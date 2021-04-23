@@ -1,0 +1,5 @@
+{
+    "getAllFriends": "SELECT u.UserID, u.Username FROM users.user_information AS u INNER JOIN users.Friends AS f ON f.UserID = u.UserID WHERE f.FriendID = ?",
+    "addNewFriend" : "INSERT INTO users.Friends (UserID, FriendID) VALUES (?,?), (?,?)",
+    "deleteFriend": "DELETE FROM users.Friends WHERE UserID IN (?,?) AND FriendID IN (?,?)"
+}
