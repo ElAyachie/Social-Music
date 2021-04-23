@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import EachFriendProfile from "./EachFriendProfile"
+import EachFriend from "./EachFriend"
 import "./profiles.scss";
 
 function Friends() {
@@ -28,7 +28,7 @@ function Friends() {
                 View All Friends
             </button> 
             <div className="friends-list list">
-                <EachFriendProfile />
+                <EachFriend />
             </div>
         </div>
     )
