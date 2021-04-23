@@ -67,7 +67,7 @@ module.exports = (app, db) => {
       app.delete("/api/users/song_interests/delete", (req, res) => {
         const UserID = req.body.UserID;
         const SongName = req.body.SongName;
-        db.query(query.deleteArtistInterestForUser, [UserID, SongName], (error, result) => {
+        db.query(query.deleteSongInterestForUser, [UserID, SongName], (error, result) => {
           console.log(result);
           if(error) {
             console.log("Error on delete", error);
