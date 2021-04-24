@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
-import EachFriend from "./EachFriend"
+import EachFriendProfile from "./EachFriendProfile"
 import "./profiles.scss";
 
 function Friends() {
-
     const [friendsListDisplay, setFriendsListDisplay] = useState(false);
 
     function ShowFriends() {
         let friendsList = document.getElementsByClassName("friends-list")[0];
 
-        if(friendsListDisplay == false) {
+        if(friendsListDisplay === false) {
             friendsList.style.display = "flex";
             setFriendsListDisplay(true);
             return;
         }
 
-        if(friendsListDisplay == true) {
+        if(friendsListDisplay === true) {
             friendsList.style.display = "none"
             setFriendsListDisplay(false);
             return;
@@ -29,16 +28,7 @@ function Friends() {
                 View All Friends
             </button> 
             <div className="friends-list list">
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
+                <EachFriendProfile />
             </div>
         </div>
     )

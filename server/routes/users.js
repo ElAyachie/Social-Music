@@ -3,7 +3,28 @@ module.exports = (app, db) => {
 
   app.get('/api/users/get', (req, res) => {
     db.query(query.getAllData, (error, result) => {
-      console.log(result);
+      if(error) {
+        console.log("Error on get", error);
+        res.send({
+          "code": 400,
+          "failed": "error occured"
+        });
+      }
+      else {
+        if(result.length > 0) {
+            res.send({
+              "code": 200,
+              "success": "user found",
+              "users": result
+            });
+        }
+        else {
+          res.send({
+            "code": 204,
+            "failed": "No users"
+          });
+        }
+      }
     });
   });
   
