@@ -72,7 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ** insert link here **
 
 ## Contributors
-- Mohamed Oulal, oulalm@wit.edu, Team Lead
+- Mohamed Oulal, oulalm@wit.edu, Team Lead, Full stack
 - Fabio Marcellus, marcellusf@wit.edu, Front End
 - Zachary Johnson, johnsonz3@wit.edu, Full stack
 - Kyle McDevitt, mcdevittk2@wit.edu, Back End
