@@ -29,7 +29,6 @@ module.exports = (app, db) => {
   });
   
   app.post('/api/users/insert', (req, res) => {
-
     const username = req.body.username;
     const email = req.body.email;
     const name = req.body.name;
@@ -48,6 +47,33 @@ module.exports = (app, db) => {
           "code": 200,
           "success": "user registered sucessfully"
         });
+      }
+    });
+  });
+
+  app.get('/api/users/info/get', (req, res) => {
+    const UserID = req.query.UserID;
+    db.query(query.getUserInfo, [UserID], (error, result) => {
+      if(error) {
+        console.log("Error occured", error);
+        res.send({
+          "code": 400,
+          "failed": "Error occured"
+        });
+      }
+      else {
+        if(result.length > 0) {
+          if(result[0].UserID == UserID) {
+            res.send({
+              "userID": result[0].UserID,
+              "email": result[0].email,
+              "username": result[0].Username,
+              "name": result[0].Name,
+              "bio": result[0].Bio,
+              "code": 200
+            });
+          }
+        }
       }
     });
   });

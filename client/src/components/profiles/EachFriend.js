@@ -6,7 +6,7 @@ import Profile_Pic from "../../assets/profile_1_pic.jfif"
 import { Button } from "react-bootstrap";
 
 function EachFriend() {
-    const [users, setUsers] = useState(JSON.parse(localStorage.getItem("users")));
+    const [users] = useState(JSON.parse(localStorage.getItem("users")));
     const [currentUser] = useState(JSON.parse(localStorage.getItem("user")));
     const [userID] = useState(currentUser.UserID);
 
@@ -15,7 +15,7 @@ function EachFriend() {
         let otherUserID = e.target.dataset.userid;
         let username = e.target.dataset.username;
         // check if the user they are adding is themselves
-        if (otherUserID == userID) {
+        if (otherUserID === userID) {
             return;
         }
         // Check if the user already has the friend in their list
