@@ -32,8 +32,8 @@ List all the functions with their sub functions of your application.
 ## Getting Started
 ### Installation and Setup
 The command scripts below will explain how to start the project.
-    - In the client folder run npm start and in the server folder run nodemon server.js for development.
-    - To build the application run npm run build in the client folder and put those files along with the server files on a server.
+    1. In the client folder run npm start and in the server folder run nodemon server.js for development.
+    2. To build the application run npm run build in the client folder and put those files along with the server files on a server.
 
 ### Run
 #### Available Scripts
@@ -72,3 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ** insert link here **
 
 ## Contributors
+Mohamed Oulal, oulalm@wit.edu, Team Lead
+Fabio Marcellus, marcellusf@wit.edu, Front End
+Zachary Johnson, johnsonz3@wit.edu, Full stack
+Kyle McDevitt, mcdevittk2@wit.edu, Back End
