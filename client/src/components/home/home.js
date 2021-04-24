@@ -84,8 +84,8 @@ export default class Home extends Component {
             <div id="home" className="container">
                 <div className="profile-bar sticky-top">
                     <img src={profilePic} className="pro-pic" alt="profile pic"></img>
-                    <h5>{this.state.user[2]}</h5>
-                    <h5>@{this.state.user[2]}</h5>
+                    <h5>{this.state.user.Name}</h5>
+                    <h5>@{this.state.user.Username}</h5>
                     <button className="play-music-btn">Play My Music</button>
                     <button className="new-post-btn" onClick={this.createNewPost}>New Post</button>
                 </div>

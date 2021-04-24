@@ -7,11 +7,11 @@ import Header from "./components/header/header";
 import Welcome from "./components/welcome/welcome";
 import Home from "./components/home/home";
 import Search from "./components/search/search";
-import Feed from "./components/feed/feed";
+//import Feed from "./components/feed/feed";
 import LoginController from "./components/login/LoginController";
 import Profile from './components/profile/profile';
 import PrivateRoute from './components/routes/PrivateRoute';
-import UserProfile from './components/profiles/UserProfile';
+//import UserProfile from './components/profiles/UserProfile';
 
 function App() {
   const [authed, setAuthed] = useState(false);
@@ -41,12 +41,9 @@ function App() {
         </Route>
         <Switch>
           <Route path="/welcome" exact component={ Welcome } />
-          <Route path="/home" exact component={ Home } />
-          <Route path="/feed" exact component={ Feed } />
-          <Route path="/userprofile" exact component={ UserProfile } />
+          <PrivateRoute authed={authed} path="/home" component={ Home } />
           <PrivateRoute authed={authed} path="/search" component={ Search } />
-          {/* <PrivateRoute authed={authed} path="/profile" component={ Profile } /> */}
-          <Route path="/profile" exact component={ Profile } />
+          <PrivateRoute authed={authed} path="/profile" component={ Profile } />
         </Switch>
       </div>
     </Router>

@@ -6,7 +6,7 @@ function Friends() {
     const [friendsListDisplay, setFriendsListDisplay] = useState(false);
 
     function ShowFriends() {
-        let friendsList = document.getElementsByClassName("friends-list")[0];
+        var friendsList = document.getElementById("friends-list");
 
         if(friendsListDisplay === false) {
             friendsList.style.display = "flex";
@@ -19,7 +19,6 @@ function Friends() {
             setFriendsListDisplay(false);
             return;
         }
-        
     }
 
     return (

@@ -17,7 +17,7 @@ import api from '../../config/api';
 function Post(props) {
     const [user] = useState(JSON.parse(localStorage.getItem("user")));
     //const userID = useState(user[0]);
-    const [userName] = useState(user[2]);
+    const [userName] = useState(user.Username);
     const [comments, loadComments] = useState([]);
     //const [POSTID, setPostID] = useState(props.postID);
 
@@ -89,9 +89,11 @@ function Post(props) {
                     <h4 className="user">{props.userName}</h4>
                 </div>
                 <br />
-                <p className="postData">
-                    {props.postText}
-                </p>
+                <div className="postDataBox">
+                    <p className="postData">
+                        {props.postText}
+                    </p>
+                </div>
                 <br />
                 <div className="icons">
                     <img src={favorite} alt="Favorite icon" className="icon" />

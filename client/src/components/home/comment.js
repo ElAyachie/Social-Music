@@ -20,9 +20,11 @@ function Comment(props) {
                 <h4 className="user">{props.userName}</h4>
             </div>
             <br />
-            <p className="commentData">
-                {props.commentText}
-            </p>
+            <div className="commentDataBox">
+                    <p className="commentData">
+                        {props.commentText}
+                    </p>
+                </div>
             <br />
             <div className="icons">
                 <img src={favorite} alt="Favorite icon" className="icon" />

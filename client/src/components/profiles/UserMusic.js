@@ -21,7 +21,7 @@ function UserMusic() {
                     </div>
                 </Tab>
                 <Tab eventKey="Albums" title="Albums">
-                    <div className="albums sub-sections">
+                    <div className="artists sub-sections">
                         <Albums />
                     </div>
                 </Tab>

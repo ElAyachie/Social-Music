@@ -11,11 +11,11 @@ function Feed() {
     const [posts, loadPosts] = useState([]);
     const [user] = useState(JSON.parse(localStorage.getItem("user")));
     //const userID = useState(user[0]);
-    const [userName] = useState(user[2]);
+    const [userName] = useState(user.Username);
 
     useEffect(() => {
         loadInPosts();
-    }, []);
+    }, [loadPosts]);
 
     const loadInPosts = async e => {
         await axios.get(api.base_url + '/posts/get')
