@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { /*useEffect,*/ useState } from 'react';
 import './login.scss';
 
 import LoginScreen from './LoginScreen';
 
 const LoginController = () => {
-    const [loginPage, setLoginPage] = useState([]);
+    const [loginPage] = useState([]);
 
-    loginPage.push(<LoginScreen appContext={this} />)
+    if (loginPage.length === 0)
+    {
+        loginPage.push(<LoginScreen appContext={this} />);
+    }
 
-    useEffect(() => {
+    /*useEffect(() => {
         setLoginPage(loginPage)
-    }, [loginPage]);
+    }, [loginPage]);*/
 
     return (
         <div className="loginController">
