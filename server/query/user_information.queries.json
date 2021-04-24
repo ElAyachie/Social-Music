@@ -1,6 +1,7 @@
 {
-    "getAllData": "SELECT * FROM users.user_information",
+    "getAllData": "SELECT u.UserID, u.Username FROM users.user_information AS u",
     "addNewUser": "INSERT INTO users.user_information (username, email, password, name) VALUES (?,?,?,?)",
     "getUser": "SELECT * FROM users.user_information WHERE email = ?",
+    "getUserInfo": "SELECT * FROM users.user_information WHERE UserID = ?",
     "updateUserInfo": "UPDATE users.user_information SET Name = ?, Bio = ? WHERE UserID = ?"
 }

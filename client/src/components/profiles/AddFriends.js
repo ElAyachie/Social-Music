@@ -1,11 +1,11 @@
 import React from 'react';
-import EachFriendProfile from "./EachFriendProfile"
+import EachFriend from "./EachFriend"
 import "./profiles.scss";
 
-function Friends() {
+function AddFriends() {
 
     function ShowFriends() {
-        var friendsList = document.getElementById("friends-list");
+        var friendsList = document.getElementById("friends-list-ad");
 
         if(friendsList.style.display === "none") {
             friendsList.style.display = "flex";
@@ -20,11 +20,11 @@ function Friends() {
             <button type="button" className="view-button btn btn-primary" onClick={ShowFriends}>
                 View All Friends
             </button> 
-            <div id="friends-list" className="friends-list list">
-                <EachFriendProfile />
+            <div id="friends-list-ad" className="friends-list list">
+                <EachFriend />
             </div>
         </div>
     )
 }
 
-export default Friends;
+export default AddFriends;

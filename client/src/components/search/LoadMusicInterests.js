@@ -5,9 +5,7 @@ function LoadMusicInterests() {
     const user = JSON.parse(localStorage.getItem("user"));
     const userID = user.UserID;
 
-    // All the get music interest functions below (might be better to move these somewhere else, but i dont want to make them static)
     const getAlbumInterests  = async e  =>  {
-        //alert(userID);
         await axios.get(api.base_url + '/users/load_albums/get', {
                 params: {
                     UserID: userID
@@ -16,7 +14,7 @@ function LoadMusicInterests() {
             .then(function(response) {
                 if (response.data.code === 200) {
                     let dataObject = {};
-                    const albumInterests = [];
+                    let albumInterests = [];
                     for(var i = 0; i < response.data.albumInterests.length; i++) {
                         dataObject = {
                             AlbumName: response.data.albumInterests[i].AlbumName,
@@ -45,7 +43,7 @@ function LoadMusicInterests() {
             .then(function(response) {
                 if (response.data.code === 200) {
                     let dataObject = {};
-                    const artistInterests = [];
+                    let artistInterests = [];
                     for(var i = 0; i < response.data.artistInterests.length; i++) {
                         dataObject = {
                             ArtistName: response.data.artistInterests[i].ArtistName,
@@ -72,7 +70,7 @@ function LoadMusicInterests() {
                 .then(function(response) {
                     if (response.data.code === 200) {
                         let dataObject = {};
-                        const songInterests = [];
+                        let songInterests = [];
                         for(var i = 0; i < response.data.songInterests.length; i++) {
                             dataObject = {
                                 SongName: response.data.songInterests[i].SongName,
