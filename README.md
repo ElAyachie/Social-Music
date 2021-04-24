@@ -32,8 +32,8 @@ List all the functions with their sub functions of your application.
 ## Getting Started
 ### Installation and Setup
 The command scripts below will explain how to start the project.
-    1. In the client folder run npm start and in the server folder run nodemon server.js for development.
-    2. To build the application run npm run build in the client folder and put those files along with the server files on a server.
+- In the client folder run npm start and in the server folder run nodemon server.js for development.
+- To build the application run npm run build in the client folder and put those files along with the server files on a server.
 
 ### Run
 #### Available Scripts
