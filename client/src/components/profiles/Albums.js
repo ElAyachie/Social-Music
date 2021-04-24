@@ -18,7 +18,9 @@ const Albums = () => {
             UserID: userID,
             AlbumID: albumID 
         };
-        await axios.delete(api.base_url + "/users/album_interests/delete", {data: album})
+        await axios.delete(api.base_url + "/users/album_interests/delete", {
+                data: album
+            })
             .then(response => {
                 console.log(response);
                 albumInterests.splice(elementID, 1);
