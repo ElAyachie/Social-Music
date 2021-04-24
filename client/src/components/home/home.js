@@ -6,7 +6,7 @@ import ExpandIcon from '../../assets/expand-icon.png'
 
 import Feed from './feed';
 import UserMusic from '../profiles/UserMusic';
-import Friends from '../profiles/Friends';
+import AddFriends from '../profiles/AddFriends';
 import NewPost from './NewPost';
 
 export default class Home extends Component {
@@ -118,7 +118,7 @@ export default class Home extends Component {
                         </button>                    
                     </div>
                     <div id="friend-space-content" className="friend-space-content">
-                        <Friends />
+                        <AddFriends />
                     </div>
                 </div>
             </div>

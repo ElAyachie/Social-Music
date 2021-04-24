@@ -13,10 +13,6 @@ function Feed() {
     //const userID = useState(user[0]);
     const [userName] = useState(user.Username);
 
-    useEffect(() => {
-        loadInPosts();
-    }, [loadInPosts]);
-
     const loadInPosts = async e => {
         await axios.get(api.base_url + '/posts/get')
             .then(function(response) {
@@ -36,6 +32,10 @@ function Feed() {
                 console.log(error);
             });
     }
+
+    useEffect(() => {
+        //loadInPosts();
+    }, [loadInPosts]);
 
     return(
         <div className="feed">

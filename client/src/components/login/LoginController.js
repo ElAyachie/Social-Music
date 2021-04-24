@@ -6,7 +6,10 @@ import LoginScreen from './LoginScreen';
 const LoginController = () => {
     const [loginPage] = useState([]);
 
-    loginPage.push(<LoginScreen appContext={this} />)
+    if (loginPage.length === 0)
+    {
+        loginPage.push(<LoginScreen appContext={this} />);
+    }
 
     /*useEffect(() => {
         setLoginPage(loginPage)

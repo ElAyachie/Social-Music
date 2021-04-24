@@ -11,12 +11,14 @@ const UserTracks = () => {
 
     const deleteSongInterest = async e => {
         let elementID = e.target.id;
-        let songID = e.target.dataset.songid;
+        let songname = e.target.dataset.songname;
         const song = {
             UserID: userID,
-            SongID: songID 
+            SongName: songname
         };
-        await axios.delete(api.base_url + "/users/song_interests/delete", {data: song})
+        await axios.delete(api.base_url + "/users/song_interests/delete", {
+                data: song
+            })
             .then(response => {
                 console.log(response);
                 songInterests.splice(elementID, 1);

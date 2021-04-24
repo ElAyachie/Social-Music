@@ -1,4 +1,4 @@
-import React, { /*useEffect,*/ useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import './profiles.scss';
 
@@ -17,31 +17,36 @@ function EditInfo() {
     const [bioText, setBioText] = useState(user.Bio);
     const userID = user.UserID;
 
-    const handleInformationChange = async e => {
-        e.preventDefault();
+    async function fetchData() {
         if (user.Bio !== bioText || user.Name !== nameText) {
-        const Info = {
-            userID: userID,
-            newName: nameText,
-            newBio: bioText
-        }
-        closeEditor();
-        await axios.patch(api.base_url + "/users/update_info/update", Info)
-            .then(function(response) {
-                console.log(response.data);
-                console.log("Profile change successful");
-                user["Bio"] = bioText;
-                user["Name"] = nameText;
-                localStorage.setItem("user", JSON.stringify(user));
-                setBioText(bioText);
-                setNameText(nameText);
-                closeEditor();
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
-        }
-    }
+            const Info = {
+                userID: userID,
+                newName: nameText,
+                newBio: bioText
+            }
+            closeEditor();
+            await axios.patch(api.base_url + "/users/update_info/update", Info)
+                .then(function(response) {
+                    console.log(response.data);
+                    console.log("Profile change successful");
+                    user["Bio"] = bioText;
+                    user["Name"] = nameText;
+                    localStorage.setItem("user", JSON.stringify(user));
+                    setBioText(bioText);
+                    setNameText(nameText);
+                    closeEditor();
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
+        }
+    }
+
+    const handleInformationChange = e => {
+        e.preventDefault();
+        fetchData();
+    }
+
     return(
         <div id="edit-info" className="edit-info">
             <div className="edit-info-content">
@@ -77,7 +82,7 @@ function EditInfo() {
                             setBioText(e.target.value);
                         }}
                         />
-                        <button type="submit" className="edit-info-button">
+                        <button type="submit" className="edit-info-button btn loginBtn">
                             Save Changes
                         </button>
             
@@ -87,4 +92,5 @@ function EditInfo() {
         </div>
     );
 }
+
 export default EditInfo;

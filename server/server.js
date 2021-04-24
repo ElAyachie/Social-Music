@@ -30,6 +30,7 @@ require("./routes/comments")(app, db);
 require("./routes/artists")(app, db);
 require("./routes/albums")(app, db);
 require("./routes/songs")(app, db);
+require("./routes/friends")(app, db);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

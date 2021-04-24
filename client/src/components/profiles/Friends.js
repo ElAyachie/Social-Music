@@ -1,5 +1,5 @@
 import React from 'react';
-import EachFriend from "./EachFriend"
+import EachFriendProfile from "./EachFriendProfile"
 import "./profiles.scss";
 
 function Friends() {
@@ -7,11 +7,11 @@ function Friends() {
     function ShowFriends() {
         var friendsList = document.getElementById("friends-list");
 
-        if(friendsList.style.display === "flex") {
-            friendsList.style.display = "none";
+        if(friendsList.style.display === "none") {
+            friendsList.style.display = "flex";
         }
         else {
-            friendsList.style.display = "flex";
+            friendsList.style.display = "none"
         }
     }
 
@@ -20,19 +20,8 @@ function Friends() {
             <button type="button" className="view-button btn btn-primary" onClick={ShowFriends}>
                 View All Friends
             </button> 
-            <div id="friends-list" className="friends-list">
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
-                <EachFriend />
+            <div id="friends-list" className="friends-list list">
+                <EachFriendProfile />
             </div>
         </div>
     )
