@@ -15,7 +15,7 @@ function Feed() {
 
     useEffect(() => {
         loadInPosts();
-    }, [loadPosts]);
+    }, [loadInPosts]);
 
     const loadInPosts = async e => {
         await axios.get(api.base_url + '/posts/get')

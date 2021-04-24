@@ -7,7 +7,7 @@ function LoadMusicInterests() {
 
     // All the get music interest functions below (might be better to move these somewhere else, but i dont want to make them static)
     const getAlbumInterests  = async e  =>  {
-        alert(userID);
+        //alert(userID);
         await axios.get(api.base_url + '/users/load_albums/get', {
                 params: {
                     UserID: userID
