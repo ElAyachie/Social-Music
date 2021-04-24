@@ -44,7 +44,9 @@ const Artists = () => {
                         <img className="picture" src={artist.ArtistPic} height="65px" width="65px" alt="Artist"></img>
                     </div>
                     <h2 className="name">{artist.ArtistName}</h2>
-                    <Button className="upvote-icon" id={index} onClick={deleteArtistInterest} alt="Upvote" width="23px" height="23px" data-artistid={artist.ArtistID}>-</Button>
+                    <Button className="upvote-icon" id={index} onClick={deleteArtistInterest} alt="Upvote" data-artistid={artist.ArtistID}>
+                        -
+                    </Button>
             </div>
            ))}</div>):(
           <h5>Nothing to show...</h5>

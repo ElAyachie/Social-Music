@@ -37,12 +37,16 @@ const Albums = () => {
             <div>
             { 
             albumInterests.map((album, index) => (
-            <div className="artist" key={index}>
+            <div className="album-card" key={index}>
                 <div className="jc-cente">
-                    <img className="picture" src={album.AlbumPic} height="65px" width="65px" alt="Artist"></img>
+                    <img className="album-picture" src={album.AlbumPic} height="65px" width="65px" alt="Artist"></img>
                 </div>
-                <h2 className="name">{album.AlbumName}</h2>
-                <Button id={index} onClick={deleteAlbumInterest} alt="Upvote" data-albumid={album.AlbumID}>-</Button>
+                <div className="album-name">
+                    <h2 className="name">{album.AlbumName}</h2>
+                </div>
+                <Button id={index} onClick={deleteAlbumInterest} alt="Upvote" data-albumid={album.AlbumID} className="upvote-icon">
+                    -
+                </Button>
             </div>
             ))}</div>):(
                 <h5>Nothing to show...</h5>

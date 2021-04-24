@@ -6,21 +6,32 @@
 
     .post {
         margin: 20px;
-        width: 95%;
+        width: 90%;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         border: 1px solid purple;
         border-radius: 32px;
     }
 
     .comment {
+        margin-top: 10px;
         margin-left: 10%;
         width: 75%;
         display: flex;
         flex-direction: column;
         border: 1px solid purple;
         border-radius: 32px;
-        //#00e600
+
+        .commentDataBox {
+            padding-left: 15%;
+            padding-right: 5%;
+            width: 100%;
+        }
+        
+        .commentData {
+            text-align: left;
+        }    
     }
     
     .userInfo {
@@ -41,10 +52,15 @@
         padding-left: 10px;
         align-self: center;
     }
+
+    .postDataBox {
+        padding-left: 15%;
+        padding-right: 5%;
+        width: 100%;
+    }
     
     .postData {
         text-align: left;
-        padding-left: 72.5px;
     }
     
     .icons {
