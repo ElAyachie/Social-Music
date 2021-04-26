@@ -69,7 +69,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
 ## Demo video
-** insert link here **
+https://www.youtube.com/watch?v=wh1cM8hKbPM&lc=UgyUQ2FScnS7xb-8CT54AaABAg&ab_channel=MohamedOulal
 
 ## Contributors
 - Mohamed Oulal, oulalm@wit.edu, Team Lead, Full stack
