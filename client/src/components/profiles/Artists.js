@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import "./profiles.scss";
-
-import { Button } from "react-bootstrap";
-
 import api from '../../config/api';
 
 const Artists = () => {
@@ -44,9 +41,9 @@ const Artists = () => {
                         <img className="picture" src={artist.ArtistPic} height="65px" width="65px" alt="Artist"></img>
                     </div>
                     <h2 className="name">{artist.ArtistName}</h2>
-                    <Button className="upvote-icon" id={index} onClick={deleteArtistInterest} alt="Upvote" data-artistid={artist.ArtistID}>
+                    <button className="upvote-icon" id={index} onClick={deleteArtistInterest} alt="Upvote" data-artistid={artist.ArtistID}>
                         -
-                    </Button>
+                    </button>
             </div>
            ))}</div>):(
           <h5>Nothing to show...</h5>

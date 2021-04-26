@@ -3,6 +3,7 @@ import api from '../../config/api';
 import axios from 'axios';
 import "./profiles.scss";
 import Profile_Pic from "../../assets/profile_1_pic.jfif"
+import blankProfileImg from '../../assets/blankUser.jpg';
 import { Button } from "react-bootstrap";
 
 function EachFriend() {
@@ -60,9 +61,9 @@ function EachFriend() {
             { 
             users.map((user, index) => (
                 <div className="friend" key={index}>
-                <img className="picture" src={Profile_Pic} width="45px" height="45px" alt="Profile pic"></img>
+                <img className="picture" src={blankProfileImg} width="45px" height="45px" alt="Profile pic"></img>
                 <h4 className="name">{user.Username}</h4>
-                <Button id={index} onClick={addFriend} alt="Upvote" data-userid={user.UserID} data-username={user.Username}>+</Button>
+                <button className="upvote-icon" id={index} onClick={addFriend} alt="Upvote" data-userid={user.UserID} data-username={user.Username}>+</button>
             </div>
             ))}</div>):(
                 <h5>Nothing to show...</h5>

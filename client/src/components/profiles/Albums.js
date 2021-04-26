@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import "./profiles.scss";
-
-import { Button } from "react-bootstrap";
-
 import api from '../../config/api';
 
 const Albums = () => {
@@ -46,9 +43,9 @@ const Albums = () => {
                 <div className="album-name">
                     <h2 className="name">{album.AlbumName}</h2>
                 </div>
-                <Button id={index} onClick={deleteAlbumInterest} alt="Upvote" data-albumid={album.AlbumID} className="upvote-icon">
+                <button id={index} onClick={deleteAlbumInterest} alt="Upvote" data-albumid={album.AlbumID} className="upvote-icon">
                     -
-                </Button>
+                </button>
             </div>
             ))}</div>):(
                 <h5>Nothing to show...</h5>

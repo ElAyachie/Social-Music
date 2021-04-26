@@ -18,7 +18,7 @@ function AddFriends() {
     return (
         <div className="friends-section">
             <button type="button" className="view-button btn btn-primary" onClick={ShowFriends}>
-                View All Friends
+                View All Users
             </button> 
             <div id="friends-list-ad" className="friends-list list">
                 <EachFriend />
