@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import api from '../../config/api';
 import axios from 'axios';
 import "./profiles.scss";
-import { Button } from "react-bootstrap";
 
 const UserTracks = () => {
     const [songInterests, setSongInterests] = useState(JSON.parse(localStorage.getItem("song_interests")));
@@ -40,7 +39,9 @@ const UserTracks = () => {
                 <div className="track" key={index}>
                     <img className="picture" src={song.AlbumPic} height="55px" width="55px" alt="Album"></img>
                     <h2 className="title">{song.SongName} - {song.ArtistName}</h2>
-                    <Button id={index} onClick={deleteSongInterest} alt="Upvote" data-songname={song.SongName}>-</Button>
+                    <button className="upvote-icon" id={index} onClick={deleteSongInterest} alt="Upvote" data-albumid={song.SongName}>
+                        -
+                    </button>
                 </div>
            ))}</div>):(
           <h5>Nothing to show...</h5>

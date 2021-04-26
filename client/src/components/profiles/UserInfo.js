@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "./profiles.scss";
 
 import EditInfo from './EditInfo';
-
+import blankProfileImg from '../../assets/blankUser.jpg';
 import Profile_Pic from "../../assets/profile_1_pic.jfif";
 import Edit_Icon from "../../assets/edit-icon.png";
 import axios from 'axios';
@@ -45,16 +45,18 @@ function UserInfo() {
         });
     }
 
+    /*
     useEffect(() => {
         setInterval(() =>
             //fetchUserData(),
         5000);
         fetchUserData()
     }, [fetchUserData(), setBioText]);
-
+    */
+   
     return (
         <div className="user-info">
-            <img className="picture" src={Profile_Pic} width="95px" height="95px" alt="Profile pic" />
+            <img className="picture" src={blankProfileImg} width="95px" height="95px" alt="Profile pic" />
             <div className="name-block">
                 <h1 className="name">{user.Name}</h1>
                 <button className="edit-btn" onClick={EditInformation}>
