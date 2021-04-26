@@ -3,11 +3,13 @@ import api from '../../config/api';
 import axios from 'axios';
 import "./profiles.scss";
 
+// Songs tab in the music interests section on the users profile page.
 const UserTracks = () => {
     const [songInterests, setSongInterests] = useState(JSON.parse(localStorage.getItem("song_interests")));
     const [user] = useState(JSON.parse(localStorage.getItem("user")));
     const [userID] = useState(user.UserID);
 
+    // Removes the song interest from local storage and database.
     const deleteSongInterest = async e => {
         let elementID = e.target.id;
         let songname = e.target.dataset.songname;

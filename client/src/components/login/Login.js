@@ -4,10 +4,14 @@ import "./login.scss";
 
 import LoadMusicInterests from '../search/LoadMusicInterests';
 import LoadFriendsList from '../profiles/LoadFriendsList';
+import LoadUsersList from '../profiles/LoadUsersList';
 
 
 import api from '../../config/api';
+import LoadUsersList from '../profiles/LoadUsersList';
 
+// User login
+// User will load in their music interests and friends list into local storage if the information exists.
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -39,11 +43,12 @@ function Login() {
                     };
                     setUser(response.data.email);
                     localStorage.setItem("user", JSON.stringify(userData));
+
+                    // Loads in user information.
                     LoadMusicInterests();
                     LoadFriendsList();
-
-
-                    window.location.reload();
+                    LoadUsersList();
+                    //window.location.reload();
                 }
                 else if(response.data.code === 204) {
                     console.log("email or Password do not match our records.");

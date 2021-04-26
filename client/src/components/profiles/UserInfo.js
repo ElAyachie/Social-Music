@@ -9,6 +9,7 @@ import axios from 'axios';
 
 import api from '../../config/api';
 
+// Displays the user's profile information.
 function UserInfo() {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
     const [bioText, setBioText] = useState('');

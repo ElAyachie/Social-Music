@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchMusic from "./SearchMusic";
 import './search.scss';
 
+// Main component for search page.
 export default class Search extends Component 
 {
     constructor(props) {

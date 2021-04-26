@@ -3,11 +3,13 @@ import axios from 'axios';
 import "./profiles.scss";
 import api from '../../config/api';
 
+// Albums tab in the music interests section on the users profile page.
 const Albums = () => {
     const [albumInterests, setAlbumInterests] = useState(JSON.parse(localStorage.getItem("album_interests")));
     const [user] = useState(JSON.parse(localStorage.getItem("user")));
     const [userID] = useState(user.UserID);
 
+    // Removes the album interest from local storage and the database.
     const deleteAlbumInterest = async e => {
         let elementID = e.target.id;
         let albumID = e.target.dataset.albumid;

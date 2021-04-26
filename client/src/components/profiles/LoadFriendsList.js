@@ -1,10 +1,13 @@
 import api from '../../config/api';
 import axios from 'axios';
 
+
+// Loads in all friends the user has in the database and displays them on the profile page.
 function LoadFriendsList() {
     const user = JSON.parse(localStorage.getItem("user"));
     const userID = user.UserID;
 
+    // Using the UserID from the local storage the server queries the database for all the user's friends on the database.
     const getFriends  = async e  =>  {
         await axios.get(api.base_url + '/users/friends/get', {
                 params: {
@@ -32,33 +35,8 @@ function LoadFriendsList() {
             });
     };
 
-    const getUsers  = async e  =>  {
-        await axios.get(api.base_url + '/users/get')
-            .then(function(response) {
-                if (response.data.code === 200) {
-                    console.log(response);
-                    let dataObject = {};
-                    let usersList = [];
-                    for(var i = 0; i < response.data.users.length; i++) {
-                        dataObject = {
-                            UserID: response.data.users[i].UserID,
-                            Username: response.data.users[i].Username,
-                        };
-                        usersList.push(dataObject);
-                    }
-                    console.log("User data recieved");
-                    localStorage.setItem("users", JSON.stringify(usersList));
-                }
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
-    };
-
     localStorage.setItem("friends", JSON.stringify([]));
-    localStorage.setItem("users", JSON.stringify([]));
     getFriends();   
-    getUsers();
 }
 
 export default LoadFriendsList;

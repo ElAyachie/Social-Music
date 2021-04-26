@@ -6,6 +6,7 @@ import profileImg from '../../assets/blankUser.jpg';
 import favorite from '../../assets/note.png';
 import comment from '../../assets/comment.png';
 
+// Design for each idividual post.
 function Post(props) {
 
     const handleComment = async e => {

@@ -3,7 +3,7 @@ import "./post.scss";
 import Profile_1 from "../../assets/profile_1_pic.jfif"
 import profileImg from '../../assets/blankUser.jpg';
 
-
+// structure for comments.
 function Comment() {
 
     return (

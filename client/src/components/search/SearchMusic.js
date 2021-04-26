@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import SearchResults from './SearchResults';
 import SearchBar from './SearchBar';
 
+// Using an API the page loads in all the results from the users search query.
 function SearchMusic() {
   const [musicResults, loading] = useState([]);
 
-  // General api fetch for music
+  // General API fetch for music
   // Input: Artist, song, albums, ect.
   // Output: Populates the music results array and displays it to the user
   const searchMusic = (search) => {

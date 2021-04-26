@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './welcome.scss';
 
+// The page the viewer sees after logging in (in progress)
 export default class Welcome extends Component {
     render() {
         return(

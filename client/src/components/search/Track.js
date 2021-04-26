@@ -5,10 +5,14 @@ import api from '../../config/api';
 import {Dropdown, DropdownButton} from 'react-bootstrap';
 import { useState } from 'react';
 
+// Layout for each indivdual result from the API query.
+// Organizes the results into cards that the user can use to add either the album, artist, or song.
 const Track = ({ musicResult }) => {
     const [user] = useState(JSON.parse(localStorage.getItem("user")));
     const [userID] = useState(user.UserID);
 
+    // Verifies that the user does not already have the artist in their list.
+    // Adds the music interest to the local storage and database.
     const addArtist = () => {
         let artistInterests = JSON.parse(localStorage.getItem("artist_interests"));
         // Check if the user already has the interest in their list
@@ -48,6 +52,8 @@ const Track = ({ musicResult }) => {
         }
     }
 
+    // Verifies that the user does not already have the song in their list.
+    // Adds the music interest to the local storage and database.
     const addSong = () => {
         let songInterests = JSON.parse(localStorage.getItem("song_interests"));
         var found = false;
@@ -90,6 +96,8 @@ const Track = ({ musicResult }) => {
         }
     }
 
+    // Verifies that the user does not already have the album in their list.
+    // Adds the music interest to the local storage and database.
     const addAlbum = () => {
         let albumInterests = JSON.parse(localStorage.getItem("album_interests"));
         var found = false;

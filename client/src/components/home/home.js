@@ -9,6 +9,8 @@ import UserMusic from '../profiles/UserMusic';
 import AddFriends from '../profiles/AddFriends';
 import NewPost from './NewPost';
 
+
+// Home page - displays the posts, music interests, and users list in different sections.
 export default class Home extends Component {
     constructor(props) {
         super(props);

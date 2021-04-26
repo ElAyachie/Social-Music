@@ -13,6 +13,7 @@ function Feed() {
     //const userID = useState(user[0]);
     const [userName] = useState(user.Username);
 
+    // Loads in all the posts in the database and displays them on page.
     const loadInPosts = async e => {
         await axios.get(api.base_url + '/posts/get')
             .then(function(response) {
