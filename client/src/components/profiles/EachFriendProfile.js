@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import api from '../../config/api';
 import axios from 'axios';
 import "./profiles.scss";
-import Profile_Pic from "../../assets/profile_1_pic.jfif"
 import blankProfileImg from '../../assets/blankUser.jpg';
-import { Button } from "react-bootstrap";
 
+// Each friend entry in the Friends component
 function EachFriendProfile() {
     const [friends, setFriends] = useState(JSON.parse(localStorage.getItem("friends")));
     const [user] = useState(JSON.parse(localStorage.getItem("user")));
     const [userID] = useState(user.UserID);
 
+    // Removes a friend from local storage and database.
     const removeFriend = async e => {
         let elementID = e.target.id;
         let friendID = e.target.dataset.friendid;

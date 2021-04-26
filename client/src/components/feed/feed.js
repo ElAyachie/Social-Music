@@ -27,6 +27,7 @@ export default class Feed extends Component {
     createPost(){
     }
 
+    // Generates all the posts to the home page using the local storage.
     generatePosts(){
         const feedPosts = [];
 

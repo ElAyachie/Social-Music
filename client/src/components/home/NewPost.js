@@ -12,6 +12,7 @@ function closePost() {
     modal.style.display = "none";
 }
 
+// Creating a new post function, displays to the user on the page and saves the data to the database.
 function NewPost() {
     const [PostText, setPostText] = useState('');
 

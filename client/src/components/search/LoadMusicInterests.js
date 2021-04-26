@@ -1,6 +1,8 @@
 import api from '../../config/api';
 import axios from 'axios';
 
+
+// Using the UserID from local storage load in all the user's music interests information and store them into the local storage.
 function LoadMusicInterests() {
     const user = JSON.parse(localStorage.getItem("user"));
     const userID = user.UserID;

@@ -11,6 +11,7 @@ function closeEditor() {
     editBox.style.display = "none";
 }
 
+// Modal for edditting user information (in progress)
 function EditInfo() {
     const [user] = useState(JSON.parse(localStorage.getItem("user")));
     const [nameText, setNameText] = useState(user.Name);

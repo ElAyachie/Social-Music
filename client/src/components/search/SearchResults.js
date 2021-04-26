@@ -2,6 +2,7 @@ import Track from './Track'
 import React from "react"
 //import { CSSTransition } from "react-transition-group"
 
+// Maps all the search results to the Track component card.
 const SearchResults = ({ musicResults }) => {
   // const [showTracks, setShowTracks] = useState(false);
 

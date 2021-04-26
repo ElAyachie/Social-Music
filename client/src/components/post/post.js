@@ -6,7 +6,7 @@ import Upvote_Icon from "../../assets/upvote.svg"
 import Comment_Icon from "../../assets/comment.svg"
 import blankProfileImg from '../../assets/blankUser.jpg';
 
-
+// Structure for a post.
 function Post() {
 
     return (

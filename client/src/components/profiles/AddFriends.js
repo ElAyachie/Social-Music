@@ -2,6 +2,8 @@ import React from 'react';
 import EachFriend from "./EachFriend"
 import "./profiles.scss";
 
+// Add friends module attached to the home page.
+// Displays a list of users to the user they can add.
 function AddFriends() {
 
     function ShowFriends() {

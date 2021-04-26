@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import api from '../../config/api';
 import axios from 'axios';
 import "./profiles.scss";
-import Profile_Pic from "../../assets/profile_1_pic.jfif"
 import blankProfileImg from '../../assets/blankUser.jpg';
-import { Button } from "react-bootstrap";
 
+// Each friend entry in the AddFriends component
 function EachFriend() {
     const [users] = useState(JSON.parse(localStorage.getItem("users")));
     const [currentUser] = useState(JSON.parse(localStorage.getItem("user")));
     const [userID] = useState(currentUser.UserID);
 
+    // Verifies that the user is not already added as a friend.
+    // Stores the new friend entry into the local storage and database.
     const addFriend = async e => {
         let friendList = JSON.parse(localStorage.getItem("friends"));
         let otherUserID = e.target.dataset.userid;

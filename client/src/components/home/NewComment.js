@@ -5,6 +5,7 @@ import './NewComment.scss';
 
 import api from '../../config/api';
 
+
 function closeComment() {
     // Get the modal
     var modal = document.getElementById("new-comment");
@@ -12,6 +13,7 @@ function closeComment() {
     modal.style.display = "none";
 }
 
+// Creating a new comment. (in progress)
 function NewComment(props) {
     const [CommentText, setCommentText] = useState('');
 

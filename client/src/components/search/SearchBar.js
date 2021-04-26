@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+// Search bar on the search music interests page.
 const SearchBar = ({ onSearch }) => {
     const [text, setText] = useState('');
 

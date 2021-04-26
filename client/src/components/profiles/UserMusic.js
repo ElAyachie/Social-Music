@@ -6,6 +6,7 @@ import Artists from "./Artists";
 import UserTracks from "./UserTracks";
 import Albums from "./Albums";
 
+// User Music interests underneath profile information.
 function UserMusic() {
     return (
         <div className="music-section">

@@ -14,6 +14,7 @@ import comment from '../../assets/comment.png';
 
 import api from '../../config/api';
 
+// Post structure with comments. (in progress)
 function Post(props) {
     const [user] = useState(JSON.parse(localStorage.getItem("user")));
     //const userID = useState(user[0]);
